@@ -49,14 +49,23 @@ export default {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+			'Primary': '#00B207',
+			'soft_primary': '#84D187',
+			'hard_primary': '#2C742F',
+			'warning': '#FF8A00',
+			'danger': '#EA4B48',
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
-  	}
+  		},
+		fontFamily: {
+			poppins: ['Poppins', 'sans-serif'], // Define your custom font here
+		}
+  	},
+	
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
