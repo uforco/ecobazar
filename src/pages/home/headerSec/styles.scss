@@ -13,12 +13,17 @@
     justify-content: center;
     align-items: center;
   }
-  
+
+
+  .swiper-pagination {
+    bottom: 0 !important;
+  }
+
 .swiper-pagination-bullet{
     background: #00B207 ;
     transition: all ease-in-out 0.3s ;
 }
 .swiper-pagination-bullet-active{
-    width: 18px;
-    border-radius: 10px;
+    width: 18px !important;
+    border-radius: 10px !important;
 }

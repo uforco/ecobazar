@@ -222,6 +222,13 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@mynaui/icons-react@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@mynaui/icons-react/-/icons-react-0.3.2.tgz#200f74520869cc30ffa5c56548a8ab5e0817327a"
+  integrity sha512-uf6DUCNLHsvZzBFBBKZYCAXaF7jcapB5RNjs+w1v1vY8EO/Pu+Rvz819DWwsnrOA09dyKRalql23H0Sz5WvCQA==
+  dependencies:
+    prop-types "^15.8.1"
+
 "@next/env@15.0.3":
   version "15.0.3"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-15.0.3.tgz#a2e9bf274743c52b74d30f415f3eba750d51313a"
