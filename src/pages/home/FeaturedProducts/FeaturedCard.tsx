@@ -13,7 +13,7 @@ import { TiStar } from "react-icons/ti";
 
 const FeaturedCard = () => {
   return (
-    <div className="  w-[248px] mb-4  " >
+    <div className="  w-[248px] mb-8  " >
       <Card className=" cursor-pointer hover:border-Primary duration-300 overflow-hidden transition-all hover:shadow-soft_primary/20 group  hover:shadow-xl relative " >
 
       <div className=" group-hover:top-3 absolute right-3 -top-24 duration-500 transition-all " >

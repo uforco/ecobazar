@@ -12,7 +12,6 @@ import "swiper/css";
 import "./styles.scss";
 import BottomBanner from "./BottomBanner";
 
-
 const Slider = () => {
   return (
     <MaxWidthControls className=" max-w-[1520px] " >
@@ -20,7 +19,7 @@ const Slider = () => {
       <BottomBanner></BottomBanner>
         <div className="  pb-20 sm:pb-24 lg:pb-28 xl:pb-16 pt-4 bg-hard_primary/15 z-30 mb-64 sm:mb-40 md:mb-32 xl:mb-24 rounded-lg " >
             <div className=" w-full h-[500px] flex items-center  ">
-                {/* <SliderCard></SliderCard> */}
+              {/* <SliderCard></SliderCard> */}
                 <Swiper className="mySwiper "
                     loop={true}
                     pagination={true}

@@ -11,6 +11,7 @@ import 'swiper/css/pagination';
 // Import Swiper styles
 import "swiper/css";
 import "./sliderStyle.scss";
+import SummerSale from './summer_sale/SummerSale';
 
 
 
@@ -80,7 +81,9 @@ const FeaturedProducts = () => {
 
 
                 </div>
-
+                <div>
+                    <SummerSale></SummerSale>
+                </div>
             </MaxWidthControls>
         </div>
     );
