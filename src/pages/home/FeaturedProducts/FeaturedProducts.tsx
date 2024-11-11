@@ -18,7 +18,7 @@ import SummerSale from './summer_sale/SummerSale';
 const FeaturedProducts = () => {
     return (
         <div className={`  mb-6  `} >
-            <MaxWidthControls>
+            <MaxWidthControls className=' overflow-hidden ' >
                 <div>
                     <h2 className=' text-center text-[40px] font-semibold ' >Featured Products</h2>
                 </div>
