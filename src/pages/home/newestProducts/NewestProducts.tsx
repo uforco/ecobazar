@@ -2,29 +2,26 @@
 import React from 'react';
 import MaxWidthControls from '@/components/shared/MaxWidthControls';
 import ProductCard from '@/components/shared/allCard/ProductCard';
-
-
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from 'swiper/modules';
 import 'swiper/css/pagination';
 // Import Swiper styles
 import "swiper/css";
 import "./sliderStyle.scss";
-import SummerSale from './summer_sale/SummerSale';
+import Link from 'next/link';
+import { ArrowRight } from '@mynaui/icons-react';
 
-
-
-const FeaturedProducts = () => {
+const NewestProducts = () => {
     return (
         <div className={`  mb-6  `} >
             <MaxWidthControls className=' overflow-hidden ' >
-                <div>
-                    <h2 className=' text-center text-[40px] font-semibold ' >Featured Products</h2>
+                <div className=' flex justify-between items-end mb-1 ' >
+                    <h2 className=' text-center text-[40px] font-semibold ' >Newest Products</h2>
+                    <Link className=' flex items-center gap-1 text-Primary capitalize ' href={''}>View All <span><ArrowRight /></span> </Link>
                 </div>
                 <div className={` flex justify-between items-center `} >
 
-                <Swiper className="mySwiper myfeature "
+                <Swiper className="mySwiper myNewestProducts "
                     slidesPerView={5}
                     // loop={true}
                     // pagination={true}
@@ -77,16 +74,10 @@ const FeaturedProducts = () => {
                         <ProductCard></ProductCard>
                     </SwiperSlide>
                 </Swiper>
-
-
-
-                </div>
-                <div>
-                    <SummerSale></SummerSale>
                 </div>
             </MaxWidthControls>
         </div>
     );
 };
 
-export default FeaturedProducts;
+export default NewestProducts;

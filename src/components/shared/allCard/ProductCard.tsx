@@ -11,7 +11,7 @@ import { ShoppingBag, Heart, Eye } from "@mynaui/icons-react";
 import { TiStar } from "react-icons/ti";
 
 
-const FeaturedCard = () => {
+const ProductCard = () => {
   return (
     <div className="  w-[248px] mb-8  " >
       <Card className=" cursor-pointer hover:border-Primary duration-300 overflow-hidden transition-all hover:shadow-soft_primary/20 group  hover:shadow-xl relative " >
@@ -28,7 +28,7 @@ const FeaturedCard = () => {
             <Image className=" w-full h-[200px] " src={"/images/home/Featured/Image1.png"} width={200} height={260} alt={""}></Image>
         </CardHeader>
         <CardContent className=" flex justify-between items-center " >
-            <div>
+            <div className=" text-left " >
                 <CardDescription>Card Description</CardDescription>
                 <CardTitle className=" my-1 " >$14.99</CardTitle>
                 <CardDescription className=" flex items-center " >
@@ -48,14 +48,4 @@ const FeaturedCard = () => {
   );
 };
 
-export default FeaturedCard;
-
-
-<div className=" absolute right-2 top-1 " >
-  <div className=" size-10 mb-2 rounded-full border border-gray-200 flex justify-center items-center " >
-      <Heart></Heart>
-  </div>
-  <div className=" size-10 rounded-full border border-gray-200 flex justify-center items-center " >
-      <Heart></Heart>
-  </div>
-</div>
+export default ProductCard;
