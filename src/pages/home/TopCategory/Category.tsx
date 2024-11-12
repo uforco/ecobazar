@@ -44,10 +44,8 @@ const Category = () => {
         }
     ]
 
-
-
   return (
-    <div className=" my-14 " >
+    <div className=" my-[100px] " >
       <MaxWidthControls className=" max-w-[1490px] overflow-hidden " >
             <div className=" px-4 " >
                 <div>
