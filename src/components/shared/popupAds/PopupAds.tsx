@@ -66,7 +66,7 @@ const PopupAds = () => {
                         htmlFor="terms"
                         className="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                        Accept terms and conditions
+                        Do not show this window
                     </label>
                     </div>
                 </div>
