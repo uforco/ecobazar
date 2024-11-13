@@ -1,4 +1,3 @@
-'use client'
 import Image from 'next/image';
 import {
     Dialog,
@@ -10,7 +9,7 @@ import {
   } from "@/components/ui/dialog"
 import { BrandInstagram } from '@mynaui/icons-react';
 
-const SingleContine = ({data}: {data: { image: string, link: string }}) => {
+const SingleContine = ({data}: {data: { image: string, link: string, swt?: boolean }}) => {
     return(
        <div className=' cursor-pointer  flex justify-center ' >
          <div>

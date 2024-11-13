@@ -14,12 +14,12 @@ const FollowUs = () => {
                         <h2 className=' text-[32px] font-semibold text-center mb-5 ' >Follow us on Instagram</h2>
                     </div>
                     <div className=' grid grid-cols-3 sm:grid-cols-6 overflow-hidden gap-3 mx-2 ' >
-                        <SingleContine data={{image: "/images/home/followUs/InstagramPost1.png", link: ""}} ></SingleContine>
-                        <SingleContine data={{image: "/images/home/followUs/InstagramPost2.png", link: ""}} ></SingleContine>
-                        <SingleContine data={{image: "/images/home/followUs/InstagramPost3.png", link: ""}} ></SingleContine>
-                        <SingleContine data={{image: "/images/home/followUs/InstagramPost4.png", link: ""}} ></SingleContine>
-                        <SingleContine data={{image: "/images/home/followUs/InstagramPost5.png", link: ""}} ></SingleContine>
-                        <SingleContine data={{image: "/images/home/followUs/InstagramPost5.png", link: ""}} ></SingleContine>
+                        <SingleContine data={{image: "/images/home/followUs/InstagramPost1.png", link: "", swt: true }} ></SingleContine>
+                        <SingleContine data={{image: "/images/home/followUs/InstagramPost2.png", link: "" }} ></SingleContine>
+                        <SingleContine data={{image: "/images/home/followUs/InstagramPost3.png", link: "" }} ></SingleContine>
+                        <SingleContine data={{image: "/images/home/followUs/InstagramPost4.png", link: "" }} ></SingleContine>
+                        <SingleContine data={{image: "/images/home/followUs/InstagramPost5.png", link: "" }} ></SingleContine>
+                        <SingleContine data={{image: "/images/home/followUs/InstagramPost5.png", link: "" }} ></SingleContine>
                     </div>
                 </MaxWidthControls>
             </div>
