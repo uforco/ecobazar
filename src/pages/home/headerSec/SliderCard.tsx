@@ -13,8 +13,8 @@ const SliderCard = () => {
                 <p className='  md:text-gray-800/80  ' >Free shipping on all your order. we deliver, you enjoy</p>
                 <Button className=' bg-Primary mt-6 cursor-pointer rounded-full px-8 py-5 flex items-center  ' >Shop now <span  ><GoArrowRight className=' text-5xl ' ></GoArrowRight></span></Button>
             </div>
-            <div className=' absolute z-10 hidden w-full md:flex justify-end right-0 top-1/2 -translate-y-1/2 ' >
-                <Image className=' w-3/5 ' src='/images/home/slider1.png' alt="" width={720} height={560} ></Image>
+            <div className=' absolute z-10 hidden w-full md:flex justify-end items-center right-0 top-0 ' >
+                <Image className='  ' src='/images/home/slider1.png' alt="" width={720} height={560} ></Image>
             </div>
         </div> 
     );
