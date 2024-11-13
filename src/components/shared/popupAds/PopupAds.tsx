@@ -87,9 +87,9 @@ export default PopupAds;
 const ContaineBox = ({children}:{children: ReactNode}) => {
   return (
     <div className=" flex flex-col gap-2 w-96 ">
-      <HeadingTitle className=" text-gray-900 text-[40px] font-semibold text-center leading-tight ">
+      <h1 className=" text-gray-900 text-[40px] font-semibold text-center leading-tight ">
         Subcribe to Our Newsletter
-      </HeadingTitle>
+      </h1>
       <p className=" text-center text-gray-400 my-4 ">
         Subscribe to our newlletter and Save your{" "}
         <span className=" text-warning font-medium ">20% money</span> with
