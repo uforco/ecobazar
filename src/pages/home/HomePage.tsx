@@ -6,6 +6,7 @@ import Category from './TopCategory/Category';
 import OfferSection from './offerSection/OfferSection';
 import NewestProducts from './newestProducts/NewestProducts';
 import Testimonial from './testimonial/Testimonial';
+import FollowUs from './followUs/FollowUs';
 
 const HomePage = () => {
     return (
@@ -16,6 +17,7 @@ const HomePage = () => {
           <OfferSection></OfferSection>
           <NewestProducts></NewestProducts>
           <Testimonial></Testimonial>
+          <FollowUs></FollowUs>
         </div>
     );
 };

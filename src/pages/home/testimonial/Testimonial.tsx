@@ -49,10 +49,10 @@ const Testimonial = () => {
   return (
     <div className=" my-[80px] py-[90px] bg-hard_primary/5 ">
       <MaxWidthControls className=" max-w-[1360px] overflow-hidden ">
-        <div >
+        <div className=" mx-3 " >
           <div className=" flex justify-between items-end mb-8 ">
             <h2 className=" text-center text-[40px] font-semibold ">
-              Client Testimonnial
+              Client Testimonial
             </h2>
             <div className=" flex justify-between gap-4  ">
               <button
