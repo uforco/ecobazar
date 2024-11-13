@@ -12,7 +12,7 @@ const FooterSection = () => {
     return (
         <div className=' bg-gray-900 ' >
             <MaxWidthControls>
-                <div className=' grid grid-cols-7 w-full py-[80px] ' >
+                <div className=' grid grid-cols-7 w-full py-[80px] overflow-hidden ' >
                     <FooterAbout></FooterAbout>
                     {/* url section */}
                     <div className=' text-gray-500 ' >
@@ -55,7 +55,7 @@ const FooterSection = () => {
                 </div>
             </MaxWidthControls>
             <MaxWidthControls>
-                <div className=' border-t border-gray-600  py-5 flex justify-between items-center '  >
+                <div className=' border-t border-gray-600  py-5 flex justify-between items-center overflow-hidden '  >
                     <div>
                         <ul className=' flex items-center gap-3 ' >
                             <li className=' w-10 h-10 rounded-full flex justify-center items-center overflow-hidden text-gray-300 hover:bg-Primary hover:text-white transition-all cursor-pointer ' ><Link href={''}><FaFacebookF></FaFacebookF></Link></li>

@@ -33,7 +33,7 @@ const FollowUs = () => {
             </div>
             <div className=' bg-gray-100 py-8 ' >
                 <MaxWidthControls>
-                    <div className=' flex justify-between items-center ' >
+                    <div className=' flex justify-between items-center overflow-hidden ' >
                         <div>
                             <Image src={'/images/Logo.png'} alt={''} height={80} width={200} ></Image>
                         </div>

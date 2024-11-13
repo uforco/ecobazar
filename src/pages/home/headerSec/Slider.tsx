@@ -15,9 +15,9 @@ import BottomBanner from "./BottomBanner";
 const Slider = () => {
   return (
     <MaxWidthControls className=" max-w-[1520px] " >
-      <div className=" relative z-40 " >
-      <BottomBanner></BottomBanner>
-        <div className="  pb-20 sm:pb-24 lg:pb-28 xl:pb-16 pt-4 bg-hard_primary/15 overflow-hidden z-30 mb-64 sm:mb-40 md:mb-32 xl:mb-24 rounded-lg " >
+      <div className=" relative z-40 mb-24 " >
+      {/* <BottomBanner></BottomBanner> */}
+        <div className="  pb-20 sm:pb-24 lg:pb-28 xl:pb-16 pt-4 bg-hard_primary/15 overflow-hidden z-30  rounded-lg " >
             <div className=" w-full h-[500px] flex items-center  ">
               {/* <SliderCard></SliderCard> */}
                 <Swiper className="mySwiper "
@@ -37,6 +37,7 @@ const Slider = () => {
                 </Swiper>
             </div>
         </div>
+        <BottomBanner></BottomBanner>
       </div>
     </MaxWidthControls>
   );
