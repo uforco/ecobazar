@@ -23,7 +23,7 @@ const SingleContine = ({data}: {data: { image: string, link: string }}) => {
                         <Image src={data?.image} width={200} height={200} alt={''}></Image>
                     </div>
                 </DialogTrigger>
-                <DialogContent >
+                <DialogContent className=' -translate-x-1/2 -translate-y-1/2 ' >
                     <DialogHeader>
                         <DialogTitle>Instagram</DialogTitle>
                     </DialogHeader>
