@@ -31,7 +31,7 @@ const FollowUs = () => {
                     </div>
                 </MaxWidthControls>
             </div>
-            <div className=' bg-gray-100 py-12 ' >
+            <div className=' bg-gray-100 py-8 ' >
                 <MaxWidthControls>
                     <div className=' flex justify-between items-center ' >
                         <div>
@@ -47,7 +47,7 @@ const FollowUs = () => {
                                 <Button className=' rounded-full z-30 -ml-10 bg-Primary px-8 py-[19px] ' >Subscribe</Button>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </MaxWidthControls>
             </div>
         </div>
