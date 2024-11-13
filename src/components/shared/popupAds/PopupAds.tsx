@@ -11,6 +11,7 @@ const PopupAds = () => {
     const [openAds, setOpenAds] = useState<boolean>(false)
     const doNotShowThisWindow = (e: boolean) => {
         if(e) sessionStorage.setItem('popupads', 'false')
+        if(!e) sessionStorage.setItem('popupads', 'true')
     }
     const closeAds = () => {
         const body: any = document.querySelector("body")
