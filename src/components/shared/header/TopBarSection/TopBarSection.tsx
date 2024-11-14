@@ -1,52 +1,55 @@
-import React from "react";
-import "../HeaderSection.css";
+import React from 'react';
+import MaxWidthControls from '@/components/shared/MaxWidthControls';
+// import {
+//     Select,
+//     SelectContent,
+//     SelectItem,
+//     SelectTrigger,
+//     SelectValue,
+//   } from "@/components/ui/select"
+  import { CiLocationOn } from "react-icons/ci";
 
 const TopBarSection = () => {
-  return (
-    <div className="flex justify-between top-bar">
-      <div className="flex items-center">
-        <div className="pr-2">
-          <img src="/images/icons/Map-Pin.png" alt="" className="w-4 h-5" />
+    return (
+        <div>
+            <MaxWidthControls>
+                <div className=' flex justify-between items-centers text-gray-400 py-2 border-b ' >
+                    <div className=' flex items-center gap-1 ' >
+                        <div className=' text-xl ' >
+                            <CiLocationOn></CiLocationOn>
+                        </div>
+                        <p className=' text-sm  ' >Store Location: Lincoln- 344, Illinois, Chicago, USA</p>
+                    </div>
+                    <div className=' flex items-center gap-2 ' >
+                        {/* <div>
+                            <Select>
+                                <SelectTrigger defaultValue={'eng'} className="w-[80px] border-none shadow-none focus:border-transparent ">
+                                    <SelectValue placeholder="Eng" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="eng">Eng</SelectItem>
+                                    <SelectItem value="ar">Ar</SelectItem>
+                                    <SelectItem value="itl">Itl</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
+                        <div>
+                            <Select>
+                                <SelectTrigger defaultValue={'usd'} className="w-[80px] border-none shadow-none focus:border-transparent ">
+                                    <SelectValue placeholder="USD" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="usd">USD</SelectItem>
+                                    <SelectItem value="tk">TK</SelectItem>
+                                    <SelectItem value="pak">Pak</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div> */}
+                    </div>
+                </div>
+            </MaxWidthControls>
         </div>
-        <p>Store Location: Lincoln- 344, Illinois, Chicago, USA</p>
-      </div>
-      <div className="">
-        <div className="flex space-x-4 items-center">
-          {/* Language Dropdown */}
-          <div>
-            <label htmlFor="language" className="sr-only">
-              Language
-            </label>
-            <select
-              id="language"
-              className="rounded-md py-1 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="en">English</option>
-              <option value="es">Spanish</option>
-              <option value="fr">French</option>
-              {/* Add more language options as needed */}
-            </select>
-          </div>
-
-          {/* Currency Dropdown */}
-          <div>
-            <label htmlFor="currency" className="sr-only">
-              Currency
-            </label>
-            <select
-              id="currency"
-              className=" rounded-md py-1 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="usd">USD</option>
-              <option value="eur">EUR</option>
-              <option value="gbp">GBP</option>
-              {/* Add more currency options as needed */}
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default TopBarSection;
