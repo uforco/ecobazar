@@ -18,8 +18,9 @@ const ProfileAccount = () => {
   return (
     <div>
       <DropdownMenu>
-        <DropdownMenuTrigger className=" border bg-black text-white rounded-full ">
+        <DropdownMenuTrigger className=" outline-none " >
             <UserIcon></UserIcon>
+            {/* user */}
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
