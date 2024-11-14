@@ -12,13 +12,13 @@ const HeaderMenuSection = () => {
       <div className=" flex justify-between items-center bg-black py-2 px-1 " >
           <div>fxtksedt</div>
           <div className=" flex items-center gap-2 ">
-            {/* <div className=" bg-black cursor-pointer text-white text-[22px] p-2  relative rounded-full flex justify-center items-center " >
+            <div className=" bg-black cursor-pointer text-white text-[22px] p-2  relative rounded-full flex justify-center items-center " >
               <FaRegHeart></FaRegHeart>
             </div>
             <div className=" bg-black cursor-pointer text-white text-2xl p-2  relative rounded-full flex justify-center items-center " >
               <Badge className=" z-40 absolute w-4 h-4 p-0 flex justify-center items-center rounded-full right-1 top-1 m-0  font-thin  " >2</Badge>
               <HiOutlineShoppingBag></HiOutlineShoppingBag>
-            </div> */}
+            </div>
             {/* profile */}
             <ProfileAccount></ProfileAccount>
           </div>
