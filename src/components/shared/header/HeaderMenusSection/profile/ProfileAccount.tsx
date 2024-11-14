@@ -19,8 +19,7 @@ const ProfileAccount = () => {
     <div>
       <DropdownMenu>
         <DropdownMenuTrigger className=" outline-none text-white " >
-            {/* <UserIcon></UserIcon> */}
-            open
+            <UserIcon></UserIcon>
             {/* user */}
         </DropdownMenuTrigger>
         <DropdownMenuContent>
@@ -53,16 +52,16 @@ const ProfileAccount = () => {
 
 export default ProfileAccount;
 
-// const UserIcon = () => {
-//   return (
-//     <div className=" p-2 size-[39px] flex justify-center items-center ">
-//       <Image
-//         width={62}
-//         height={62}
-//         src={"/images/navBer/userIcon.png"}
-//         alt={""}
-//       >
-//       </Image>
-//     </div>
-//   );
-// };
+const UserIcon = () => {
+  return (
+    <div className=" p-2 size-[39px] flex justify-center items-center ">
+      <Image
+        width={62}
+        height={62}
+        src={"/images/navBer/userIcon.png"}
+        alt={""}
+      >
+      </Image>
+    </div>
+  );
+};
