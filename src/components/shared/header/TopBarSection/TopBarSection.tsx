@@ -13,7 +13,7 @@ const TopBarSection = () => {
     return (
         <div>
             <MaxWidthControls>
-                <div className=' flex justify-between items-centers text-gray-400 py-2 border-b ' >
+                <div className=' flex justify-between items-centers text-gray-400 py-2 border-b overflow-hidden ' >
                     <div className=' flex items-center gap-1 ' >
                         <div className=' text-xl ' >
                             <CiLocationOn></CiLocationOn>

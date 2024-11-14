@@ -11,6 +11,19 @@ body {
   transform: translate(-50%, -50%) !important;
 }
 
+.navigation-trigger[aria-expanded="true"] {
+  background-color: transparent !important; /* Dark blue */
+  color: white !important;
+}
+.navigation-trigger[aria-expanded="false"] {
+  background-color: transparent !important; /* Dark blue */
+  color: #6b7280 !important;
+}
+
+
+
+
+
 
 
 @layer base {
