@@ -54,7 +54,7 @@ export default ProfileAccount;
 
 const UserIcon = () => {
   return (
-    <div className=" p-2 size-[39px] flex justify-center items-center ">
+    <div className=" p-2 size-[36px] flex justify-center items-center ">
       <Image
         width={62}
         height={62}
