@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
+<<<<<<< HEAD
 // import localFont from "next/font/local";
 import "./main.scss";
+=======
+import localFont from "next/font/local";
+>>>>>>> sharif780
 import "./globals.css";
 import FooterSection from "@/components/shared/footersection/FooterSection";
 import HeaderSection from "@/components/shared/header/HeaderSection";

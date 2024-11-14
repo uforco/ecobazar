@@ -3,7 +3,7 @@ import React from 'react';
 const TopBarSection = () => {
     return (
         <div>
-            TopBar
+            TopBar addd new test
         </div>
     );
 };
