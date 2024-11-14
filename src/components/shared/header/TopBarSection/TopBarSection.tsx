@@ -1,12 +1,12 @@
 import React from 'react';
 import MaxWidthControls from '@/components/shared/MaxWidthControls';
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from "@/components/ui/select"
+// import {
+//     Select,
+//     SelectContent,
+//     SelectItem,
+//     SelectTrigger,
+//     SelectValue,
+//   } from "@/components/ui/select"
   import { CiLocationOn } from "react-icons/ci";
 
 const TopBarSection = () => {
@@ -21,7 +21,7 @@ const TopBarSection = () => {
                         <p>Store Location: Lincoln- 344, Illinois, Chicago, USA</p>
                     </div>
                     <div className=' flex items-center gap-2 ' >
-                        <div>
+                        {/* <div>
                             <Select>
                                 <SelectTrigger defaultValue={'eng'} className="w-[80px] border-none shadow-none focus:border-transparent ">
                                     <SelectValue placeholder="Eng" />
@@ -44,7 +44,7 @@ const TopBarSection = () => {
                                     <SelectItem value="pak">Pak</SelectItem>
                                 </SelectContent>
                             </Select>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </MaxWidthControls>
