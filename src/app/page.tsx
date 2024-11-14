@@ -4,7 +4,7 @@ import HomePage from "@/pages/homeTwo/HomePage";
 export default function Home() {
   return (
     <div>
-      <PopupAds></PopupAds>
+      {/* <PopupAds></PopupAds> */}
       <HomePage />
     </div>
   );
