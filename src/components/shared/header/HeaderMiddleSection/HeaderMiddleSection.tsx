@@ -10,7 +10,7 @@ const HeaderMiddleSection = () => {
     return (
         <div>
             <MaxWidthControls>
-            <div className=' flex justify-between items-center py-4 ' >
+            <div className=' flex justify-between items-center py-4 overflow-hidden ' >
                     <div>
                         <Image src={'/images/Logo.png'} width={200} height={90} alt={''}></Image>
                     </div>

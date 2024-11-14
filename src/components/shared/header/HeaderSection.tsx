@@ -7,11 +7,9 @@ import MaxWidthControls from "../MaxWidthControls";
 const HeaderSection = () => {
   return (
     <div>
-      <MaxWidthControls className="max-w-[1920px] mx-auto">
         <TopBarSection />
         <HeaderMiddleSection />
         <HeaderMenuSection />
-      </MaxWidthControls>
     </div>
   );
 };

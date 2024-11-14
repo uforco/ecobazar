@@ -1,11 +1,8 @@
+"use client";
+import * as React from "react";
+import Link from "next/link";
 
-
-"use client"
-
-import * as React from "react"
-import Link from "next/link"
-
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 // import { Icons } from "@/components/icons"
 import {
   NavigationMenu,
@@ -15,7 +12,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
+
+import MenuItem from "./MenuItem";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -53,75 +52,160 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
+];
+
+
+
+const categorylist = [
+    {
+        image: '/images/home/category/Vegetable.png',
+        name: 'Vegetable',
+        link: "/vegetable",
+        nestedItem: [
+            {
+                name: 'green vegetables',
+                link: '/green_vegetables'
+            },
+            {
+                name: 'cruciferous',
+                link: '/cruciferous'
+            },
+            {
+                name: 'allium vegetables',
+                link: '/allium_vegetables'
+            }
+        ]    
+    },
+    {
+        image: '/images/home/category/fruits.png',
+        name: 'Fresh fruit',
+        link: "/fresh_fruit",  
+    },
+    {
+        image: '/images/home/category/fish.png',
+        name: 'River Fish',
+        link: "/fish",
+        nestedItem: [
+            {
+                name: 'River Fish',
+                link: '/river_fish'
+            },
+            {
+                name: 'Sea Fish',
+                link: '/sea_fish'
+            },
+            {
+                name: 'Farmed Fish',
+                link: '/farmed_fish'
+            }
+        ]
+    },
+    {
+        image: '/images/home/category/meat.png',
+        name: 'Meat',
+        link: "/meat",
+        nestedItem: [
+            {
+                name: 'chicken',
+                link: '/chicken'
+            },
+            {
+                name: 'beef',
+                link: '/beef'
+            },
+            {
+                name: 'goat',
+                link: '/goat'
+            }
+        ]   
+    },
+    {
+        image: '/images/home/category/soft-drink.png',
+        name: 'Water and Drinks',
+        link: "/water_and_drinks",
+        nestedItem: [
+            {
+                name: 'string cheese',
+                link: '/string_cheese'
+            },
+            {
+                name: 'Dried fruit',
+                link: '/dried_fruit'
+            },
+            {
+                name: 'Granola bars',
+                link: '/granola_bars'
+            },
+            {
+                name: 'Graham Crackers',
+                link: '/graham_crackers'
+            }
+        ]    
+    },
+    {
+        image: '/images/home/category/snacks.png',
+        name: 'Snacks',
+        link: "/snacks",
+        nestedItem: [
+            {
+                name: 'string cheese',
+                link: '/string_cheese'
+            },
+            {
+                name: 'Dried fruit',
+                link: '/dried_fruit'
+            },
+            {
+                name: 'Granola bars',
+                link: '/granola_bars'
+            },
+            {
+                name: 'Graham Crackers',
+                link: '/graham_crackers'
+            }
+        ]   
+    }
 ]
+
 
 export default function Manu() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
-
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+          <NavigationMenuTrigger  className=" navigation-trigger hover:bg-transparent bg-transparent font-medium text-gray-500 hover:text-white " >Shop</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li >
-                <NavigationMenuLink asChild>
-                  <Link
-                    className=""
-                    href="/eg"
-                  >
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
-                    </p>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-              <li >
-                <NavigationMenuLink asChild>
-                  <Link
-                    className=""
-                    href="/eg"
-                  >
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
-                    </p>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-              <li >
-                <NavigationMenuLink asChild>
-                  <Link
-                    className=""
-                    href="/eg"
-                  >
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
-                    </p>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-              <li >
-                <NavigationMenuLink asChild>
-                  <Link
-                    className=""
-                    href="/eg"
-                  >
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
-                    </p>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
+            <ul className="grid gap-3 p-4  md:w-[400px] lg:w-[700px] xl:w-[900px] h-auto lg:grid-cols-[1fr_1fr_1fr] ">
+                <li className="row-span-2">
+                    <NavigationMenuLink asChild>
+                    <a
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        href="/"
+                    >
+                        {/* <Icons.logo className="h-6 w-6" /> */}
+                        <div className="mb-2 mt-4 text-lg font-medium">
+                        shadcn/ui
+                        </div>
+                        <p className="text-sm leading-tight text-muted-foreground">
+                        Beautifully designed components built with Radix UI and
+                        Tailwind CSS.
+                        </p>
+                    </a>
+                    </NavigationMenuLink>
+                </li>
+                {
+                    categorylist?.map(( category, inx )=> <li key={category.name} >
+                    <NavigationMenuLink asChild>
+                        <MenuItem category={category} ></MenuItem>
+                    </NavigationMenuLink>
+                  </li>)
+                }
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuTrigger className=" navigation-trigger hover:bg-transparent bg-transparent font-medium text-gray-500 hover:text-white " >Components</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {components.map((component) => (
@@ -136,17 +220,17 @@ export default function Manu() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        
+
         <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink className=" navigation-trigger hover:bg-transparent bg-transparent font-medium text-gray-500 hover:text-white ">
               Documentation
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
-  )
+  );
 }
 
 const ListItem = React.forwardRef<
@@ -171,6 +255,8 @@ const ListItem = React.forwardRef<
         </a>
       </NavigationMenuLink>
     </li>
-  )
-})
-ListItem.displayName = "ListItem"
+  );
+});
+ListItem.displayName = "ListItem";
+
+// 3 dimension nested menu
