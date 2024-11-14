@@ -15,10 +15,10 @@ const TopBarSection = () => {
             <MaxWidthControls>
                 <div className=' flex justify-between items-centers text-gray-400 py-2 border-b ' >
                     <div className=' flex items-center gap-1 ' >
-                        <div className=' text-2xl ' >
+                        <div className=' text-xl ' >
                             <CiLocationOn></CiLocationOn>
                         </div>
-                        <p>Store Location: Lincoln- 344, Illinois, Chicago, USA</p>
+                        <p className=' text-sm  ' >Store Location: Lincoln- 344, Illinois, Chicago, USA</p>
                     </div>
                     <div className=' flex items-center gap-2 ' >
                         {/* <div>
