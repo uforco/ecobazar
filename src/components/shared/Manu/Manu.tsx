@@ -146,6 +146,52 @@ const categorylist = [
         ]    
     },
     {
+        image: '/images/home/category/soft-drink.png',
+        name: 'Water and Drinks',
+        link: "/water_and_drinks",
+        nestedItem: [
+            {
+                name: 'string cheese',
+                link: '/string_cheese'
+            },
+            {
+                name: 'Dried fruit',
+                link: '/dried_fruit'
+            },
+            {
+                name: 'Granola bars',
+                link: '/granola_bars'
+            },
+            {
+                name: 'Graham Crackers',
+                link: '/graham_crackers'
+            }
+        ]    
+    },
+    {
+        image: '/images/home/category/soft-drink.png',
+        name: 'Water and Drinks',
+        link: "/water_and_drinks",
+        nestedItem: [
+            {
+                name: 'string cheese',
+                link: '/string_cheese'
+            },
+            {
+                name: 'Dried fruit',
+                link: '/dried_fruit'
+            },
+            {
+                name: 'Granola bars',
+                link: '/granola_bars'
+            },
+            {
+                name: 'Graham Crackers',
+                link: '/graham_crackers'
+            }
+        ]    
+    },
+    {
         image: '/images/home/category/snacks.png',
         name: 'Snacks',
         link: "/snacks",
@@ -180,21 +226,22 @@ export default function Manu() {
           <NavigationMenuTrigger  className=" navigation-trigger hover:bg-transparent bg-transparent font-medium text-gray-500 hover:text-white " >Shop</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4  md:w-[400px] lg:w-[700px] xl:w-[900px] h-auto lg:grid-cols-[1fr_1fr_1fr] ">
-                <li className="row-span-2">
+                <li className=" row-span-3 ">
                     <NavigationMenuLink asChild>
-                    <a
+                    <Link
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                         href="/"
                     >
-                        {/* <Icons.logo className="h-6 w-6" /> */}
-                        <div className="mb-2 mt-4 text-lg font-medium">
-                          <Image src={"/images/Logo.png"} width={200} height={80} alt={"Logo"}></Image>
-                        </div>
-                        <p className="text-sm leading-tight text-muted-foreground">
-                        Beautifully designed components built with Radix UI and
-                        Tailwind CSS.
-                        </p>
-                    </a>
+                        <>
+                          <div className="mb-2 mt-2 text-lg font-medium">
+                            <Image src={"/images/Logo.png"} width={200} height={80} alt={"Logo"}></Image>
+                          </div>
+                          <p className="text-sm leading-tight text-muted-foreground">
+                          Beautifully designed components built with Radix UI and
+                          Tailwind CSS.
+                          </p>
+                        </>
+                    </Link>
                     </NavigationMenuLink>
                 </li>
                 {
