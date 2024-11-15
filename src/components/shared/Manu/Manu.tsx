@@ -260,14 +260,15 @@ export default function Manu() {
 
         <NavigationMenuItem>
           <Link href="/about" legacyBehavior passHref>
-            <NavigationMenuLink className=" navigation-trigger hover:bg-transparent bg-transparent text-sm text-gray-500 hover:text-white ">
+            <NavigationMenuLink className=" mx-4 navigation-trigger hover:bg-transparent bg-transparent text-sm text-gray-500 hover:text-white ">
               About Us
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
           <Link href="/contact" legacyBehavior passHref>
-            <NavigationMenuLink className=" navigation-trigger hover:bg-transparent bg-transparent text-sm text-gray-500 hover:text-white ">
+            <NavigationMenuLink className=" mx-4 navigation-trigger hover:bg-transparent bg-transparent text-sm text-gray-500 hover:text-white ">
               Contact Us
             </NavigationMenuLink>
           </Link>
