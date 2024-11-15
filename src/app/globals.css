@@ -19,8 +19,21 @@ body {
   background-color: transparent !important; /* Dark blue */
   color: #6b7280 !important;
 }
+.allcategory-manu-custom[aria-expanded="true"] {
+  background-color: transparent !important; /* Dark blue */
+  color: #d7d7d7 !important;
+}
+.allcategory-manu-custom[aria-expanded="false"] {
+  background-color: transparent !important; /* Dark blue */
+  color: #ffffff !important;
+}
 
-
+.accountUser[aria-expanded="true"] {
+  background-color: transparent !important;
+}
+.accountUser[aria-expanded="false"] {
+  background-color: transparent !important;
+}
 
 
 

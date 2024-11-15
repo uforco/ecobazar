@@ -1,9 +1,7 @@
 "use client";
 import * as React from "react";
 import Link from "next/link";
-
 import { cn } from "@/lib/utils";
-// import { Icons } from "@/components/icons"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,8 +11,15 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-
 import MenuItem from "./MenuItem";
+import Image from 'next/image';
+
+
+
+
+
+
+
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -23,6 +28,7 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
+
   {
     title: "Hover Card",
     href: "/docs/primitives/hover-card",
@@ -53,9 +59,6 @@ const components: { title: string; href: string; description: string }[] = [
       "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
 ];
-
-
-
 const categorylist = [
     {
         image: '/images/home/category/Vegetable.png',
@@ -172,6 +175,7 @@ export default function Manu() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
+
         <NavigationMenuItem>
           <NavigationMenuTrigger  className=" navigation-trigger hover:bg-transparent bg-transparent font-medium text-gray-500 hover:text-white " >Shop</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -184,7 +188,7 @@ export default function Manu() {
                     >
                         {/* <Icons.logo className="h-6 w-6" /> */}
                         <div className="mb-2 mt-4 text-lg font-medium">
-                        shadcn/ui
+                          <Image src={"/images/Logo.png"} width={200} height={80} alt={"Logo"}></Image>
                         </div>
                         <p className="text-sm leading-tight text-muted-foreground">
                         Beautifully designed components built with Radix UI and
@@ -200,6 +204,39 @@ export default function Manu() {
                     </NavigationMenuLink>
                   </li>)
                 }
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuTrigger  className=" navigation-trigger hover:bg-transparent bg-transparent font-medium text-gray-500 hover:text-white " >Pages</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-3 p-4  md:w-[300px] h-auto lg:grid-cols-[1fr] ">
+                  <li className=" w-full" >
+                    <Link className=" text-gray-500 w-full hover:text-Primary " href="/" >
+                        Shop
+                    </Link>
+                  </li>
+                  <li className=" w-full" >
+                    <Link className=" text-gray-500 w-full hover:text-Primary " href="/" >
+                        Blog
+                    </Link>
+                  </li>
+                  <li className=" w-full" >
+                    <Link className=" text-gray-500 w-full hover:text-Primary " href="/" >
+                        Faqs
+                    </Link>
+                  </li>
+                  <li className=" w-full" >
+                    <Link className=" text-gray-500 w-full hover:text-Primary " href="/" >
+                        Terms & Condition
+                    </Link>
+                  </li>
+                  <li className=" w-full" >
+                    <Link className=" text-gray-500 w-full hover:text-Primary " href="/" >
+                        Privacy Policy
+                    </Link>
+                  </li>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -222,12 +259,20 @@ export default function Manu() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className=" navigation-trigger hover:bg-transparent bg-transparent font-medium text-gray-500 hover:text-white ">
-              Documentation
+          <Link href="/about" legacyBehavior passHref>
+            <NavigationMenuLink className=" navigation-trigger hover:bg-transparent bg-transparent text-sm text-gray-500 hover:text-white ">
+              About Us
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/contact" legacyBehavior passHref>
+            <NavigationMenuLink className=" navigation-trigger hover:bg-transparent bg-transparent text-sm text-gray-500 hover:text-white ">
+              Contact Us
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
       </NavigationMenuList>
     </NavigationMenu>
   );
