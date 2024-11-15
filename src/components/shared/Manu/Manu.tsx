@@ -225,8 +225,8 @@ export default function Manu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger  className=" navigation-trigger hover:bg-transparent bg-transparent font-medium text-gray-500 hover:text-white " >Shop</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-4  md:w-[400px] lg:w-[700px] xl:w-[900px] h-auto lg:grid-cols-[1fr_1fr_1fr] ">
-                <li className=" row-span-3 ">
+            <ul className=" grid gap-3 p-4  md:w-[400px] lg:w-[700px] xl:w-[900px] h-auto lg:grid-cols-3 ">
+                <li className=" row-span-3 h-32 inline-block ">
                     <NavigationMenuLink asChild>
                     <Link
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
@@ -245,7 +245,7 @@ export default function Manu() {
                     </NavigationMenuLink>
                 </li>
                 {
-                    categorylist?.map(( category, inx )=> <li key={category.name} >
+                    categorylist?.map(( category, inx )=> <li className="inline-block" key={category.name} >
                     <NavigationMenuLink asChild>
                         <MenuItem category={category} ></MenuItem>
                     </NavigationMenuLink>
