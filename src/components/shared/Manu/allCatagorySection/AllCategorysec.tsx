@@ -14,7 +14,9 @@ const AllCategorysec = () => {
     <div className=" flex items-center h-full ">
       <div className=" bg-Primary flex justify-center items-center h-full " >
         <button className=" text-white text-3xl p-2 " >
-            <HiOutlineBars3></HiOutlineBars3>
+            <Link href={"/"}>
+              <HiOutlineBars3></HiOutlineBars3>
+            </Link>
         </button>
       </div>
       <div className=" bg-gray-800 h-full flex justify-center items-center  ">

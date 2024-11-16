@@ -22,7 +22,7 @@ const PopupAds = () => {
   useEffect(() => {
     const Ads: any = sessionStorage.getItem('popupads')
     const body: any = document.querySelector("body");
-    const timeoutId = setTimeout(() => {
+    // const timeoutId = setTimeout(() => {
         if(!Ads) {
             sessionStorage.setItem('popupads', 'true')
             body.classList.add("fixed");
@@ -36,9 +36,9 @@ const PopupAds = () => {
             body.classList.remove("fixed")
             setOpenAds(false)
         }
-      }, 2000);
+      // }, 2000);
 
-    return () => clearTimeout(timeoutId);
+    // return () => clearTimeout(timeoutId);
 
   }, [setOpenAds]);
 
