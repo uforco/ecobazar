@@ -106,7 +106,7 @@ const Testimonial = () => {
               {categorylist.map((catagory) => (
                 <SwiperSlide key={catagory.name}>
                   {/* <CategoryCard catagory={catagory} ></CategoryCard> */}
-                  <TestimonialClientReviweCard></TestimonialClientReviweCard>
+                  <TestimonialClientReviweCard className="w-[424px]" ></TestimonialClientReviweCard>
                 </SwiperSlide>
               ))}
             </Swiper>

@@ -6,7 +6,7 @@ import { TiStar } from "react-icons/ti";
 const TestimonialClientReviweCard = ({className: classname}: {className?: string}) => {
     return (
       <div className=" flex justify-center  w-full mb-10 ">
-        <div className={`${classname} overflow-hidden w-[424px] shadow-gray-300/40 shadow-xl p-6 rounded-lg cursor-pointer bg-white `} >
+        <div className={`${classname} overflow-hidden shadow-gray-300/40 shadow-xl p-6 rounded-lg cursor-pointer bg-white `} >
           <div>
               <Image src={"/images/home/testimonial/dulbequt.png"} width={30} height={30} alt={""}></Image>
           </div>
