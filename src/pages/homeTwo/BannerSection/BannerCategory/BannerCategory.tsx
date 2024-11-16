@@ -1,8 +1,8 @@
 import React from 'react';
 
-const BannerCategory = () => {
+const BannerCategory = ({className: classname}:{className?: string}) => {
     return (
-        <div>
+        <div className={classname} >
             Banner Category
         </div>
     );
