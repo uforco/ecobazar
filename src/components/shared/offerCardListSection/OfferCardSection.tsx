@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "@mynaui/icons-react";
 import Image from 'next/image';
 
-const OfferSection = () => {
+const OfferCardSection = () => {
   return (
     <div>
       <MaxWidthControls>
@@ -67,7 +67,7 @@ const OfferSection = () => {
   );
 };
 
-export default OfferSection;
+export default OfferCardSection;
 
 const CardWapper = ({children, bgImage}:{children: ReactNode, bgImage: string}) => {
   return (
