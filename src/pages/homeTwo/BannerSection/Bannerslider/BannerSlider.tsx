@@ -22,7 +22,9 @@ const BannerSlider = ({className: classname}:{className?: string}) => {
             <Swiper
                 spaceBetween={30}
                 autoplay={{
-                    delay: 3500
+                    delay: 3500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
                 }}
                 pagination={{
                 clickable: true,
@@ -48,9 +50,8 @@ const CardSlider = () => {
                 <div className=" w-1/2  " >
                     <h1 className=' text-5xl font-semibold leading-tight mb-3 text-white ' >Fresh & Healthy Organic Food </h1>
                     <div className=' border-l-2 border-Primary ' >
-                        <p className=' w-[157px] ml-3 text-gray-500 uppercase font-medium text-2xl ' >Sale Up to <span className=' text-white ' >48%</span> off</p>
+                        <p className=' w-[157px] ml-3 text-gray-400 uppercase font-medium text-2xl ' >Sale Up to <span className=' text-white ' >48%</span> off</p>
                     </div>
-
                     <Button className=' bg-Primary rounded-full w-[192px] h-[51px] mt-8 ' >Shop now <GoArrowRight></GoArrowRight> </Button>
                 </div>
             </div>
