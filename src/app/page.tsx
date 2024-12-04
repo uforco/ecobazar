@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
       <PopupAds></PopupAds>
-      {/* <HomePage></HomePage> */}
+      {/* <HomePage></HomePage> */} 
       <HomePage />
     </div>
   );
