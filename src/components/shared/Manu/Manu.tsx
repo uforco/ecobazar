@@ -240,7 +240,7 @@ export default function Manu() {
                     </NavigationMenuLink>
                 </li>
                 {
-                    categorylist?.map(( category, inx )=> <li className="inline-block" key={category.name} >
+                    categorylist?.map(( category, inx )=> <li className="inline-block" key={`${category.name}-${inx}`} >
                     <NavigationMenuLink asChild>
                         <MenuItem category={category} ></MenuItem>
                     </NavigationMenuLink>
