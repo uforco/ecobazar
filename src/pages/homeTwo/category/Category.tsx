@@ -3,8 +3,6 @@ import MaxWidthControls from "@/components/shared/MaxWidthControls";
 import Image from 'next/image';
 import Link from "next/link";
 
-
-
 const categoryItem = [
     {
         img: "freshfruit.png",
@@ -68,16 +66,15 @@ const categoryItem = [
     }
 ]
 
-
 const Category = () => {
   return (
     <div>
       <MaxWidthControls>
         <div className=" flex flex-col justify-center items-center mb-5 ">
-          <p className=" uppercase text-Primary font-medium text-sm ">
+          <p className=" uppercase text-Primary font-medium text-sm mb-2 ">
             category
           </p>
-          <h2 className=" text-4xl font-semibold ">Shop by Top Categories</h2>
+          <h2 className=" text-4xl font-semibold mb-5 ">Shop by Top Categories</h2>
         </div>
       </MaxWidthControls>
       <MaxWidthControls>

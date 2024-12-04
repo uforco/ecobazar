@@ -7,7 +7,7 @@ import { PiPackageLight } from "react-icons/pi";
 const DaliverySystem = () => {
     return (
         <div className=' mt-3 ' >
-            <div className=' w-full flex justify-center   ' >
+            <div className=' w-full flex justify-center' >
                 <div className=" px-2 overflow-hidden border-b rounded-lg w-12/12 gap-6 xl:gap-3  bg-white z-50 grid grid-cols-1  md:grid-cols-2 xl:grid-cols-4 " >   
                     <div className=' group  border-b-2 transition-all duration-300 hover:border-Primary border-white w-[306px] cursor-pointer flex items-center gap-3 p-3 py-4 ' >
                         <div className=' group-hover:text-white group-hover:bg-Primary text-Primary text-4xl p-3 rounded-full flex justify-center items-center bg-gray-200 ' >

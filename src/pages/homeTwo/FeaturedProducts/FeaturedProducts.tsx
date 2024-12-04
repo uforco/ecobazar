@@ -2,11 +2,8 @@
 import React from 'react';
 import MaxWidthControls from '@/components/shared/MaxWidthControls';
 import ProductCard from '@/components/shared/allCard/ProductCard';
-
-
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from 'swiper/modules';
+// import { Pagination } from 'swiper/modules';
 import 'swiper/css/pagination';
 // Import Swiper styles
 import "swiper/css";
@@ -19,8 +16,9 @@ const FeaturedProducts = () => {
     return (
         <div className={`  mb-6  `} >
             <MaxWidthControls className=' overflow-hidden ' >
-                <div>
-                    <h2 className=' text-center text-[40px] font-semibold ' >Our Featured Products</h2>
+                <div className='mt-10' >
+                    <p className=' text-Primary text-center uppercase font-medium text-sm leading-3 ' >Products</p>
+                    <h2 className=' text-center text-[40px] font-semibold -mb-4 ' >Our Featured Products</h2>
                 </div>
                 <div className={` flex justify-between items-center `} >
                     <Swiper className="mySwiper myfeature "
@@ -32,7 +30,7 @@ const FeaturedProducts = () => {
                             // clickable: true,              // Makes bullets clickable
                             dynamicBullets: true,         // Shows limited bullets dynamically
                         }}
-                        modules={[Pagination]}
+                        // modules={[Pagination]}
                         breakpoints={{
                             320: {
                             slidesPerView: 1, // Show 1 slide on screens smaller than 640px
