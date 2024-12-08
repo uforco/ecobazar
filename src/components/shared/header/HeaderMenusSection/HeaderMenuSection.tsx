@@ -1,11 +1,15 @@
 import React from "react";
+
 import MaxWidthControls from '@/components/shared/MaxWidthControls';
 import ProfileAccount from "./profile/ProfileAccount";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { Badge } from "@/components/ui/badge";
 import { FaRegHeart } from "react-icons/fa";
-import Manu from "../../Manu/Manu";
+// import Manu from "../../Manu/Manu";
 import AllCategorysec from "../../Manu/allCatagorySection/AllCategorysec";
+import dynamic from "next/dynamic";
+
+const Manu = dynamic(()=> import('../../Manu/Manu'))
 
 const HeaderMenuSection = () => {
   return (

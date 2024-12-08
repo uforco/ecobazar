@@ -213,8 +213,10 @@ const categorylist = [
 
 
 export default function Manu() {
+
+  // TODO: responsive Manu system
   return (
-    <NavigationMenu>
+    <NavigationMenu className=" hidden md:block " >
       <NavigationMenuList>
 
         <NavigationMenuItem>
