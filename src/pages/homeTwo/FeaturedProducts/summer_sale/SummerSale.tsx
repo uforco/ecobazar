@@ -89,18 +89,13 @@ const SummerSale = () => {
                 </div>
                 } )
             }
-            
-            {/* <div>
-                <CategoryItem title={'Best Seller'}></CategoryItem>
-            </div>
-            <div>
-                <CategoryItem title={'Top Rated'}></CategoryItem>
-            </div> */}
             <div className=' flex justify-center ' >
-                <div className=" flex flex-col  items-center w-[312px] h-full bg-[url('/images/home/Featured/SummerBannar.png')] " >
-                    <h2 className=' uppercase font-semibold text-xs mt-10 ' >Summer Sale</h2>
-                    <h1 className=' text-Primary text-3xl font-semibold my-2 mb-5 ' >75% off</h1>
-                    <Button className=' rounded-full w-[162px] h-[45px] flex justify-center items-center text-md text-Primary bg-white shadow-xl shadow-gray-400/20  hover:text-white transition-all ' > Shop Now <ArrowRight></ArrowRight> </Button>
+                <div className=" flex flex-col  rounded-xl overflow-hidden items-center w-[312px] h-full bg-[url('/images/home2/featured/fruit.png')] bg-cover " >
+                    <h2 className=' uppercase font-semibold text-xs mt-10 mb-3 ' >HOT SALE</h2>
+                    <p className=' text-[32px] mx-4 text-center leading-10 mb-5 ' >
+                        <span className=' font-semibold  ' >Save 37%</span> on Every Order
+                    </p>
+                    <Button className=' rounded-full w-[162px] h-[45px] font-semibold flex justify-center items-center text-md text-Primary bg-white shadow-xl shadow-gray-400/20  hover:text-white transition-all ' > Shop Now <ArrowRight></ArrowRight> </Button>
                 </div>
             </div>
         </div>

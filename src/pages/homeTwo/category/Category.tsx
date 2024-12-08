@@ -80,8 +80,7 @@ const Category = () => {
       <MaxWidthControls>
         <div className=" flex w-full justify-center overflow-hidden " >
             <div className=" grid grid-cols-6 gap-5 " >
-                
-                {
+                {  
                     categoryItem.map((category, inx) => <CategoryItem key={category.name} category={category} ></CategoryItem>)
                 }
             </div>
