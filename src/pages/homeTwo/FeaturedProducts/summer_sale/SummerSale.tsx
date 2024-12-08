@@ -4,8 +4,6 @@ import { ArrowRight } from "@mynaui/icons-react";
 import CategoryItem from './CategoryItem';
 
 const SummerSale = () => {
-
-
     const itenmlist = [
         {
             Title: 'Hot Deals',
@@ -77,7 +75,6 @@ const SummerSale = () => {
             ]
         }
     ]
-
 
     return (
         <div className=' grid grid-cols-4 h-[426px] w-full mt-7 ' >

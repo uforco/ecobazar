@@ -10,8 +10,6 @@ import "swiper/css";
 import "./sliderStyle.scss";
 import SummerSale from './summer_sale/SummerSale';
 
-
-
 const FeaturedProducts = () => {
     return (
         <div className={`  mb-6  `} >
