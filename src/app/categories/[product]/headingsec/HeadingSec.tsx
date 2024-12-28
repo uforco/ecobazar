@@ -1,21 +1,31 @@
-"use client";
 import MaxWidthControls from "@/components/shared/MaxWidthControls";
-import Image from "next/image";
 import React, { useState } from "react";
 
+import HeadingTitleSec from "./HeadingTitleSec";
+import BrandSection from './BrandSection';
+import PayBuy from "./PayBuy";
+import MediaSection from "./MediaSection";
+
+
 const HeadingSec = () => {
-
-
   return (
     <MaxWidthControls>
-      <div className=" flex w-full ">
-        <div>
-          <div>djh</div>
+      <div className=" flex w-full gap-3 ">
+        {/* left site */}
+          <MediaSection></MediaSection>
+        {/* right site */}
+        <div className="  w-full " >
+          <HeadingTitleSec></HeadingTitleSec>
+          <BrandSection></BrandSection>
+          <PayBuy></PayBuy>
           <div>
-            {/* <Image src={""} alt={""}></Image> */}
+            <p  > Category: <span className=" text-gray-500 " >Vegetables</span> </p>
+            <div className="flex gap-2 mt-1 " >
+              <p> Tag: <span className=" text-gray-500 " >Vegetables Healthy</span> </p>
+              <p> Chinese <span className=" text-gray-500 " >Cabbage Green Cabbage</span> </p>
+            </div>
           </div>
         </div>
-        <div></div>
       </div>
       
     </MaxWidthControls>
