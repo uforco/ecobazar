@@ -16,16 +16,16 @@ function HeadingTitleSec(props: Props) {
                 <h1 className=" text-3xl font-semibold " >Chinese Cabbage</h1>
                 <Badge className=" text-Primary bg-Primary/20 " variant="outline">In Stock</Badge>
                 </div>
-                <div className=" flex items-center gap-2 " >
-                <div className="flex gap-1 items-center " >
-                    <FaStar className=" text-warning " ></FaStar>
-                    <FaStar className=" text-warning " ></FaStar>
-                    <FaStar className=" text-warning " ></FaStar>
-                    <FaStar className=" text-warning " ></FaStar>
-                </div>
-                <div className=" flex items-center " >
-                    <p>4 Review </p> <LuDot></LuDot> <p> SKU: 2,51,594</p>
-                </div>
+                <div className=" flex items-center gap-2 my-2 " >
+                    <div className="flex gap-1 items-center " >
+                        <FaStar className=" text-warning " ></FaStar>
+                        <FaStar className=" text-warning " ></FaStar>
+                        <FaStar className=" text-warning " ></FaStar>
+                        <FaStar className=" text-warning " ></FaStar>
+                    </div>
+                    <div className=" flex items-center " >
+                        <p>4 Review </p> <LuDot></LuDot> <p> SKU: 2,51,594</p>
+                    </div>
                 </div>
                 <div className="flex gap-5 border-b border-gray-300 pb-4 ">
                 <p className=" text-xl font-semibold text-gray-400 " ><s>$48.00</s></p>
