@@ -11,9 +11,9 @@ import { ShoppingBag, Heart, Eye } from "@mynaui/icons-react";
 import { TiStar } from "react-icons/ti";
 
 
-const ProductCard = () => {
+const ProductCard = ({className: classname, imageWidth, imageHeight}:{className?: string, imageWidth?: number, imageHeight?: number}) => {
   return (
-    <div className="  w-[248px] mb-8  " >
+    <div className={`${classname}  w-[248px] mb-8  `} >
       <Card className=" cursor-pointer hover:border-Primary duration-300 overflow-hidden transition-all hover:shadow-soft_primary/20 group  hover:shadow-xl relative " >
 
       <div className=" group-hover:top-3 absolute right-3 -top-24 duration-500 transition-all " >
@@ -24,9 +24,11 @@ const ProductCard = () => {
             <Eye ></Eye>
         </div>
       </div>
-        <CardHeader>
-            <Image className=" w-full h-[200px] " src={"/images/home/Featured/Image1.png"} width={200} height={260} alt={""}></Image>
-        </CardHeader>
+        <div className=" flex justify-center " >
+          <CardHeader className={` ${imageWidth? `w-[${imageWidth}px]` : "w-[248px]"}`} >
+              <Image className={` w-full ${imageHeight? `w-[${imageHeight}px]` : "h-[200px]"}`} src={"/images/home/Featured/Image1.png"} width={200} height={260} alt={""}></Image>
+          </CardHeader>
+        </div>
         <CardContent className=" flex justify-between items-center " >
             <div className=" text-left " >
                 <CardDescription>Card Description</CardDescription>
