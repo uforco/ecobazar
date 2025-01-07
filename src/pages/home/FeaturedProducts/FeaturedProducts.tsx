@@ -8,7 +8,6 @@ import ProductCard from '@/components/shared/allCard/ProductCard';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from 'swiper/modules';
 import 'swiper/css/pagination';
-// Import Swiper styles
 import "swiper/css";
 import "./sliderStyle.scss";
 import SummerSale from './summer_sale/SummerSale';

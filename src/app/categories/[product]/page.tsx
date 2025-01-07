@@ -5,6 +5,7 @@ import MaxWidthControls from '@/components/shared/MaxWidthControls';
 import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
 import BodySection from './BodyInfo/BodySection';
+import RelatedProduct from './relatedProduct/RelatedProduct';
 const HeadingSec = dynamic(() => import('./headingsec/HeadingSec'))
 
 
@@ -23,6 +24,7 @@ const page = () => {
             </div>
             <HeadingSec></HeadingSec>
             <BodySection></BodySection>
+            <RelatedProduct></RelatedProduct>
         </div>
     );
 };

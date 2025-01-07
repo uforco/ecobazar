@@ -2,6 +2,8 @@
 import MaxWidthControls from '@/components/shared/MaxWidthControls';
 import React, { useState } from 'react';
 import Descriptions from './Descriptions';
+import AdditionalInfo from './AdditionalInfo';
+import CustomerFeedback from './CustomerFeedback';
 
 
 
@@ -13,22 +15,18 @@ const BodySection = () => {
 
     if( infoSlid == 'Descriptions' ) {  
         contain =  <div>
-            <h2>111111</h2>
             <Descriptions></Descriptions>
         </div>
     }else if ( infoSlid == 'Additional Information' ){
         contain =  <div>
-            <h2>222222</h2>
-            <Descriptions></Descriptions>
+            <AdditionalInfo></AdditionalInfo>
         </div>
     }else if ( infoSlid == 'Customer Feedback' ){
         contain =  <div>
-            <h2>3333333</h2>
-            <Descriptions></Descriptions>
+            <CustomerFeedback></CustomerFeedback>
         </div>
     }else{
         contain =  <div>
-            <h2>111111</h2>
             <Descriptions></Descriptions>
         </div>
     }
