@@ -4,9 +4,8 @@ import { GoHome } from 'react-icons/go'
 import { IoIosArrowForward } from 'react-icons/io'
 import Image from 'next/image';
 import { IoClose } from "react-icons/io5";
-
+import ShareOption from './ShareOption';
 import {
-
     Table,
     TableBody,
     TableCaption,
@@ -19,18 +18,21 @@ import {
 
   const invoices = [
     {
+        name: "Green Capsicum",
         img: "/images/wishlist/Image1.png",
         price: 20.99,
-        discount: 70,
+        discount: 10,
         stockStatus: true,
     },
     {
+        name: "Chinese Cabbage",
         img: "/images/wishlist/Image2.png",
         price: 45.00,
-        discount: 0,
+        discount: 90,
         stockStatus: true,
     },
     {
+        name: "Fresh Sujapuri Mango",
         img: "/images/wishlist/Image3.png",
         price: 9.00,
         discount: 0,
@@ -57,12 +59,11 @@ function Page(props: Props) {
             </div>
             <div className=' w-full ' > <h2 className=' w-full text-center text-2xl my-8' >My Wishlist</h2> </div>
             <MaxWidthControls>
-                <div>
-                    <Table>
-                        <TableCaption>A list of your recent invoices.</TableCaption>
+                <div className=' border rounded-md mb-5 ' >
+                    <Table  >
                         <TableHeader>
                             <TableRow>
-                            <TableHead className="w-[200px]">Product</TableHead>
+                            <TableHead className="w-[250px]">Product</TableHead>
                             <TableHead>Price</TableHead>
                             <TableHead>Stock Status</TableHead>
                             <TableHead className=" w-[200px]"></TableHead>
@@ -72,14 +73,17 @@ function Page(props: Props) {
                             {invoices.map((invoice) => (
                             <TableRow key={invoice.img}>
                                 <TableCell className="font-medium">
-                                    <Image className=' w-[100px] h-[100px] ' width={100} height={100} src={invoice.img} alt={''}></Image>
+                                    <div className=' flex justify-start items-center ' >
+                                        <Image className=' w-[100px] h-[100px] ' width={100} height={100} src={invoice.img} alt={''}></Image>
+                                        <h2 className="ml-3" >{invoice.name}</h2>
+                                    </div>
                                 </TableCell>
                                 <TableCell>{
                                     (()=>{
                                         const integerPart  = Math.floor(invoice.price);
                                         const floatingPart = invoice.price - integerPart;
-                                        const discountPrice = (integerPart / 100) * invoice.discount + floatingPart;
-                                        return <p> <span>${invoice.discount > 0? discountPrice.toFixed(2) : invoice.price}</span> {invoice.discount > 0 && <span className='line-through text-gray-500 ml-1 ' >${invoice.price}</span>} </p>;
+                                        const discont = integerPart - ((integerPart / 100) * invoice.discount) + floatingPart;
+                                        return <p> <span>${invoice.discount > 0? discont.toFixed(2) : invoice.price}</span> {invoice.discount > 0 && <span className='line-through text-gray-500 ml-1 ' >${invoice.price}</span>} </p>;
                                     })()
                                     }</TableCell>
                                 <TableCell> {invoice.stockStatus? <span className=' bg-Primary/10 text-Primary p-2 px-3 rounded-sm' >In Stock</span> : <span className=' bg-red-600/10 text-red-600 p-2 px-3 rounded-sm' >Out of Stock</span> }  </TableCell>
@@ -94,19 +98,10 @@ function Page(props: Props) {
                             </TableRow>
                             ))}
                         </TableBody>
-                        <TableFooter>
-                            <TableRow>
-                            <TableCell colSpan={3}>Total</TableCell>
-                            <TableCell className="text-right">$2,500.00</TableCell>
-                            </TableRow>
-                        </TableFooter>
+                        <ShareOption></ShareOption>
                     </Table>
                 </div>
             </MaxWidthControls>
-            <p className="none"> There will be no effects. Default value </p>
-            <p className="underline"> Text will be underlined </p>
-            <p className="overline"> A line will be drawn over the text </p>
-            <p className="line-through"> Text will be strikethrough </p>
         </div>
     )
 }

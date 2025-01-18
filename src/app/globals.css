@@ -7,6 +7,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.poppinsFont {
+  font-family: "Poppins", sans-serif;
+}
+
 .follow-DialogContent {
   transform: translate(-50%, -50%) !important;
 }
