@@ -1,12 +1,17 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import MaxWidthControls from '@/components/shared/MaxWidthControls';
 import { GoHome } from 'react-icons/go';
 import { IoIosArrowForward } from 'react-icons/io';
 import Image from 'next/image';
-import ShippingInfo from './shippingInfo/ShippingInfo';
-import Delivered from './delivered/Delivered';
-import Testimonial from './testimonial/Testimonial';
+import ShippingInfo from '@/pages/about/shippingInfo/ShippingInfo';
+import Delivered from '@/pages/about/delivered/Delivered';
+// import Testimonial from '@/pages/about/testimonial/Testimonial';
+const Testimonial = dynamic(()=> import('@/pages/about/testimonial/Testimonial'))
+
 // import Testimonial from '../../pages/homeTwo/testimonial/Testimonial';
+import OurTeam from '@/pages/about/ourTeam/OurTeam';
+
 
 const page = () => {
     return (
@@ -20,7 +25,7 @@ const page = () => {
                     </MaxWidthControls>
                 </div>
             </div>
-            <div>
+            {/* <div>
                 <MaxWidthControls>
                     <div className="flex gap-5 py-10">
                         <div className="w-full flex flex-col justify-center ml-10 ">
@@ -36,7 +41,8 @@ const page = () => {
             </div>
             <ShippingInfo></ShippingInfo>
             <Delivered/>
-            <Testimonial></Testimonial>
+            <Testimonial></Testimonial> */}
+            <OurTeam></OurTeam>
         </div>
     );
 };
