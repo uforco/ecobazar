@@ -15,7 +15,7 @@ function Page(props: Props) {
         <div>
             <div className=" w-full relative overflow-hidden bg-origin-content h-28 md:bg-cover bg-no-repeat bg-[url('/images/categores/Breadcrumbs.png')]  " >
                 <div className='  w-full h-full ' >
-                    <MaxWidthControls className='h-full' >
+                    <MaxWidthControls className='h-full'>
                         <div className=" flex items-center h-full  gap-2 text-base font-poppins text-gray-400 " >
                             <span className=' text-xl ' ><GoHome></GoHome></span> <IoIosArrowForward></IoIosArrowForward> <span className=' text-Primary ' >Shopping</span>
                         </div>
