@@ -5,10 +5,12 @@ import { IoIosArrowForward } from 'react-icons/io';
 import Image from 'next/image';
 import ShippingInfo from './shippingInfo/ShippingInfo';
 import Delivered from './delivered/Delivered';
+import Testimonial from './testimonial/Testimonial';
+// import Testimonial from '../../pages/homeTwo/testimonial/Testimonial';
 
 const page = () => {
     return (
-        <div>
+        <div >
             <div className=" w-full relative overflow-hidden bg-origin-content h-28 md:bg-cover bg-no-repeat bg-[url('/images/categores/Breadcrumbs.png')]  " >
                 <div className='  w-full h-full ' >
                     <MaxWidthControls className='h-full'>
@@ -34,6 +36,7 @@ const page = () => {
             </div>
             <ShippingInfo></ShippingInfo>
             <Delivered/>
+            <Testimonial></Testimonial>
         </div>
     );
 };
