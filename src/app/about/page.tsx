@@ -1,14 +1,21 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import MaxWidthControls from '@/components/shared/MaxWidthControls';
 import { GoHome } from 'react-icons/go';
 import { IoIosArrowForward } from 'react-icons/io';
 import Image from 'next/image';
-import ShippingInfo from './shippingInfo/ShippingInfo';
-import Delivered from './delivered/Delivered';
+import ShippingInfo from '@/pages/about/shippingInfo/ShippingInfo';
+import Delivered from '@/pages/about/delivered/Delivered';
+// import Testimonial from '@/pages/about/testimonial/Testimonial';
+const Testimonial = dynamic(()=> import('@/pages/about/testimonial/Testimonial'))
+
+// import Testimonial from '../../pages/homeTwo/testimonial/Testimonial';
+import OurTeam from '@/pages/about/ourTeam/OurTeam';
+
 
 const page = () => {
     return (
-        <div>
+        <div >
             <div className=" w-full relative overflow-hidden bg-origin-content h-28 md:bg-cover bg-no-repeat bg-[url('/images/categores/Breadcrumbs.png')]  " >
                 <div className='  w-full h-full ' >
                     <MaxWidthControls className='h-full'>
@@ -34,6 +41,9 @@ const page = () => {
             </div>
             <ShippingInfo></ShippingInfo>
             <Delivered/>
+            <OurTeam></OurTeam>
+            <Testimonial></Testimonial>
+            
         </div>
     );
 };

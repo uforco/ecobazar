@@ -12,8 +12,8 @@ function Delivered(props: Props) {
     return (
         <div>
                 <MaxWidthControls>
-                    <div className="flex gap-5 py-10">
-                        <div className="w-full flex flex-col justify-center ml-10 ">
+                    <div className="flex gap-8 py-20  w-full relative overflow-hidden ">
+                        <div className="w-5/12 flex flex-col justify-center ml-10 ">
                             <h2 className=" text-6xl font-bold mb-8 " >We Delivered, You Enjoy Your Order.</h2>
                             <p>
                             Ut suscipit egestas suscipit. Sed posuere pellentesque nunc, ultrices consectetur velit dapibus eu. Mauris sollicitudin dignissim diam, ac mattis eros accumsan rhoncus. Curabitur auctor bibendum nunc eget elementum.
@@ -30,8 +30,8 @@ function Delivered(props: Props) {
                             </div>
 
                         </div>
-                        <div className="w-full " >
-                            <Image className=' w-full ' src={'/images/about/Image3.png'} alt={''} width={600} height={400} ></Image>
+                        <div className=" absolute -right-[100px] bottom-0 flex justify-center items-end  w-7/12 " >
+                            <Image className='  w-full  ' src={'/images/about/Image3.png'} alt={''} width={800} height={560} ></Image>
                         </div>
                     </div>
                 </MaxWidthControls>

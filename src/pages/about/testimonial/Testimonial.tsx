@@ -1,16 +1,24 @@
 "use client";
-import React from "react";
-import MaxWidthControls from "@/components/shared/MaxWidthControls";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import 'swiper/css'
-import "./styles.scss";
-// import CategoryCard from "./CategoryCard";
-import "swiper/css/navigation";
-import { ArrowLeft, ArrowRight } from "@mynaui/icons-react";
-import TestimonialClientReviweCard from "@/components/shared/testimonial/TestimonialClientReviweCard";
+import React from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+// import required modules
+import { Autoplay, Navigation } from 'swiper/modules';
 
-const Testimonial = () => {
+import "./styles.scss";
+import MaxWidthControls from '@/components/shared/MaxWidthControls';
+import TestimonialClientReviweCard from '@/components/shared/testimonial/TestimonialClientReviweCard';
+import { ArrowLeft, ArrowRight } from "@mynaui/icons-react";
+
+
+interface Props {}
+
+function Testimonial(props: Props) {
+  const {} = props;
+
   const categorylist = [
     {
       image: "/images/home/category/Vegetable.png",
@@ -45,9 +53,9 @@ const Testimonial = () => {
   ];
 
   return (
-    <div className=" my-[80px] py-[90px] bg-hard_primary/5 ">
-      <MaxWidthControls className=" max-w-[1360px] overflow-hidden ">
-        <div className=" mx-3 " >
+    <div className=" bg-gray-200/80 py-16 " >
+        <MaxWidthControls>
+      <div className=" mx-3 " >
           <div className=" flex justify-between items-end mb-8 ">
             <h2 className=" text-center text-[40px] font-semibold ">
               Client Testimonial
@@ -85,7 +93,7 @@ const Testimonial = () => {
                 nextEl: "#testimonial-slider-btn-next", // ID selector for next button
               }}
               initialSlide={1}
-              modules={[Pagination, Navigation, Autoplay]}
+              modules={[Navigation, Autoplay]}
               breakpoints={{
                 320: {
                   slidesPerView: 1, // Show 1 slide on screens smaller than 640px
@@ -113,11 +121,10 @@ const Testimonial = () => {
             </Swiper>
           </div>
         </div>
-      </MaxWidthControls>
+    </MaxWidthControls>
     </div>
   );
-};
+}
+
 
 export default Testimonial;
-
-
