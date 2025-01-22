@@ -25,7 +25,7 @@ const page = () => {
                     </MaxWidthControls>
                 </div>
             </div>
-            {/* <div>
+            <div>
                 <MaxWidthControls>
                     <div className="flex gap-5 py-10">
                         <div className="w-full flex flex-col justify-center ml-10 ">
@@ -41,8 +41,9 @@ const page = () => {
             </div>
             <ShippingInfo></ShippingInfo>
             <Delivered/>
-            <Testimonial></Testimonial> */}
             <OurTeam></OurTeam>
+            <Testimonial></Testimonial>
+            
         </div>
     );
 };

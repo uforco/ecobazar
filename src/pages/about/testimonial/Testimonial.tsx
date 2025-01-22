@@ -53,7 +53,7 @@ function Testimonial(props: Props) {
   ];
 
   return (
-    <div className=" bg-gray-100/80 py-16 " >
+    <div className=" bg-gray-200/80 py-16 " >
         <MaxWidthControls>
       <div className=" mx-3 " >
           <div className=" flex justify-between items-end mb-8 ">
