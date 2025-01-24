@@ -1,17 +1,14 @@
 import Link from 'next/link'
 import React from 'react'
 
-interface Props {
-        manuItemData: {
-            name: string,
-            link: string,
-            Icon: React.ComponentType,
-        }
+interface MenuItemProps {
+        name: string;
+        link: string;
+        Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     }
 
-function ManuItem(props: Props) {
-    const { manuItemData} = props
-    const  { Icon, link, name } = manuItemData
+const ManuItem :React.FC<MenuItemProps> = ({ Icon, link, name }) => {
+    if (!Icon) return null;
     return (
         <li className=" group border-l-2 border-transparent transition-all hover:border-Primary hover:bg-gray-100 my-1 " >
             <Link className=" flex items-center gap-1 p-3 group-hover:text-gray-900 text-gray-600 " href={`/account/${link}`} >

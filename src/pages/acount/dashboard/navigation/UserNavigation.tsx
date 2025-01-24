@@ -1,7 +1,6 @@
 import React from "react";
 import { MdDashboard, MdHistory, MdOutlineShoppingBag  } from "react-icons/md";
 import { IoHeartOutline, IoSettingsOutline  } from "react-icons/io5";
-import Link  from 'next/link';
 import ManuItem from "./ManuItem";
 interface Props {}
 
@@ -40,7 +39,7 @@ function UserNavigation(props: Props) {
     <div>
       <h2 className=" font-poppins text-xl font-medium p-3 px-4 " >Navigation</h2>
       <ul>
-        {navilist.map((manuItemData, inx) =>  <ManuItem key={manuItemData?.name} manuItemData={manuItemData} ></ManuItem> )}
+        {navilist.map((manuItemData, inx) => <ManuItem key={manuItemData?.name} {...manuItemData} ></ManuItem> )}
       </ul>
     </div>
   );
