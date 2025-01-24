@@ -1,5 +1,5 @@
 import MaxWidthControls from '@/components/shared/MaxWidthControls';
-import UserNavigation from '@/pages/acount/dashboard/navigation/UserNavigation';
+import UserNavigation from '@/pages/acount/navigation/UserNavigation';
 import React from 'react'
 
 function Layout ({
@@ -10,7 +10,7 @@ function Layout ({
     return (
         <div>
             <MaxWidthControls>
-                <div className=' flex gap-4 my-5 ' >
+                <div className=' flex gap-6 my-5 ' >
                     <div className=' w-[312px] h-[418px] border rounded-lg ' >
                         <UserNavigation></UserNavigation>
                     </div>
