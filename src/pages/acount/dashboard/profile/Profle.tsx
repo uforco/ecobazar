@@ -10,7 +10,7 @@ function Profle(props: Props) {
     const { className:classname } = props
 
     return (
-        <div className={`${classname} w-[536px] h-[278px] rounded-lg border flex flex-col text-center justify-center items-center `} >
+        <div className={`${classname} `} >
             <div className=' text-center ' >
                 <Avatar className=' w-[120px] h-[120px] ' >
                     <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
