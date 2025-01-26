@@ -60,10 +60,10 @@ function Page(props: Props) {
             <div className=' w-full ' > <h2 className=' w-full text-center text-2xl my-8' >My Wishlist</h2> </div>
             <MaxWidthControls>
                 <div className=' border rounded-md mb-5 ' >
-                    <Table  >
+                    <Table >
                         <TableHeader>
                             <TableRow>
-                            <TableHead className="w-[250px]">Product</TableHead>
+                            <TableHead className="w-[350px]">Product</TableHead>
                             <TableHead>Price</TableHead>
                             <TableHead>Stock Status</TableHead>
                             <TableHead className=" w-[200px]"></TableHead>
