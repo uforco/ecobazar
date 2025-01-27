@@ -1,8 +1,8 @@
 import React from 'react'
-import ShippingAddress from '@/pages/OrderDetail/ShippingAddress';
-import PaymentDetails from '@/pages/OrderDetail/PaymentDetails';
-import OrderProcessUpdate from '@/pages/OrderDetail/OderProcessBer/OrderProcessUpdate';
-import OderItemList from '@/pages/OrderDetail/OderItemList/OderItemList';
+import ShippingAddress from '@/pages/acount/OrderDetail/ShippingAddress';
+import PaymentDetails from '@/pages/acount/OrderDetail/PaymentDetails';
+import OrderProcessUpdate from '@/pages/acount/OrderDetail/OderProcessBer/OrderProcessUpdate';
+import OderItemList from '@/pages/acount/OrderDetail/OderItemList/OderItemList';
 
 interface Props {}
 
@@ -17,7 +17,7 @@ function Page(props: Props) {
                 </div>
                 <button className=' text-Primary ' >Back to List</button>
             </div>
-            <div className=' p-5 flex justify-between items-start ' >
+            <div className=' p-5 flex justify-between items-start '>
                 <ShippingAddress></ShippingAddress>
                 <PaymentDetails></PaymentDetails>
             </div>

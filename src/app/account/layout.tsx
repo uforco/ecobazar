@@ -14,7 +14,7 @@ function Layout ({
                     <div className=' w-[312px] h-[418px] border rounded-lg ' >
                         <UserNavigation></UserNavigation>
                     </div>
-                    <div className=' w-[984px] ' >
+                    <div className='w-[984px]'>
                         {children}
                     </div>
                 </div>
