@@ -8,7 +8,7 @@ interface Props {}
 function OrderProcessUpdate(props: Props) {
     const {} = props
 
-    const [pross, setPross] = useState<number>(100)
+    const [pross, setPross] = useState<number>(33)
 
     return (
         <div className=' w-full px-10' >
