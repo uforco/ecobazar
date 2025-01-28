@@ -15,7 +15,7 @@ const DaliverySystem = () => {
                         </div>
                         <div>
                             <h1 className=' font-semibold ' >Free Shipping</h1>
-                            <p className=' text-sm text-gray-400 ' >Free shipping on all your order</p>
+                            <p className=' text-sm text-gray-400 ' >Free shipping with discount</p>
                         </div>
                     </div>
                     <div className=' group  border-b-2 transition-all duration-300 hover:border-Primary border-white w-[306px] cursor-pointer flex items-center gap-3 p-3 py-4 ' >
@@ -23,8 +23,8 @@ const DaliverySystem = () => {
                              <TfiHeadphoneAlt></TfiHeadphoneAlt>
                         </div>
                         <div>
-                            <h1 className=' font-semibold ' >Free Shipping</h1>
-                            <p className=' text-sm text-gray-400 ' >Free shipping on all your order</p>
+                            <h1 className=' font-semibold ' >Great Support 24/7</h1>
+                            <p className=' text-sm text-gray-400 ' >Instant access to Contact</p>
                         </div>
                     </div>
                     <div className=' group border-b-2 transition-all duration-300 hover:border-Primary border-white w-[306px] cursor-pointer flex items-center gap-3 p-3 py-4 ' >
@@ -32,8 +32,8 @@ const DaliverySystem = () => {
                              <LiaShoppingBagSolid></LiaShoppingBagSolid>
                         </div>
                         <div>
-                            <h1 className=' font-semibold ' >Free Shipping</h1>
-                            <p className=' text-sm text-gray-400 ' >Free shipping on all your order</p>
+                            <h1 className=' font-semibold ' >100% Sucure Payment</h1>
+                            <p className=' text-sm text-gray-400 ' >We ensure your money is save</p>
                         </div>
                     </div>
                     <div className=' group border-b-2 transition-all duration-300 hover:border-Primary border-white w-[306px] cursor-pointer flex items-center gap-3 p-3 py-4 ' >
@@ -41,8 +41,8 @@ const DaliverySystem = () => {
                              <PiPackageLight></PiPackageLight>
                         </div>
                         <div>
-                            <h1 className=' font-semibold ' >Free Shipping</h1>
-                            <p className=' text-sm text-gray-400 ' >Free shipping on all your order</p>
+                            <h1 className=' font-semibold ' >Money-Back Guarantee</h1>
+                            <p className=' text-sm text-gray-400 ' >30 days money-back</p>
                         </div>
                     </div>
                 </div>
