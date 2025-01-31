@@ -34,7 +34,7 @@ export default CategoryItem;
 
 const ItemCard = ({ item }: { item: itemType }) => {
   return (
-    <div className=" flex p-2 px-4 gap-2 items-center group justify-start transition-all w-[312px] h-[116px] overflow-hidden cursor-pointer border hover:border-Primary hover:shadow-lg hover:shadow-soft_primary/50 ">
+    <div className=" flex p-2 px-4 gap-2 items-center rounded-lg group justify-start transition-all w-[312px] h-[116px] overflow-hidden cursor-pointer border hover:border-Primary hover:shadow-lg hover:shadow-soft_primary/50 ">
       <div className=" w-28 h-28 overflow-hidden flex justify-center items-center ">
         <Image
           className=" w-full "
@@ -46,12 +46,12 @@ const ItemCard = ({ item }: { item: itemType }) => {
       </div>
       {/* <CardContent> */}
       <div className=" relative w-full  ">
-        <h2 className=" capitalize group-hover:text-hard_primary  text-gray-700 mb-2 mt-3 ">
+        <h2 className=" capitalize group-hover:text-hard_primary  text-gray-700 mb-1 ">
           {item?.name}
         </h2>
         <div>
           <CardTitle>{item.price}</CardTitle>
-          <CardDescription className=" flex items-center mt-3 ">
+          <CardDescription className=" flex items-center mt-2 ">
             <TiStar className=" size-5 text-warning "></TiStar>
             <TiStar className=" size-5 text-warning "></TiStar>
             <TiStar className=" size-5 text-warning "></TiStar>
@@ -60,15 +60,12 @@ const ItemCard = ({ item }: { item: itemType }) => {
           </CardDescription>
         </div>
         {/* hover Item */}
-        <div className=" group-hover:bottom-0  overflow-hidden  absolute right-0  -bottom-20 w-full h-full  bg-transparent  duration-500 transition-all group-hover:bg-white ">
-          <div className="flex w-full justify-between px-5 items-end h-full pb-2 ">
+        <div className=" group-hover:-bottom-5 overflow-hidden  absolute right-0 -bottom-20 w-full h-full bg-transparent duration-500 transition-all group-hover:bg-white ">
+          <div className=" w-full hidden group-hover:flex justify-between transition-all px-5 items-end py-3  delay-700 duration-300 ">
             <div className=" size-10 transition-all hover:text-white hover:bg-Primary rounded-full border border-gray-200 bg-white flex justify-center items-center ">
               <ShoppingBag></ShoppingBag>
             </div>
-            {/* <div className=" size-10 transition-all hover:text-white hover:bg-Primary rounded-full border border-gray-200 bg-white flex justify-center items-center " >
-                  <Eye ></Eye>
-              </div> */}
-            <div>
+            <div className=" relative " >
               <Quick_Product_View></Quick_Product_View>
             </div>
             <div className=" size-10 transition-all hover:text-white hover:bg-Primary rounded-full border border-gray-200 bg-white flex justify-center items-center ">
