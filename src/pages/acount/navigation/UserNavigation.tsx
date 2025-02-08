@@ -10,27 +10,27 @@ function UserNavigation(props: Props) {
   const navilist = [
     {
         name: "Dashboard",
-        link: "dashboard",
+        link: "/account/dashboard",
         Icon: MdDashboard,
     },
     {
         name: "Order History",
-        link: "order_history",
+        link: "/account/order_history",
         Icon: MdHistory,
     },
     {
         name: "Wishlist",
-        link: "wishlist",
+        link: "/wishlist",
         Icon: IoHeartOutline,
     },
     {
         name: "Shopping Cart",
-        link: "shopping_cart",
+        link: "/shoppingcart",
         Icon: MdOutlineShoppingBag,
     },
     {
         name: "Settings",
-        link: "settings",
+        link: "/account/settings",
         Icon: IoSettingsOutline,
     }
   ]

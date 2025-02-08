@@ -10,7 +10,7 @@ import {
 import MaxWidthControls from "@/components/shared/MaxWidthControls";
 import SingleProduct from "./SingleProduct";
 import CouponCode from './CouponCode';
-import CartTotal from './../CartTotal/CartTotal';
+import CartTotal from '../CartTotal/CartTotal';
 
 interface Props {}
 

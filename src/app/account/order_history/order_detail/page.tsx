@@ -3,6 +3,7 @@ import ShippingAddress from '@/pages/acount/OrderDetail/ShippingAddress';
 import PaymentDetails from '@/pages/acount/OrderDetail/PaymentDetails';
 import OrderProcessUpdate from '@/pages/acount/OrderDetail/OderProcessBer/OrderProcessUpdate';
 import OderItemList from '@/pages/acount/OrderDetail/OderItemList/OderItemList';
+import Link from 'next/link';
 
 interface Props {}
 
@@ -15,7 +16,7 @@ function Page(props: Props) {
                 <div className=' flex items-center gap-2 text-gray-500 ' >
                     <h2 className=' text-xl font-semibold text-gray-900 ' >Order Detail</h2> • <p>April 24, 2021</p> • <p>3 Products</p>
                 </div>
-                <button className=' text-Primary ' >Back to List</button>
+                <Link className=' text-Primary ' href={'/account/order_history'} >Back to List</Link>
             </div>
             <div className=' p-5 flex justify-between items-start '>
                 <ShippingAddress></ShippingAddress>

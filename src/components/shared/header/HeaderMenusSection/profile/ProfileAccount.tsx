@@ -1,20 +1,6 @@
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import Image from "next/image";
-
-
+import Link from 'next/link';
 import {
   Menubar,
   MenubarContent,
@@ -40,12 +26,14 @@ const ProfileAccount = () => {
           </MenubarTrigger>
           <MenubarContent className=" right-2 " >
             <MenubarItem>
-              Account <MenubarShortcut>⌘T</MenubarShortcut>
+               Account <MenubarShortcut>⌘T</MenubarShortcut>
             </MenubarItem>
             <MenubarSeparator className=" border border-gray-300 " />
-            <MenubarItem>Profile</MenubarItem>
+            <MenubarItem> <Link href={"/account"}> Dashboard </Link> </MenubarItem>
             <MenubarSeparator />
-            <MenubarItem>Settings</MenubarItem>
+              <MenubarItem>
+                <Link href={"/account/settings"}>Settings</Link>
+              </MenubarItem>
             <MenubarSeparator />
             <MenubarItem>LogIn</MenubarItem>
           </MenubarContent>
@@ -72,35 +60,3 @@ const UserIcon = () => {
   );
 };
 
-
-
-
-// <DropdownMenu>
-//         <DropdownMenuTrigger className=" outline-none text-white " >
-//             <UserIcon></UserIcon>
-//             {/* user */}
-//         </DropdownMenuTrigger>
-//         <DropdownMenuContent>
-//           <DropdownMenuLabel>My Account</DropdownMenuLabel>
-//           <DropdownMenuSeparator />
-//           <DropdownMenuItem>Profile</DropdownMenuItem>
-//           <DropdownMenuItem>Billing</DropdownMenuItem>
-//           <DropdownMenuItem>Team</DropdownMenuItem>
-//           <DropdownMenuItem>Subscription</DropdownMenuItem>
-
-//           {/* <DropdownMenuGroup> */}
-//           <DropdownMenuItem>Team</DropdownMenuItem>
-//           <DropdownMenuSub>
-//             <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
-//             <DropdownMenuPortal>
-//               <DropdownMenuSubContent>
-//                 <DropdownMenuItem>Email</DropdownMenuItem>
-//                 <DropdownMenuItem>Message</DropdownMenuItem>
-//                 <DropdownMenuSeparator />
-//                 <DropdownMenuItem>More...</DropdownMenuItem>
-//               </DropdownMenuSubContent>
-//             </DropdownMenuPortal>
-//           </DropdownMenuSub>
-//           {/* </DropdownMenuGroup> */}
-//         </DropdownMenuContent>
-//       </DropdownMenu>
