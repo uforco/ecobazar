@@ -8,6 +8,8 @@ import { FaRegHeart } from "react-icons/fa";
 // import Manu from "../../Manu/Manu";
 import AllCategorysec from "../../Manu/allCatagorySection/AllCategorysec";
 import dynamic from "next/dynamic";
+import PopupShoppingCard from "../../PopupShoppingCard/PopupShoppingCard";
+
 
 const Manu = dynamic(()=> import('../../Manu/Manu'))
 
@@ -26,8 +28,7 @@ const HeaderMenuSection = () => {
               <FaRegHeart></FaRegHeart>
             </div>
             <div className="  cursor-pointer text-white text-[22px] p-2  relative rounded-full flex justify-center items-center " >
-              <Badge className=" z-40 absolute w-4 h-4 p-0 flex justify-center items-center rounded-full right-1 top-1 m-0  font-thin  " >2</Badge>
-              <HiOutlineShoppingBag></HiOutlineShoppingBag>
+              <PopupShoppingCard/>
             </div>
             {/* profile */}
             <ProfileAccount></ProfileAccount>

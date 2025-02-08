@@ -12,7 +12,7 @@
     "@mynaui/icons-react": "^0.3.2",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-checkbox": "^1.1.2",
-    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-dropdown-menu": "^2.1.2",
     "@radix-ui/react-label": "^2.1.1",
     "@radix-ui/react-menubar": "^1.1.2",
@@ -30,6 +30,7 @@
     "swiper": "^11.1.14",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
+    "vaul": "^1.1.2",
     "yarn": "^1.22.22"
   },
   "devDependencies": {

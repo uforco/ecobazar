@@ -34,7 +34,7 @@ export default function RootLayout({
       <body
         className={` w-full antialiased`}
       >
-        {/* <HeaderSection /> */}
+        <HeaderSection />
         {children}
         <FooterSection></FooterSection>
       </body>

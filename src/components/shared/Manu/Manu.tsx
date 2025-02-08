@@ -9,7 +9,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import MenuItem from "./MenuItem";
 import Image from 'next/image';
@@ -218,9 +217,10 @@ export default function Manu() {
   return (
     <NavigationMenu className=" hidden md:block " >
       <NavigationMenuList>
-
         <NavigationMenuItem>
-          <NavigationMenuTrigger  className=" navigation-trigger hover:bg-transparent bg-transparent font-medium text-gray-500 hover:text-white " >Shop</NavigationMenuTrigger>
+          <NavigationMenuTrigger  className=" navigation-trigger hover:bg-transparent bg-transparent font-medium text-gray-500 hover:text-white " > 
+            Shop
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className=" grid gap-3 p-4  md:w-[400px] lg:w-[700px] xl:w-[900px] h-auto lg:grid-cols-3 ">
                 <li className=" row-span-3 h-32 inline-block ">
@@ -257,7 +257,7 @@ export default function Manu() {
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4  md:w-[300px] h-auto lg:grid-cols-[1fr] ">
                   <li className=" w-full" >
-                    <Link className=" text-gray-500 w-full hover:text-Primary " href="/" >
+                    <Link className=" text-gray-500 w-full hover:text-Primary " href="/categories" >
                         Shop
                     </Link>
                   </li>
