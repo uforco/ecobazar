@@ -23,7 +23,7 @@ const HeaderMenuSection = () => {
             <Manu ></Manu>
           </div>
         {/* right site */}
-          <div className=" hidden sm:flex items-center gap-2 mx-1  ">
+          <div className=" flex items-center gap-2 mx-1  ">
             <div className="  cursor-pointer text-white text-[22px] p-2  relative rounded-full flex justify-center items-center " >
               <FaRegHeart></FaRegHeart>
             </div>
