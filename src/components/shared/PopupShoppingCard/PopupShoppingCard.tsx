@@ -21,7 +21,7 @@ export default function PopupShoppingCard() {
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 z-50 bg-black/40" />
         <Drawer.Content
-          className="right-0 top-0 bottom-0 fixed z-50 outline-none w-[456px] flex"
+          className="right-0 top-0 bottom-0 fixed z-50 outline-none w-11/12 lg:w-[456px] flex"
           // The gap between the edge of the screen and the drawer is 8px in this case.
           style={
             { "--initial-transform": "calc(100% + 8px)" } as React.CSSProperties
