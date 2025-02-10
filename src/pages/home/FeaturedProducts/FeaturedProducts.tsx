@@ -52,28 +52,28 @@ const FeaturedProducts = () => {
                       }}
                 >
                     <SwiperSlide>
-                        <ProductCard></ProductCard>
+                        <ProductCard className='mb-8' ></ProductCard>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard></ProductCard>
+                        <ProductCard className='mb-8' ></ProductCard>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard></ProductCard>
+                        <ProductCard className='mb-8' ></ProductCard>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard></ProductCard>
+                        <ProductCard className='mb-8' ></ProductCard>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard></ProductCard>
+                        <ProductCard className='mb-8' ></ProductCard>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard></ProductCard>
+                        <ProductCard className='mb-8' ></ProductCard>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard></ProductCard>
+                        <ProductCard className='mb-8' ></ProductCard>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard></ProductCard>
+                        <ProductCard className='mb-8' ></ProductCard>
                     </SwiperSlide>
                 </Swiper>
 

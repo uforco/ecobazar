@@ -10,30 +10,32 @@ import {
 import { ShoppingBag, Heart, Eye } from "@mynaui/icons-react";
 import { TiStar } from "react-icons/ti";
 import Quick_Product_View from "./../quick_product_view/Quick_Product_View";
-import Link from 'next/link';
+import Link from "next/link";
 
 const ProductCard = ({
   className: classname,
   imageWidth,
   imageHeight,
+  cardnum,
 }: {
   className?: string;
   imageWidth?: number;
   imageHeight?: number;
+  cardnum?: number;
 }) => {
   return (
-    <div className={`${classname}  w-[248px] mb-8  `}>
-      <Link href={'/categories/e457'} > 
-        <Card className=" cursor-pointer hover:border-Primary duration-300 overflow-hidden transition-all hover:shadow-soft_primary/20 group  hover:shadow-xl relative ">
-          <div className=" group-hover:top-3 absolute right-3 -top-24 duration-500 transition-all ">
-            <div className=" size-10 mb-2 rounded-full border border-gray-200 flex justify-center items-center ">
-              <Heart></Heart>
-            </div>
-            <>
-              <Quick_Product_View></Quick_Product_View>
-            </>
+    <div className={`${classname}  w-[248px]  `}>
+      <Card className=" cursor-pointer hover:border-Primary duration-300 overflow-hidden transition-all hover:shadow-soft_primary/20 group  hover:shadow-xl relative ">
+        <div className=" group-hover:top-3 absolute right-3 -top-24 duration-500 transition-all ">
+          <div className=" size-10 mb-2 rounded-full border border-gray-200 flex justify-center items-center ">
+            <Heart></Heart>
           </div>
-          <div className=" flex justify-center ">
+          <>
+            <Quick_Product_View></Quick_Product_View>
+          </>
+        </div>
+        <div className=" flex justify-center ">
+          <Link href={"/shop/e457"}>
             <CardHeader
               className={` ${imageWidth ? `w-[${imageWidth}px]` : "w-[248px]"}`}
             >
@@ -47,10 +49,12 @@ const ProductCard = ({
                 alt={""}
               ></Image>
             </CardHeader>
-          </div>
-          <CardContent className=" flex justify-between items-center ">
+          </Link>
+        </div>
+        <CardContent className=" flex justify-between items-center ">
+          <Link href={"/shop/e457"}>
             <div className=" text-left ">
-              <CardDescription>Card Description</CardDescription>
+              <CardDescription>Card Description - {cardnum}</CardDescription>
               <CardTitle className=" my-1 ">$14.99</CardTitle>
               <CardDescription className=" flex items-center ">
                 <TiStar className=" size-4 text-warning "></TiStar>
@@ -60,12 +64,12 @@ const ProductCard = ({
                 <TiStar className=" size-4 text-gray-300 "></TiStar>
               </CardDescription>
             </div>
-            <div className=" group-hover:bg-Primary transition-all duration-300 size-10 bg-gray-100 flex justify-center items-center rounded-full ">
-              <ShoppingBag className=" group-hover:text-white transition-all " />
-            </div>
-          </CardContent>
-        </Card>
-      </Link>
+          </Link>
+          <div className=" group-hover:bg-Primary transition-all duration-300 size-10 bg-gray-100 flex justify-center items-center rounded-full ">
+            <ShoppingBag className=" group-hover:text-white transition-all " />
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };

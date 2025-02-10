@@ -7,11 +7,11 @@ import Link from 'next/link';
 
 const MenuItem = ({category}: {category: any}) => {
     const [open, setOpen] = React.useState(false)
-    const bashUrl = `shop/${category.link}`
+    const bashUrl = `shop?categories=${category.link}`
   return (
     <div className=" overflow-hidden px-2 transition-all duration-700 ">
       <div className=" flex items-center justify-between ">
-        <Link href={bashUrl} className=" flex items-center gap-1  ">
+        <Link href={bashUrl} className=" flex items-center gap-1">
           <span>
             <Image
               src={category.image}
@@ -25,7 +25,7 @@ const MenuItem = ({category}: {category: any}) => {
           </p>
         </Link>
         {
-          category.nestedItem &&  <div className=' flex justify-end items-center ' >
+          category.nestedItem && <div className=' flex justify-end items-center ' >
                 <button className=' text-base px-2 p-1 w-full ' onClick={()=> setOpen((priv => !priv)) } >
                     <MdOutlineArrowBackIos className={open? " -rotate-0 transition-all " : " -rotate-90 transition-all " } ></MdOutlineArrowBackIos>
                 </button>
@@ -35,7 +35,7 @@ const MenuItem = ({category}: {category: any}) => {
       {
          category?.nestedItem && <ul className={`${open? " h-auto transition-all duration-700 " : " h-0 transition-all duration-700 "} mt-1 ml-5 overflow-hidden transition-all duration-700 `}>
             {
-                category?.nestedItem?.map((item: any) => <li key={item.name} ><Link className=' hover:text-Primary text-sm text-gray-500 font-normal capitalize ' href={`${bashUrl}/${item.link}`}>{item.name}</Link> </li>)
+                category?.nestedItem?.map((item: any) => <li key={item.name} ><Link className=' hover:text-Primary text-sm text-gray-500 font-normal capitalize ' href={`${bashUrl}&sub=${item.link}`}>{item.name}</Link> </li>)
             }
         </ul>
       }

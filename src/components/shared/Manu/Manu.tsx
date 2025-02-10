@@ -257,7 +257,7 @@ export default function Manu() {
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4  md:w-[300px] h-auto lg:grid-cols-[1fr] ">
                   <li className=" w-full" >
-                    <Link className=" text-gray-500 w-full hover:text-Primary " href="/categories" >
+                    <Link className=" text-gray-500 w-full hover:text-Primary " href="/shop" >
                         Shop
                     </Link>
                   </li>
