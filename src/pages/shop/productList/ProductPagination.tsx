@@ -16,7 +16,7 @@ function ProductPagination(props: Props) {
     (_, index) => index + 1
   );
 
-  console.log(totalePage);
+  // console.log(totalePage);
 
   return (
     <div className=" flex justify-center gap-2 items-center p-5 mt-5 ">
