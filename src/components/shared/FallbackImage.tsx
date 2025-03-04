@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
@@ -6,7 +7,7 @@ interface Props {
     alt: string;
     width: number;
     height: number;
-    className: string
+    className?: string
 }
 
 function FallbackImage(props: Props) {

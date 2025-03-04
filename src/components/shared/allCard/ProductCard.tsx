@@ -12,7 +12,6 @@ import { ShoppingBag, Heart, Eye } from "@mynaui/icons-react";
 import { TiStar } from "react-icons/ti";
 import Quick_Product_View from "./../quick_product_view/Quick_Product_View";
 import Link from "next/link";
-import some from '../../../../public/images/fullbackImage.png'
 import FallbackImage from "../FallbackImage";
 
 
@@ -39,6 +38,7 @@ const ProductCard = ({
   data: productListType;
 }) => {
 
+
   return (
     <div className={`${classname}  w-[248px]  `}>
       <Card className=" cursor-pointer hover:border-Primary duration-300 overflow-hidden transition-all hover:shadow-soft_primary/20 group  hover:shadow-xl relative ">
@@ -47,7 +47,7 @@ const ProductCard = ({
             <Heart></Heart>
           </div>
           <>
-            <Quick_Product_View></Quick_Product_View>
+            <Quick_Product_View productId={data.product_id} ></Quick_Product_View>
           </>
         </div>
         <div className=" flex justify-center ">

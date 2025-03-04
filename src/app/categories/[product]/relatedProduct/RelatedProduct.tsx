@@ -13,10 +13,10 @@ function RelatedProduct(props: Props) {
                 <h2 className=' font-semibold ' >Related Product</h2>
             </div>
             <div className=" flex justify-between gap-6 " >
+                {/* <ProductCard className=" w-[320px] mb-8 " imageWidth={300} imageHeight={248} ></ProductCard>
                 <ProductCard className=" w-[320px] mb-8 " imageWidth={300} imageHeight={248} ></ProductCard>
                 <ProductCard className=" w-[320px] mb-8 " imageWidth={300} imageHeight={248} ></ProductCard>
-                <ProductCard className=" w-[320px] mb-8 " imageWidth={300} imageHeight={248} ></ProductCard>
-                <ProductCard className=" w-[320px] mb-8 " imageWidth={300} imageHeight={248} ></ProductCard>
+                <ProductCard className=" w-[320px] mb-8 " imageWidth={300} imageHeight={248} ></ProductCard> */}
             </div>
         </MaxWidthControls>
     )

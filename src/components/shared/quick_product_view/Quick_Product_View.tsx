@@ -6,9 +6,18 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Eye } from "@mynaui/icons-react";
-import HeadingSec from './quick_view/Quick_view';
+import Quick_view from './quick_view/Quick_view';
+import { useGetSingleProductViewQuery } from "@/redux/features/productsList/productslist";
 
-export default function Quick_Product_View() {
+export default function Quick_Product_View({productId}: {productId: string}) {
+  // console.log("Quick_Product_View", productId);
+
+
+  const { data, error, isLoading, isSuccess } = useGetSingleProductViewQuery(productId);
+
+  // console.log(data);
+
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -26,7 +35,9 @@ export default function Quick_Product_View() {
             </button>
       </DialogTrigger> */}
       
-      <HeadingSec></HeadingSec>
+       {
+        isSuccess && data && <Quick_view data={data} ></Quick_view>
+       } 
 
       </DialogContent>
     </Dialog>

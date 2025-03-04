@@ -7,19 +7,58 @@ import PayBuy from "./PayBuy";
 import MediaSection from "./MediaSection";
 
 
-const Quick_view = () => {
+interface Props {
+  data: {
+    id: string;
+    product_id: string;
+    product_name: string;
+    stock_Status: string | number;
+    rating: string | number;
+    price: string | number;
+    discount: string | number;
+    brand_name: string;
+    short_Description: string;
+    category: string;
+    image: string[];
+    description: string;
+    qty: string | number;
+    scale: string;
+    type: string;
+    tag?: string | string[] | undefined | null;
+  }
+}
+
+const Quick_view = ({data}: Props) => {
+
+  const { id, product_id, product_name, stock_Status, rating, price, discount, brand_name, short_Description, category, image, description, qty, scale, type, tag } = data;
+
+  // console.log(data);
+
   return (
     <MaxWidthControls>
       <div className=" flex w-full gap-3 ">
         {/* left site */}
-          <MediaSection></MediaSection>
+          <MediaSection image={image} ></MediaSection>
         {/* right site */}
         <div className="  w-full " >
-          <HeadingTitleSec></HeadingTitleSec>
-          <BrandSection></BrandSection>
-          <PayBuy></PayBuy>
+          <HeadingTitleSec 
+            product_name={product_name} 
+            stock_Status={stock_Status} 
+            rating={rating}
+            price={price}
+            discount={discount}
+          ></HeadingTitleSec>
+          <BrandSection
+            brand_name={brand_name}
+            short_Description={short_Description}
+          ></BrandSection>
+          <PayBuy
+            id={id}
+            product_id={product_id}
+            stock_Status={stock_Status}
+          ></PayBuy>
           <div>
-            <p  > Category: <span className=" text-gray-500 " >Vegetables</span> </p>
+            <p  > Category: <span className=" text-gray-500 " >{category}</span> </p>
             <div className="flex gap-2 mt-1 " >
               <p> Tag: <span className=" text-gray-500 " >Vegetables Healthy</span> </p>
               <p> Chinese <span className=" text-gray-500 " >Cabbage Green Cabbage</span> </p>

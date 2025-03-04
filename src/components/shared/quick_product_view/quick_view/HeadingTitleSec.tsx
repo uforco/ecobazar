@@ -4,33 +4,45 @@ import { FaStar } from "react-icons/fa6";
 import { LuDot } from "react-icons/lu";
 
 import { Badge } from "@/components/ui/badge";
+import discountPriceFun from '@/hooks/discountPriceFunction';
+import RatingProduct from '../../RatingProduct/RatingProduct';
 
-interface Props {}
+interface Props {
+    product_name: string ;
+    stock_Status: string | number ;
+    rating: string | number ;
+    price: string  | number ;
+    discount: string  | number ;
+}
 
 function HeadingTitleSec(props: Props) {
-    const {} = props
+    const { 
+        product_name,
+        stock_Status,
+        rating,
+        price,
+        discount
+     } = props
+
 
     return (
         <div>
             <div className=" flex items-center gap-2 mt-4 " >
-                <h1 className=" text-3xl font-semibold " >Chinese Cabbage</h1>
+                <h1 className=" text-3xl font-semibold " >{product_name}</h1>
                 <Badge className=" text-Primary bg-Primary/20 " variant="outline">In Stock</Badge>
                 </div>
                 <div className=" flex items-center gap-2 my-2 " >
                     <div className="flex gap-1 items-center " >
-                        <FaStar className=" text-warning " ></FaStar>
-                        <FaStar className=" text-warning " ></FaStar>
-                        <FaStar className=" text-warning " ></FaStar>
-                        <FaStar className=" text-warning " ></FaStar>
+                        <RatingProduct rating={rating}></RatingProduct>
                     </div>
                     <div className=" flex items-center " >
-                        <p>4 Review </p> <LuDot></LuDot> <p> SKU: 2,51,594</p>
+                         <p>{rating} Review </p> <LuDot></LuDot> <p> SKU: 2,51,594</p>
                     </div>
                 </div>
                 <div className="flex gap-5 border-b border-gray-300 pb-4 ">
-                <p className=" text-xl font-semibold text-gray-400 " ><s>$48.00</s></p>
-                <p className=" text-xl font-semibold text-Primary " >$17.28</p>
-                <Badge className=" bg-red-100 text-red-500 " variant="outline">64% Off</Badge>
+                {discount && Number(discount) > 0 && <p className=" text-xl font-semibold text-gray-400 " ><s>${price}</s></p>}
+                <p className=" text-xl font-semibold text-Primary " >${discountPriceFun(discount, 10)}</p>
+                {discount && Number(discount) > 0 && <Badge className=" bg-red-100 text-red-500 " variant="outline">{discount}% Off</Badge>}
             </div>
         </div>
     )
