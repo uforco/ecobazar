@@ -1,6 +1,5 @@
 import MaxWidthControls from "@/components/shared/MaxWidthControls";
 import React, { useState } from "react";
-
 import HeadingTitleSec from "./HeadingTitleSec";
 import BrandSection from './BrandSection';
 import PayBuy from "./PayBuy";
@@ -30,7 +29,9 @@ interface Props {
 
 const Quick_view = ({data}: Props) => {
 
-  const { id, product_id, product_name, stock_Status, rating, price, discount, brand_name, short_Description, category, image, description, qty, scale, type, tag } = data;
+  const { id, product_id, product_name, stock_Status, rating, 
+    price, discount, brand_name, short_Description, category, image, 
+    description, qty, scale, type, tag } = data;
 
   // console.log(data);
 
@@ -56,6 +57,8 @@ const Quick_view = ({data}: Props) => {
             id={id}
             product_id={product_id}
             stock_Status={stock_Status}
+            price={price}
+            discount={discount}
           ></PayBuy>
           <div>
             <p  > Category: <span className=" text-gray-500 " >{category}</span> </p>

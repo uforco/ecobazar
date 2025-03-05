@@ -2,9 +2,6 @@
 import React from 'react';
 import MaxWidthControls from '@/components/shared/MaxWidthControls';
 import ProductCard from '@/components/shared/allCard/ProductCard';
-
-
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from 'swiper/modules';
 import 'swiper/css/pagination';
@@ -51,7 +48,7 @@ const FeaturedProducts = () => {
                         },
                       }}
                 >
-                    <SwiperSlide>
+                    {/* <SwiperSlide>
                         <ProductCard className='mb-8' ></ProductCard>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -74,7 +71,8 @@ const FeaturedProducts = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <ProductCard className='mb-8' ></ProductCard>
-                    </SwiperSlide>
+                    </SwiperSlide> */}
+                    <div>df</div>
                 </Swiper>
 
 
