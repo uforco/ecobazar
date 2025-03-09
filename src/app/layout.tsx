@@ -3,7 +3,10 @@ import localFont from "next/font/local";
 import "./globals.css";
 import FooterSection from "@/components/shared/footersection/FooterSection";
 import HeaderSection from "@/components/shared/header/HeaderSection";
+// import dynamic from "next/dynamic";
 import ReduxProvider from "@/redux/ReduxProvider";
+
+// const ReduxProvider = dynamic(() => import("@/redux/ReduxProvider"), { ssr: false });
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +31,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ReduxProvider>
       <html lang="en">
         <head>
           <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -36,11 +38,12 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} w-full antialiased`}
         >
-          <HeaderSection />
-          {children}
-          <FooterSection></FooterSection>
+          <ReduxProvider>
+            <HeaderSection />
+            {children}
+            <FooterSection></FooterSection>
+          </ReduxProvider>
         </body>
       </html>
-    </ReduxProvider>
   );
 }

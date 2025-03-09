@@ -8,9 +8,16 @@ import {
 import { Eye } from "@mynaui/icons-react";
 import Quick_view from './quick_view/Quick_view';
 import { useGetSingleProductViewQuery } from "@/redux/features/productsList/productslist";
+import { useEffect, useState } from "react";
 
 export default function Quick_Product_View({productId}: {productId: string}) {
   const { data, error, isLoading, isSuccess } = useGetSingleProductViewQuery(productId);
+
+ const [isClient, setIsClient] = useState(false)
+  
+     useEffect(() => {
+       setIsClient(true)
+     }, [])
  
   return (
     <Dialog>
@@ -19,9 +26,16 @@ export default function Quick_Product_View({productId}: {productId: string}) {
             <Eye ></Eye>
         </button>
       </DialogTrigger>
+      {
+      isSuccess &&
+
       <DialogContent className="sm:max-w-[425px] xl:max-w-5xl   ">
-       {isSuccess && data && <Quick_view data={data} ></Quick_view>} 
+       {
+       isSuccess && data && 
+       <Quick_view data={undefined} ></Quick_view>
+       } 
       </DialogContent>
+      }
     </Dialog>
   )
 }

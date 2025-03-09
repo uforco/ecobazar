@@ -50,28 +50,28 @@ const NewestProducts = () => {
                       }}
                 >
                     <SwiperSlide>
-                        <ProductCard className='mb-8' ></ProductCard>
+                        {/* <ProductCard className='mb-8' ></ProductCard> */}
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard className='mb-8' ></ProductCard>
+                        {/* <ProductCard className='mb-8' ></ProductCard> */}
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard className='mb-8' ></ProductCard>
+                        {/* <ProductCard className='mb-8' ></ProductCard> */}
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard className='mb-8' ></ProductCard>
+                        {/* <ProductCard className='mb-8' ></ProductCard> */}
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard className='mb-8' ></ProductCard>
+                        {/* <ProductCard className='mb-8' ></ProductCard> */}
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard className='mb-8' ></ProductCard>
+                        {/* <ProductCard className='mb-8' ></ProductCard> */}
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard className='mb-8' ></ProductCard>
+                        {/* <ProductCard className='mb-8' ></ProductCard> */}
                     </SwiperSlide>
                     <SwiperSlide>
-                        <ProductCard className='mb-8' ></ProductCard>
+                        {/* <ProductCard className='mb-8' ></ProductCard> */}
                     </SwiperSlide>
                 </Swiper>
                 </div>

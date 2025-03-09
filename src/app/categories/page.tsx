@@ -26,7 +26,6 @@ const page = () => {
         useGetProductsWithCategoriePageQuery(undefined);
     
 
-
       let container = <div>Loading...</div>;
       if (isLoading) {
         container = <div>Loading...</div>;
@@ -51,7 +50,6 @@ const page = () => {
             ></ProductCard>
           </div>
         ))
-        // .slice(sliceProduct[0],sliceProduct[1]);
       }
 
 
@@ -72,7 +70,6 @@ const page = () => {
                             className={` grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 xl:grid-cols-3 w-full min-h-[1024px] `}
                         >
                             {container}
-
                         </div>
                         <div>
                             {/* <ProductPagination nextPage={nextPage} privousPage={privousPage} currentPage={currentpage} totalePage={Math.ceil(products.length/showProduct)} ></ProductPagination> */}

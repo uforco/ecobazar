@@ -66,7 +66,7 @@ const ItemCard = ({ item }: { item: itemType }) => {
               <ShoppingBag></ShoppingBag>
             </div>
             <div className=" relative " >
-              <Quick_Product_View></Quick_Product_View>
+              <Quick_Product_View productId={""}></Quick_Product_View>
             </div>
             <div className=" size-10 transition-all hover:text-white hover:bg-Primary rounded-full border border-gray-200 bg-white flex justify-center items-center ">
               <Heart></Heart>

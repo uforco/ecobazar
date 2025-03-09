@@ -14,7 +14,6 @@ import Quick_Product_View from "./../quick_product_view/Quick_Product_View";
 import Link from "next/link";
 import FallbackImage from "../FallbackImage";
 
-
 export interface productListType {
   id: string;
   product_id: string;
@@ -35,41 +34,33 @@ const ProductCard = ({
   className?: string;
   imageWidth?: number;
   imageHeight?: number;
-  data: productListType;
+  data: productListType | undefined;
 }) => {
 
 
   return (
-    <div className={`${classname}  w-[248px]  `}>
-      <Card className=" cursor-pointer hover:border-Primary duration-300 overflow-hidden transition-all hover:shadow-soft_primary/20 group  hover:shadow-xl relative ">
+    <div className={`${classname}  w-[248px]  bg-slate-400 `}>
+      {data && <Card className=" cursor-pointer hover:border-Primary duration-300 overflow-hidden transition-all hover:shadow-soft_primary/20 group  hover:shadow-xl relative ">
         <div className=" group-hover:top-3 absolute right-3 -top-24 duration-500 transition-all z-[100] ">
           <div className=" size-10 mb-2 rounded-full border border-gray-200 flex justify-center items-center ">
             <Heart></Heart>
           </div>
           <>
-            <Quick_Product_View productId={data.product_id} ></Quick_Product_View>
+            <Quick_Product_View productId={data?.product_id} ></Quick_Product_View>
           </>
         </div>
         <div className=" flex justify-center ">
-          <Link href={"/shop/e457"}>
+          <Link href={`/categories/${data?.product_id}`}>
             <CardHeader
               className={` ${imageWidth ? `w-[${imageWidth}px]` : "w-[248px]"}`}
             >
-                {/* <Image
-                  className={` w-full ${
-                    imageHeight ? `w-[${imageHeight}px]` : "h-[200px]"
-                  }`}
-                  src={data?.coverimage || '/images/fullbackImage.png'}
-                  width={200}
-                  height={260}
-                  alt={""}
-                ></Image> */}
-                  <FallbackImage 
-                  className={` w-full ${
-                    imageHeight ? `w-[${imageHeight}px]` : "h-[200px]"
-                  }`} 
-                  Src={data?.coverimage || ''} alt={""} width={200} height={260} >
+                   <FallbackImage 
+                    className={` w-full ${
+                      imageHeight ? `w-[${imageHeight}px]` : "h-[200px]"
+                    }`} 
+                    src={'/images/categores/productImag.png'} alt={""} width={200} height={260} >
                   </FallbackImage>
+                  
             </CardHeader>
           </Link>
         </div>
@@ -91,7 +82,7 @@ const ProductCard = ({
             <ShoppingBag className=" group-hover:text-white transition-all " />
           </div>
         </CardContent>
-      </Card>
+      </Card>}
     </div>
   );
 };

@@ -1,3 +1,4 @@
+'use client'
 import MaxWidthControls from "@/components/shared/MaxWidthControls";
 import React, { useState } from "react";
 import HeadingTitleSec from "./HeadingTitleSec";
@@ -24,10 +25,12 @@ interface Props {
     scale: string;
     type: string;
     tag?: string | string[] | undefined | null;
-  }
+  } | undefined;
 }
 
 const Quick_view = ({data}: Props) => {
+
+  if(!data) return null
 
   const { id, product_id, product_name, stock_Status, rating, 
     price, discount, brand_name, short_Description, category, image, 
@@ -35,9 +38,17 @@ const Quick_view = ({data}: Props) => {
 
   // console.log(data);
 
-  return (
+
+
+  const [isClient, setIsClient] = useState(false)
+   
+      React.useEffect(() => {
+        setIsClient(true)
+      }, [])
+
+  return (isClient &&
     <MaxWidthControls>
-      <div className=" flex w-full gap-3 ">
+      <div className=" flex w-full gap-6 justify-between  ">
         {/* left site */}
           <MediaSection image={image} ></MediaSection>
         {/* right site */}

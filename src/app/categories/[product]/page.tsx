@@ -1,4 +1,4 @@
-
+'use client'
 import React from 'react';
 import dynamic from 'next/dynamic'
 import MaxWidthControls from '@/components/shared/MaxWidthControls';
@@ -6,10 +6,30 @@ import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
 import BodySection from './BodyInfo/BodySection';
 import RelatedProduct from './relatedProduct/RelatedProduct';
+import { useGetSingleProductViewQuery } from '@/redux/features/productsList/productslist';
+import { useParams, useRouter  } from 'next/navigation';
 const HeadingSec = dynamic(() => import('./headingsec/HeadingSec'))
 
 
+
 const page = () => {
+    
+    const params = useParams();
+    const paramName = params ? params['product'] : null;
+    const productParam = Array.isArray(paramName) ? paramName[0] : paramName;
+    const router = useRouter();
+
+    if(!productParam) {
+        return router.back();
+    }
+
+    // console.log(productParam)
+
+
+    const { data, error, isLoading, isSuccess } = useGetSingleProductViewQuery(productParam);
+
+    // console.log(data)
+
 
     return (
         <div>
