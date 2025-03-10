@@ -6,7 +6,7 @@ import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
 import BodySection from './BodyInfo/BodySection';
 import RelatedProduct from './relatedProduct/RelatedProduct';
-import { useGetSingleProductViewQuery } from '@/redux/features/productsList/productslist';
+// import { useGetSingleProductViewQuery } from '@/redux/features/productsList/productslist';
 import { useParams, useRouter  } from 'next/navigation';
 const HeadingSec = dynamic(() => import('./headingsec/HeadingSec'))
 
@@ -26,7 +26,7 @@ const page = () => {
     // console.log(productParam)
 
 
-    const { data, error, isLoading, isSuccess } = useGetSingleProductViewQuery(productParam);
+    // const { data, error, isLoading, isSuccess } = useGetSingleProductViewQuery(productParam);
 
     // console.log(data)
 

@@ -5,10 +5,9 @@ import HeadingTitleSec from "./HeadingTitleSec";
 import BrandSection from './BrandSection';
 import PayBuy from "./PayBuy";
 import MediaSection from "./MediaSection";
+import { useGetSingleProductViewQuery } from "@/redux/features/productsList/productslist";
 
-
-interface Props {
-  data: {
+interface productType {
     id: string;
     product_id: string;
     product_name: string;
@@ -25,64 +24,64 @@ interface Props {
     scale: string;
     type: string;
     tag?: string | string[] | undefined | null;
-  } | undefined;
-}
-
-const Quick_view = ({data}: Props) => {
-
-  if(!data) return null
-
-  const { id, product_id, product_name, stock_Status, rating, 
-    price, discount, brand_name, short_Description, category, image, 
-    description, qty, scale, type, tag } = data;
-
-  // console.log(data);
+  }
 
 
 
-  const [isClient, setIsClient] = useState(false)
-   
-      React.useEffect(() => {
-        setIsClient(true)
-      }, [])
+const Quick_view = ({productId}: {productId: string}) => {
 
-  return (isClient &&
-    <MaxWidthControls>
-      <div className=" flex w-full gap-6 justify-between  ">
-        {/* left site */}
-          <MediaSection image={image} ></MediaSection>
-        {/* right site */}
-        <div className="  w-full " >
-          <HeadingTitleSec 
-            product_name={product_name} 
-            stock_Status={stock_Status} 
-            rating={rating}
-            price={price}
-            discount={discount}
-          ></HeadingTitleSec>
-          <BrandSection
-            brand_name={brand_name}
-            short_Description={short_Description}
-          ></BrandSection>
-          <PayBuy
-            id={id}
-            product_id={product_id}
-            stock_Status={stock_Status}
-            price={price}
-            discount={discount}
-          ></PayBuy>
-          <div>
-            <p  > Category: <span className=" text-gray-500 " >{category}</span> </p>
-            <div className="flex gap-2 mt-1 " >
-              <p> Tag: <span className=" text-gray-500 " >Vegetables Healthy</span> </p>
-              <p> Chinese <span className=" text-gray-500 " >Cabbage Green Cabbage</span> </p>
+      const { data, isError, isLoading, isSuccess } = useGetSingleProductViewQuery(productId);
+
+      let container = <div>Loading...</div>;
+
+      if (isLoading) {
+        container = <div>Loading...</div>;
+      }
+      if (!isLoading && !isSuccess && isError) {
+        container = <div>something is wrong...data fetch problem</div>;
+      }
+      if (!isLoading && isSuccess && !isError && data.length < 1) {
+        container = <div>No Data Found</div>;
+      }
+      if (!isLoading && isSuccess && !isError && data.length >= 1) {
+        container = <MaxWidthControls>
+        <div className=" flex w-full gap-6 justify-between  ">
+          {/* left site */}
+            <MediaSection image={data?.image} ></MediaSection>
+          {/* right site */}
+          <div className="  w-full " >
+            <HeadingTitleSec 
+              product_name={data?.product_name} 
+              stock_Status={data?.stock_Status} 
+              rating={data?.rating}
+              price={data?.price}
+              discount={data?.discount}
+            ></HeadingTitleSec>
+            <BrandSection
+              brand_name={data?.brand_name}
+              short_Description={data?.short_Description}
+            ></BrandSection>
+            <PayBuy
+              id={data?.id}
+              product_id={data?.product_id}
+              stock_Status={data?.stock_Status}
+              price={data?.price}
+              discount={data?.discount}
+            ></PayBuy>
+            <div>
+              <p  > Category: <span className=" text-gray-500 " >{data?.category}</span> </p>
+              <div className="flex gap-2 mt-1 " >
+                <p> Tag: <span className=" text-gray-500 " >Vegetables Healthy</span> </p>
+                <p> Chinese <span className=" text-gray-500 " >Cabbage Green Cabbage</span> </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      
-    </MaxWidthControls>
-  );
+      </MaxWidthControls>
+      }
+
+  return container
+
 };
 
 export default Quick_view;
