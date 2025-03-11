@@ -39,7 +39,7 @@ const ProductCard = ({
 
 
   return (
-    <div className={`${classname}  w-[248px]  bg-slate-400 `}>
+    <div className={`${classname}  w-[248px]  `}>
       {data && <Card className=" cursor-pointer hover:border-Primary duration-300 overflow-hidden transition-all hover:shadow-soft_primary/20 group  hover:shadow-xl relative ">
         <div className=" group-hover:top-3 absolute right-3 -top-24 duration-500 transition-all z-[100] ">
           <div className=" size-10 mb-2 rounded-full border border-gray-200 flex justify-center items-center ">

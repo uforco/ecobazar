@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { Suspense } from 'react';
 import MaxWidthControls from '@/components/shared/MaxWidthControls';
 // import ProductList from '@/pages/shop/productList/ProductList';
 import dynamic from 'next/dynamic';
@@ -8,7 +8,7 @@ import TopFilterShop from '@/pages/shop/filterSection/TopFilterShop/TopFilterSho
 import { useGetProductsWithCategoriePageQuery } from '@/redux/features/productsList/productslist';
 import ProductCard, { productListType } from '@/components/shared/allCard/ProductCard';
 import Image from 'next/image';
-
+import Loading from '@/components/shared/loading';
 
 const AllCategories = dynamic(() => import('@/pages/shop/filterSection/AllCategories/AllCategories'), {
     loading: () => <p>Loading...</p>,
@@ -19,6 +19,10 @@ const PriceReang = dynamic(() => import('@/pages/shop/filterSection/Price/PriceR
 const Rating = dynamic(() => import('@/pages/shop/filterSection/Rating/Rating'), {
     loading: () => <p>Loading...</p>,
   })
+
+
+
+
 
 const page = () => {
 
@@ -55,7 +59,10 @@ const page = () => {
 
 
     return (
-        <div  >
+        <div>
+
+<Suspense fallback={ <Loading/> } >
+
             <MaxWidthControls className=' px-1 ' >
                 <TopFilterShop></TopFilterShop>
                 <div className="flex justify-between my-3  overflow-hidden gap-5 " >
@@ -77,6 +84,9 @@ const page = () => {
                     </div>
                 </div>
             </MaxWidthControls>
+
+</Suspense>
+
         </div>
     );
 };

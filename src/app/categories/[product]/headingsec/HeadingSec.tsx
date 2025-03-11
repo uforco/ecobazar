@@ -1,18 +1,20 @@
 import MaxWidthControls from "@/components/shared/MaxWidthControls";
 import React, { useState } from "react";
-
 import HeadingTitleSec from "./HeadingTitleSec";
 import BrandSection from './BrandSection';
 import PayBuy from "./PayBuy";
 import MediaSection from "./MediaSection";
+import { productType } from "../productType";
 
 
-const HeadingSec = () => {
+
+
+const HeadingSec = ({product}: {product: productType}) => {
   return (
     <MaxWidthControls>
       <div className=" flex w-full gap-3 ">
         {/* left site */}
-          <MediaSection></MediaSection>
+          <MediaSection images={product.image} ></MediaSection>
         {/* right site */}
         <div className="  w-full " >
           <HeadingTitleSec></HeadingTitleSec>

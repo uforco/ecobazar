@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import Loading from "./loading";
+import Loading from "@/components/shared/loading";
 
 
 export default function RootLayout({

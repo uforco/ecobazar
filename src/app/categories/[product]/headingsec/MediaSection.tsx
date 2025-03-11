@@ -1,10 +1,16 @@
 import React from 'react'
 import Image from "next/image";
 
-interface Props {}
+interface Props {
+    images: string[];
+}
 
 function MediaSection(props: Props) {
-    const {} = props
+    const {images} = props
+
+
+    console.log(images[0])
+
     return (
         <div className=" flex justify-between items-center w-full " >
           <div className=" flex flex-col gap-1 " >
