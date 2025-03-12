@@ -21,9 +21,6 @@ const Rating = dynamic(() => import('@/pages/shop/filterSection/Rating/Rating'),
   })
 
 
-
-
-
 const page = () => {
 
     const { data: products, isError, isLoading, isSuccess } =

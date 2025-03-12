@@ -1,11 +1,12 @@
 interface optionProps {
     method?: string;
-    headersProps?: Record<string, string>;
+    headers?: Record<string, string>;
+    body?: any;
 }
 
 
 async function serverFetching (url: string, option?: optionProps ){
-    const {method, headersProps} = option || {}
+    const {method, headers, body} = option || {}
 
     if(method) method.toUpperCase();
     return await fetch(`http://localhost:4000/web${url}`, {
@@ -13,8 +14,9 @@ async function serverFetching (url: string, option?: optionProps ){
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            ...headersProps
-        }
+            ...headers
+        },
+        body: body
     })
 };
 

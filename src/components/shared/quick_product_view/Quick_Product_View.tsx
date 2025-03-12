@@ -9,9 +9,6 @@ import { Eye } from "@mynaui/icons-react";
 import Quick_view from './quick_view/Quick_view';
 
 export default function Quick_Product_View({productId}: {productId: string}) {
-  
-
-
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -19,16 +16,9 @@ export default function Quick_Product_View({productId}: {productId: string}) {
             <Eye ></Eye>
         </button>
       </DialogTrigger>
-      {
-      // isSuccess &&
-
-      <DialogContent className="sm:max-w-[425px] xl:max-w-5xl   ">
-       {
-      //  isSuccess && data && 
+      <DialogContent className="sm:max-w-[425px] xl:max-w-5xl h-[460px] ">
        <Quick_view productId={productId} ></Quick_view>
-       } 
       </DialogContent>
-      }
     </Dialog>
   )
 }

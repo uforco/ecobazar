@@ -1,11 +1,34 @@
 import MaxWidthControls from '@/components/shared/MaxWidthControls'
 import React from 'react'
-import ProductCard from '@/components/shared/allCard/ProductCard';
+import ProductCard, { productListType } from '@/components/shared/allCard/ProductCard';
+import { useGetRelatedProductsQuery } from '@/redux/features/productsList/productslist';
 
-interface Props {}
+interface Props {
+    product_id: string;
+    category: string;
+}
 
 function RelatedProduct(props: Props) {
-    const {} = props
+    const {category, product_id} = props
+    const { data: products, isError, isLoading, isSuccess } = useGetRelatedProductsQuery({category, product_id})
+
+    let container = <div>Loading...</div>;
+
+      if (isLoading) {
+        container = <div>Loading...</div>;
+      }
+      if (!isLoading && !isSuccess && isError) {
+        container = <div>something is wrong...data fetch problem</div>;
+      }
+      if (!isLoading && isSuccess && !isError && products?.length < 1 ) {
+        container = <div>No Data Found</div>;
+      }
+      if (!isLoading && isSuccess && !isError && products.length >= 1) {
+        container = products.map((value: productListType, index: number) => (
+            <ProductCard data={value} key={value?.id} className=" w-[320px] mb-8 " imageWidth={300} imageHeight={248} ></ProductCard>
+        ))
+      }
+
 
     return (
         <MaxWidthControls>
@@ -13,10 +36,7 @@ function RelatedProduct(props: Props) {
                 <h2 className=' font-semibold ' >Related Product</h2>
             </div>
             <div className=" flex justify-between gap-6 " >
-                {/* <ProductCard className=" w-[320px] mb-8 " imageWidth={300} imageHeight={248} ></ProductCard>
-                <ProductCard className=" w-[320px] mb-8 " imageWidth={300} imageHeight={248} ></ProductCard>
-                <ProductCard className=" w-[320px] mb-8 " imageWidth={300} imageHeight={248} ></ProductCard>
-                <ProductCard className=" w-[320px] mb-8 " imageWidth={300} imageHeight={248} ></ProductCard> */}
+                {container}
             </div>
         </MaxWidthControls>
     )

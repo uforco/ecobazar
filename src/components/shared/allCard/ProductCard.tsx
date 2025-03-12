@@ -58,7 +58,7 @@ const ProductCard = ({
                     className={` w-full ${
                       imageHeight ? `w-[${imageHeight}px]` : "h-[200px]"
                     }`} 
-                    src={'/images/categores/productImag.png'} alt={""} width={200} height={260} >
+                    src={'/images/categores/productImage.png'} alt={""} width={200} height={260} >
                   </FallbackImage>
                   
             </CardHeader>

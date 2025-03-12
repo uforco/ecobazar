@@ -23,10 +23,13 @@ const page = () => {
         return router.back();
     }
 
-    console.log(productParam)
+    
 
 
     const { data, isError, isLoading, isSuccess } = useGetSingleProductViewQuery(productParam);
+
+    console.log(data)
+
 
 
     let container = <div>Loading...</div>;
@@ -42,7 +45,7 @@ const page = () => {
       }
       if (!isLoading && isSuccess && !isError && data?.id) {
         container = <div>
-        <div className=" w-full relative overflow-hidden bg-origin-content h-28 md:bg-cover bg-no-repeat bg-[url('/images/categores/Breadcrumbs.png')]">
+        <div className=" mb-6 w-full relative overflow-hidden bg-origin-content h-28 md:bg-cover bg-no-repeat bg-[url('/images/categores/Breadcrumbs.png')]">
             <div className='  w-full h-full ' >
                 <MaxWidthControls className='h-full' >
                     <div className=" flex items-center h-full  gap-2 text-base font-poppins text-gray-400 " >
@@ -52,8 +55,8 @@ const page = () => {
             </div>
         </div>
         <HeadingSec product={data} ></HeadingSec>
-        <BodySection></BodySection>
-        <RelatedProduct></RelatedProduct>
+        <BodySection product={data} ></BodySection>
+        <RelatedProduct category={data?.category} product_id={data?.product_id} ></RelatedProduct>
     </div>
 
       }

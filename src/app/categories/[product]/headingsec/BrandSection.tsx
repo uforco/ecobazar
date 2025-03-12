@@ -3,16 +3,20 @@ import Image from 'next/image'
 import { FaFacebookF, FaTwitter, FaPinterestP, FaInstagram  } from "react-icons/fa";
 
 
-interface Props {}
+interface Props {
+    brandName: string;
+    short_Descrip: string;
+
+}
 
 function BrandSection(props: Props) {
-    const {} = props
+    const {brandName, short_Descrip} = props
 
     return (
         <div className=" border-b border-gray-300 pb-4  " >
             <div className=" flex justify-between mb-3 " >
                 <div className=" flex items-center gap-1 mt-4 " >
-                    <p>Brand:</p>
+                    <p>Brand: {brandName}</p>
                 <Image src={"/images/categores/brand.png"} width={50} height={50} alt="Brand logo" />
                 </div>
                 <div className=" flex items-center gap-1 mt-4 " >
@@ -25,8 +29,8 @@ function BrandSection(props: Props) {
                 </ul>
                 </div>
             </div>
-            <p className=" text-gray-600 " >
-                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar. 
+            <p className=" text-gray-600  h-20 " >
+               {short_Descrip}
             </p>
         </div>
     )

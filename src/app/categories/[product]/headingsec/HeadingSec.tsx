@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import HeadingTitleSec from "./HeadingTitleSec";
 import BrandSection from './BrandSection';
 import PayBuy from "./PayBuy";
-import MediaSection from "./MediaSection";
 import { productType } from "../productType";
+import ImageMediaSection from "@/components/shared/ImageMediaSection/ImageMediaSection";
 
 
 
@@ -14,14 +14,20 @@ const HeadingSec = ({product}: {product: productType}) => {
     <MaxWidthControls>
       <div className=" flex w-full gap-3 ">
         {/* left site */}
-          <MediaSection images={product.image} ></MediaSection>
+          <ImageMediaSection images={product.image} ></ImageMediaSection>
         {/* right site */}
-        <div className="  w-full " >
-          <HeadingTitleSec></HeadingTitleSec>
-          <BrandSection></BrandSection>
-          <PayBuy></PayBuy>
+        <div className="w-full">
+          <HeadingTitleSec 
+            name={product.product_name}
+            stock={product.stock_Status}
+            rating={product.rating}
+            price={product.price}
+            discount={product.discount}
+          ></HeadingTitleSec>
+          <BrandSection brandName={product?.brand_name} short_Descrip={product?.short_Description} ></BrandSection>
+          <PayBuy product_id={product?.product_id} stock={product?.stock_Status} ></PayBuy>
           <div>
-            <p  > Category: <span className=" text-gray-500 " >Vegetables</span> </p>
+            <p  > Category: <span className=" text-gray-500 " >{product?.category}</span> </p>
             <div className="flex gap-2 mt-1 " >
               <p> Tag: <span className=" text-gray-500 " >Vegetables Healthy</span> </p>
               <p> Chinese <span className=" text-gray-500 " >Cabbage Green Cabbage</span> </p>

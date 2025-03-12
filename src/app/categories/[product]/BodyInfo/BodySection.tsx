@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import Descriptions from './Descriptions';
 import AdditionalInfo from './AdditionalInfo';
 import CustomerFeedback from './CustomerFeedback';
+import { productType } from '../productType';
 
 
-
-const BodySection = () => {
+const BodySection = ({product}: { product: productType }) => {
 
     const [infoSlid, setInfoSlid] = useState<string>('Descriptions')
 
@@ -15,19 +15,28 @@ const BodySection = () => {
 
     if( infoSlid == 'Descriptions' ) {  
         contain =  <div>
-            <Descriptions></Descriptions>
+            <Descriptions 
+                descriptions={product?.description}
+                discount={product?.discount} >
+            </Descriptions>
         </div>
-    }else if ( infoSlid == 'Additional Information' ){
+    }
+    if ( infoSlid == 'Additional Information' ){
         contain =  <div>
-            <AdditionalInfo></AdditionalInfo>
+            <AdditionalInfo 
+                Weight={product?.qty}
+                scale={product?.scale}
+                type={product?.type ?? ''}
+                category={product?.category}
+                stock={product?.stock_Status}
+                tag={product?.tag}
+                discount={product?.discount}
+            ></AdditionalInfo>
         </div>
-    }else if ( infoSlid == 'Customer Feedback' ){
-        contain =  <div>
+    }
+    if ( infoSlid == 'Customer Feedback' ){
+        contain = <div>
             <CustomerFeedback></CustomerFeedback>
-        </div>
-    }else{
-        contain =  <div>
-            <Descriptions></Descriptions>
         </div>
     }
     
