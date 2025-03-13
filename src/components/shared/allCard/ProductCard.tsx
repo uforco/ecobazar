@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   Card,
@@ -13,6 +13,7 @@ import { TiStar } from "react-icons/ti";
 import Quick_Product_View from "./../quick_product_view/Quick_Product_View";
 import Link from "next/link";
 import FallbackImage from "../FallbackImage";
+import saveWishlist from "@/lib/saveWishlist";
 
 export interface productListType {
   id: string;
@@ -38,13 +39,24 @@ const ProductCard = ({
 }) => {
 
 
+  const [wishlist, setWishlist] = useState<string[]>([])
+  const saveWishlistwithLocalStorage = async (id: string) => {
+    setWishlist(saveWishlist(id))
+  }
+  useEffect(()=>{
+    const data = localStorage.getItem('wishlist')
+    if(data) {
+      setWishlist(JSON.parse(data))
+    }
+  },[])
+
   return (
     <div className={`${classname}  w-[248px]  `}>
       {data && <Card className=" cursor-pointer hover:border-Primary duration-300 overflow-hidden transition-all hover:shadow-soft_primary/20 group  hover:shadow-xl relative ">
         <div className=" group-hover:top-3 absolute right-3 -top-24 duration-500 transition-all z-[100] ">
-          <div className=" size-10 mb-2 rounded-full border border-gray-200 flex justify-center items-center ">
+          <button onClick={() => saveWishlistwithLocalStorage(data?.product_id)} className={`${wishlist.includes(data.product_id)? " bg-Primary text-white ":""} size-10 mb-2 rounded-full borde border-gray-200 flex justify-center items-center `}>
             <Heart></Heart>
-          </div>
+          </button>
           <>
             <Quick_Product_View productId={data?.product_id} ></Quick_Product_View>
           </>

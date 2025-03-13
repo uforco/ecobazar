@@ -1,6 +1,5 @@
 "use client";
-import serverFetching from "@/lib/serverFetching";
-import React, { useState, ButtonHTMLAttributes } from "react";
+import React, { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 
@@ -11,37 +10,25 @@ interface Props {
 
 function PayBuy(props: Props) {
   const {product_id, stock} = props;
-
   const [qty, setQty] = useState<number>(1);
 
   const [cratdisabled, setCratdisabled] = useState<boolean>(false);
 
-
-
-  console.log('add to cart == ', product_id)
-
-  // userId
-  // product_id
-  // quantity
-
   const addCardHeanler = async () => {
     setCratdisabled(true)
-
     const addcardinfo = {
       userId: "cm80bbde50000dj1kezlho2m6",
       product_id,
       quantity: qty
     }
-
-    
-
-    // const data = await serverFetching(`http://localhost:4000/web/add-to-card`,{
-    //   method: 'POST',
-    //   body: JSON.stringify(addcardinfo)
-    // }).then((res) => res.json())
-    const data = await serverFetching(`http://localhost:4000/web/allcardinfo/cm7xabwaq0000djcwbhxk1kj1`).then((res) => res.json())
-
-    console.log(data)
+    const data = await fetch('/api/addcart',{
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(addcardinfo)
+    }).then((res)=> res.json())
 
     if(data?.cart_id){
       alert('add to card')

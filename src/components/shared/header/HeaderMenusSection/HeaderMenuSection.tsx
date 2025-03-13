@@ -7,6 +7,7 @@ import { FaRegHeart } from "react-icons/fa";
 import AllCategorysec from "../../Manu/allCatagorySection/AllCategorysec";
 import dynamic from "next/dynamic";
 import PopupShoppingCard from "../../PopupShoppingCard/PopupShoppingCard";
+import Link from "next/link";
 
 
 const Manu = dynamic(()=> import('../../Manu/Manu'))
@@ -22,9 +23,9 @@ const HeaderMenuSection = () => {
           </div>
         {/* right site */}
           <div className=" flex items-center gap-2 mx-1  ">
-            <div className="  cursor-pointer text-white text-[22px] p-2  relative rounded-full flex justify-center items-center " >
+            <Link href={"/wishlist"} className="  cursor-pointer text-white text-[22px] p-2  relative rounded-full flex justify-center items-center "  >
               <FaRegHeart></FaRegHeart>
-            </div>
+            </Link>
             <div className="  cursor-pointer text-white text-[22px] p-2  relative rounded-full flex justify-center items-center " >
               <PopupShoppingCard/>
             </div>
