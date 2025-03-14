@@ -23,9 +23,6 @@ const page = () => {
         return router.back();
     }
 
-    
-
-
     const { data, isError, isLoading, isSuccess } = useGetSingleProductViewQuery(productParam);
 
     console.log(data)

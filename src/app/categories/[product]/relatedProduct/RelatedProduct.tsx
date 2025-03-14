@@ -25,7 +25,7 @@ function RelatedProduct(props: Props) {
       }
       if (!isLoading && isSuccess && !isError && products.length >= 1) {
         container = products.map((value: productListType, index: number) => (
-            <ProductCard data={value} key={value?.id} className=" w-[320px] mb-8 " imageWidth={300} imageHeight={248} ></ProductCard>
+            <ProductCard data={value} key={value?.id} className=" w-[300px] mb-8 " imageWidth={300} imageHeight={248} ></ProductCard>
         ))
       }
 
@@ -35,7 +35,7 @@ function RelatedProduct(props: Props) {
             <div className=' text-center text-3xl my-5 mt-8 ' >
                 <h2 className=' font-semibold ' >Related Product</h2>
             </div>
-            <div className=" flex justify-between gap-6 " >
+            <div className=" flex gap-6 " >
                 {container}
             </div>
         </MaxWidthControls>

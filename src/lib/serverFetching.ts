@@ -21,3 +21,6 @@ async function serverFetching (url: string, option?: optionProps ){
 };
 
 export default serverFetching;
+
+
+export const userid: string = 'cm80bbde50000dj1kezlho2m6'

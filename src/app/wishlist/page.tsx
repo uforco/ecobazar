@@ -32,20 +32,23 @@ function Page(props: Props) {
             </div>
             <div className=' w-full ' > <h2 className=' w-full text-center text-2xl my-8' >My Wishlist</h2> </div>
             <MaxWidthControls>
-                <div className=' border rounded-md mb-5 ' >
-                    <Table >
-                        <TableHeader>
-                            <TableRow>
-                            <TableHead className="w-[350px]">Product</TableHead>
-                            <TableHead>Price</TableHead>
-                            <TableHead>Stock Status</TableHead>
-                            <TableHead className=" w-[200px]"></TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <ContaineItems/>
-                        <ShareOption></ShareOption>
-                    </Table>
+                <div className=' border rounded-md mb-5  ' >
+                    <div className="w-full min-h-96 " >
+                        <Table >
+                            <TableHeader>
+                                <TableRow>
+                                <TableHead className="w-[370px]">Product</TableHead>
+                                <TableHead>Price</TableHead>
+                                <TableHead>Stock Status</TableHead>
+                                <TableHead className=" w-[360px] text-center ">Actions</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <ContaineItems/>
+                        </Table>
+                    </div>
+                    <ShareOption></ShareOption>
                 </div>
+                
             </MaxWidthControls>
         </div>
     )

@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import saveWishlist, { getWishlistIds } from "@/lib/saveWishlist";
+import React, { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 
@@ -13,6 +14,15 @@ function PayBuy(props: Props) {
   const [qty, setQty] = useState<number>(1);
 
   const [cratdisabled, setCratdisabled] = useState<boolean>(false);
+
+  const [wishlist, setWishlist] = useState<string[]>([])
+  const saveWishlistwithLocalStorage = async (id: string) => {
+    setWishlist(await saveWishlist(id))
+  }
+    
+  useEffect(()=>{
+      return setWishlist(getWishlistIds())
+  },[])
 
   const addCardHeanler = async () => {
     setCratdisabled(true)
@@ -30,7 +40,8 @@ function PayBuy(props: Props) {
       body: JSON.stringify(addcardinfo)
     }).then((res)=> res.json())
 
-    if(data?.cart_id){
+    if(data?.cart_id && data?.product_id){
+      setWishlist(await saveWishlist(data?.product_id))
       alert('add to card')
     }
     setCratdisabled(false)
@@ -75,7 +86,7 @@ function PayBuy(props: Props) {
           }
         </button>
 
-        <button className=" bg-Primary/20 text-Primary text-xl p-3 rounded-full ">
+        <button onClick={()=> saveWishlistwithLocalStorage(product_id)} className={` ${wishlist.includes(product_id)? "bg-Primary text-white" : "bg-Primary/20 text-Primary" }  text-xl p-3 rounded-full `}>
           <FaRegHeart></FaRegHeart>
         </button>
       </div>

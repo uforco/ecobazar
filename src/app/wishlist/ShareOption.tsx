@@ -9,8 +9,8 @@ function ShareOption(props: Props) {
   const {} = props;
 
   return (
-    <TableFooter className="bg-transparent hover:bg-transparent " >
-      <TableRow className=" flex items-center bg-transparent hover:bg-transparent w-full mx-2 my-4 " >
+    <div className="bg-transparent hover:bg-transparent border-t " >
+      <div className=" flex items-center bg-transparent hover:bg-transparent w-full mx-2 my-4 " >
         {/* <TableCell colSpan={3}>Total</TableCell> */}
         <h2 className="text-md mr-3 " >Share:</h2>
         <ul className=" flex items-center gap-3 ">
@@ -35,8 +35,8 @@ function ShareOption(props: Props) {
             </Link>
           </li>
         </ul>
-      </TableRow>
-    </TableFooter>
+      </div>
+    </div>
   );
 }
 

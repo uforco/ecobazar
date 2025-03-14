@@ -1,5 +1,5 @@
 
-const saveWishlist = (id: string): string[] => {
+const saveWishlist = async (id: string): Promise<string[]> => {
     const data = localStorage.getItem('wishlist')
     if(!data){
         localStorage.setItem('wishlist', JSON.stringify([id]))
@@ -22,7 +22,7 @@ export default saveWishlist;
 
 
 
- export const getWishlistId = (): string[] => {
+ export const getWishlistIds = (): string[] => {
     const data = localStorage.getItem('wishlist')
     if(data) return JSON.parse(data)
     else return []

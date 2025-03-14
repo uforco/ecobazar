@@ -40,9 +40,11 @@ const ProductCard = ({
 
 
   const [wishlist, setWishlist] = useState<string[]>([])
+
   const saveWishlistwithLocalStorage = async (id: string) => {
-    setWishlist(saveWishlist(id))
+    setWishlist(await saveWishlist(id))
   }
+  
   useEffect(()=>{
     const data = localStorage.getItem('wishlist')
     if(data) {

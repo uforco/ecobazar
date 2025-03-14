@@ -3,18 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-
-  // console.log(body)
-
-  // const data = await serverFetching(`/add-to-card`,{
-  //     method: 'POST',
-  //     body: JSON.stringify(body)
-  //   }).then((res) => res.json())
-
-  //   console.log(data)
-
-  // return NextResponse.json({msg: "test api"})
-
+console.log(body)
+// return NextResponse.json(body)
   try {
     const data = await serverFetching(`/add-to-card`, {
       method: "POST",
