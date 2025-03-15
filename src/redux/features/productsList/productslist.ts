@@ -7,7 +7,7 @@ export const productslist = Api.injectEndpoints({
             query: () => '/categories'
         }),
         getSingleProductView: builder.query({
-            query: (id: string) => {console.log(`/product/${id}`)
+            query: (id: string) => {
                 return `/categories/${id}`}
         }),
         getRelatedProducts: builder.query({

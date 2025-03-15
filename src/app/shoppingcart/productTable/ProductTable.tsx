@@ -1,45 +1,21 @@
 import React from "react";
 import {
   Table,
-  TableBody,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
 
 import MaxWidthControls from "@/components/shared/MaxWidthControls";
-import SingleProduct from "./SingleProduct";
 import CouponCode from './CouponCode';
 import CartTotal from '../CartTotal/CartTotal';
+import TableBodyMapData from './TableBodyMapData';
 
 interface Props {}
 
 function ProductTable(props: Props) {
   const {} = props;
 
-  const invoices = [
-    {
-      name: "Green Capsicum",
-      img: "/images/wishlist/Image1.png",
-      price: 20.99,
-      discount: 10,
-      stockStatus: true,
-    },
-    {
-      name: "Chinese Cabbage",
-      img: "/images/wishlist/Image2.png",
-      price: 45.0,
-      discount: 0,
-      stockStatus: true,
-    },
-    {
-      name: "Fresh Sujapuri Mango",
-      img: "/images/wishlist/Image3.png",
-      price: 9.0,
-      discount: 0,
-      stockStatus: false,
-    },
-  ];
 
   return (
     <>
@@ -56,14 +32,7 @@ function ProductTable(props: Props) {
                     <TableHead>Subtotal</TableHead>
                   </TableRow>
                 </TableHeader>
-                <TableBody>
-                  {invoices.map((invoice, inx) => (
-                    <SingleProduct
-                      key={`invoice.img${inx}`}
-                      invoice={invoice}
-                    ></SingleProduct>
-                  ))}
-                </TableBody>
+                <TableBodyMapData/>
               </Table>
               <div className="border-t py-3 px-2 flex justify-between ">
                 <button className=" px-5 py-2 rounded-full bg-gray-200 text-sm ">

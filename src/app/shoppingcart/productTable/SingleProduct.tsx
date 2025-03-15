@@ -2,24 +2,15 @@ import React from "react";
 import { TableCell, TableRow } from "@/components/ui/table";
 import Image from "next/image";
 import QuantityPrice from './QuantityPrice';
+import { cartDataType } from '@/redux/features/MyShoppingCart/shoppingcart';
+import discountPriceFun from "@/hooks/discountPriceFunction";
 
 interface Props {
-  invoice: {
-    img: string;
-    name: string;
-    price: number;
-    discount: number;
-    stockStatus: boolean;
-  };
+  invoice: cartDataType
 }
 
 function SingleProduct(props: Props) {
   const { invoice } = props;
-
-  const integerPart = Math.floor(invoice.price);
-  const floatingPart = invoice.price - integerPart;
-  const discontPrice =
-    integerPart - (integerPart / 100) * invoice.discount + floatingPart;
 
   return (
     <TableRow>
@@ -29,18 +20,19 @@ function SingleProduct(props: Props) {
             className=" w-[100px] h-[100px] "
             width={100}
             height={100}
-            src={invoice.img}
+            src={'/images/wishlist/Image3.png'}
             alt={""}
           ></Image>
-          <h2 className="ml-3">{invoice.name}</h2>
+          <h2 className="ml-3">{invoice?.product_name}</h2>
         </div>
       </TableCell>
       <TableCell>
             <p>
-              <span>${discontPrice.toFixed(2)}</span>
+              <span className="text-base" >${discountPriceFun(invoice.discount, invoice.price)}</span>
+              {invoice?.discount > 0 && <span className="ml-2" ><s>${invoice.price}</s></span>}
             </p>
       </TableCell>
-      <QuantityPrice stockStatus={invoice.stockStatus} discontPrice={discontPrice} ></QuantityPrice>
+      <QuantityPrice invoice={invoice} ></QuantityPrice>
     </TableRow>
   );
 }

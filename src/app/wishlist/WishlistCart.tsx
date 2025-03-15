@@ -25,7 +25,8 @@ const WishlistCart = ({ invoice, refetching}: { invoice: wishItemType, refetchin
     const deleteItem = async (product_id: string) => {
           setDle(true)
           await saveWishlist(product_id)
-          setTimeout(()=>{
+          setTimeout( async ()=>{
+            setDle(false)
             refetching(product_id)
           },1000)
     }
@@ -98,9 +99,15 @@ const WishlistCart = ({ invoice, refetching}: { invoice: wishItemType, refetchin
             Number(invoice?.stock_Status) < 1
               ? " bg-gray-300 text-gray-600 "
               : " bg-Primary hover:bg-green-600 text-white active:scale-95 "
-          } rounded-full px-6 py-2 `}
+          } rounded-full px-6 py-2 w-[120px] h-[36px] flex justify-center items-center `}
         >
-          Add to Cart
+          {
+            !dle?
+              "Add to Cart" 
+            :
+            <span className=" w-4 h-4 border-2 animate-spin rounded-full border-gray-300/60 border-t-gray-100 " ></span>
+          }
+
         </button>
         <button type='button' onClick={() => deleteItem(invoice?.product_id)} className=" text-xl border-2 rounded-full p-1 z-[50] ">
           <IoClose></IoClose>

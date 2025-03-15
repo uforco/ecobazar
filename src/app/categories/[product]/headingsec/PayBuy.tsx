@@ -41,7 +41,7 @@ function PayBuy(props: Props) {
     }).then((res)=> res.json())
 
     if(data?.cart_id && data?.product_id){
-      setWishlist(await saveWishlist(data?.product_id))
+      if(wishlist.includes(data?.product_id)) setWishlist(await saveWishlist(data?.product_id))
       alert('add to card')
     }
     setCratdisabled(false)
