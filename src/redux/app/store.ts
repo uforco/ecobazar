@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { Api } from "../api/Api";
+import checkoutSlice from "../features/orderByCheckout/checkoutSlice";
 
 export const makeStore = () => { return configureStore({
   reducer: {
     [Api.reducerPath]: Api.reducer,
+    checkoutSlice: checkoutSlice
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(Api.middleware),

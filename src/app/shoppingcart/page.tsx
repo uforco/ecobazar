@@ -3,7 +3,7 @@ import MaxWidthControls from '@/components/shared/MaxWidthControls';
 import React from 'react'
 import { GoHome } from 'react-icons/go';
 import { IoIosArrowForward } from 'react-icons/io';
-import ProductTable from './productTable/ProductTable';
+import ProductTable from './productTable/ProductTableMainComponent';
 
 
 interface Props {}

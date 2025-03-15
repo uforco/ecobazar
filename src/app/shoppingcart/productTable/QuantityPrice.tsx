@@ -6,7 +6,7 @@ import {
   cartDataType,
   shoppingcart,
 } from "@/redux/features/MyShoppingCart/shoppingcart";
-import React, { useState } from "react";
+import React from "react";
 import { IoClose } from "react-icons/io5";
 
 interface Props {
@@ -16,14 +16,37 @@ interface Props {
 function QuantityPrice({ invoice }: Props) {
   const dispatch = useAppDispatch();
 
-  const [qty, setQty] = useState<number>(3);
 
-  const dicriment = () => {
-    // if(stockStatus && 1 < qty ) setQty((prv) => prv - 1)
+  const dicriment = (cartid: string) => {
+    if(invoice?.stock_Status >= invoice?.quantity && 1 < invoice?.quantity ) {
+      dispatch(
+        shoppingcart.util.updateQueryData("getShopingCart", invoice?.userId, (draft) => {
+          const dicrimentValue = draft.find(
+            (value: cartDataType) => value.cart_id == cartid
+          );
+          dicrimentValue.quantity -= 1
+        })
+      );
+    }
   };
-  const incriment = () => {
-    // if(stockStatus) setQty((prv) => prv + 1)
+
+  const incriment = (cartid: string) => {
+    if(invoice?.stock_Status > invoice?.quantity) {
+      dispatch(
+        shoppingcart.util.updateQueryData("getShopingCart", invoice?.userId, (draft) => {
+          const dicrimentValue = draft.find(
+            (value: cartDataType) => value.cart_id == cartid
+          );
+          dicrimentValue.quantity += 1
+        })
+      );
+    }
   };
+
+
+
+
+
 
   // DELETE CART ITEM TO SERVER OR REDUX STORE
   const detelecart = async (cart_id: string) => {
@@ -47,14 +70,14 @@ function QuantityPrice({ invoice }: Props) {
         <div className=" flex justify-start">
           <div className="flex items-center justify-center gap-3 border p-1 rounded-full ">
             <button
-              onClick={dicriment}
+              onClick={() => dicriment(invoice?.cart_id)}
               className="bg-gray-300 rounded-full flex items-center justify-center size-7 "
             >
               -
             </button>
-            <p className="w-4 flex items-center justify-center">{qty}</p>
+            <p className="w-4 flex items-center justify-center">{invoice?.quantity}</p>
             <button
-              onClick={incriment}
+              onClick={() =>incriment(invoice?.cart_id)}
               className="bg-gray-300 rounded-full flex items-center justify-center size-7 "
             >
               +
@@ -66,7 +89,7 @@ function QuantityPrice({ invoice }: Props) {
         <div className=" flex justify-between gap-3 items-center ">
           <p className=" flex items-center ">
             {(
-              Number(discountPriceFun(invoice.discount, invoice.price)) * qty
+              Number(discountPriceFun(invoice.discount, invoice.price)) * invoice?.quantity
             ).toFixed(2)}
           </p>
           <button
