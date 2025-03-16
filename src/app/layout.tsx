@@ -3,10 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import FooterSection from "@/components/shared/footersection/FooterSection";
 import HeaderSection from "@/components/shared/header/HeaderSection";
-// import dynamic from "next/dynamic";
 import ReduxProvider from "@/redux/ReduxProvider";
-
-// const ReduxProvider = dynamic(() => import("@/redux/ReduxProvider"), { ssr: false });
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
