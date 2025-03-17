@@ -4,6 +4,7 @@ import ShippingAddressForm from "@/pages/checkoutCopmpo/ShippingAddressForm";
 import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
 import OrderSummery from './OrderSummery/OrderSummery';
+import FormSubmitAction from './FormSubmitAction';
 
 const page = () => {
   return (
@@ -24,12 +25,15 @@ const page = () => {
         </div>
       </div>
       <MaxWidthControls>
-        <div className="flex w-full gap-5 ">
-          <div className=" w-8/12">
-            <ShippingAddressForm></ShippingAddressForm>
+        <FormSubmitAction>
+          <div className="flex w-full gap-5 my-5 ">
+            <div className=" w-8/12">
+              <h2 className=" text-3xl font-medium my-4 mb-7 " >Billing Information</h2>
+              <ShippingAddressForm></ShippingAddressForm>
+            </div>
+            <div className=" w-4/12 "> <OrderSummery></OrderSummery></div>
           </div>
-          <div className=" w-4/12 "> <OrderSummery></OrderSummery> </div>
-        </div>
+        </FormSubmitAction>
       </MaxWidthControls>
     </div>
   );

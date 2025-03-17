@@ -10,44 +10,43 @@ import SelectCompo from './SelectCompo';
 const ShippingAddressForm = () => {
 
 
-    function onSubmit(values: any) {
-        values.preventDefault();
-        const formData = new FormData(values.target as HTMLFormElement);
+    // function onSubmit(values: any) {
+    //     values.preventDefault();
+    //     const formData = new FormData(values.target as HTMLFormElement);
 
-        console.log(formData.get('states') )
-      }
+    //     console.log(formData.get('states') )
+    //   }
 
 
     return (
-      <form onSubmit={onSubmit} className="space-y-8">
+      <div className="space-y-8">
         <div className=" flex items-center gap-3 " >
             <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="firstName">First name</Label>
-                <Input id="firstName" name="firstName" type="text" placeholder="Your first name" required />
+                <Input className=" h-[42px] " id="firstName" name="firstName" type="text" placeholder="Your first name" required />
             </div>
             <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="lastName">Last name</Label>
-                <Input id="lastName" name="lastName" type="text" placeholder="Your last name" />
+                <Input className=" h-[42px] " id="lastName" name="lastName" type="text" placeholder="Your last name" />
             </div>
         </div>
         <div className="grid w-full items-center gap-1.5">
             <Label htmlFor="address">Address</Label>
-            <Input id="address" type="text" placeholder="Address" required />
+            <Input className=" h-[42px] " id="address" type="text" placeholder="Address" required />
         </div>
-        
         <SelectCompo/>
         <div className=" flex items-center gap-3 " >
             <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" name="email" placeholder="Email Address" type="email"  />
+                <Input className=" h-[42px] " id="email" name="email" placeholder="Email Address" type="email"  />
             </div>
             <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="phone">Phone</Label>
-                <Input id="phone" name="phone" placeholder="Phone number" type="text"  />
+                <Input className=" h-[42px] " id="phone" name="phone" placeholder="Phone number" type="text"  />
             </div>
         </div>  
-        <Button type="submit">Submit</Button>
-      </form>
+        {/* <Button type="submit">Submit</Button> */}
+      </div>
     );
 };
 
