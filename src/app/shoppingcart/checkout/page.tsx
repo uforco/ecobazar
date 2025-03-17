@@ -17,7 +17,7 @@ const page = () => {
                 <GoHome></GoHome>
               </span>
               <IoIosArrowForward></IoIosArrowForward>
-              <span className=" text-Primary ">Shopping</span>
+              <span >Shopping</span>
               <IoIosArrowForward></IoIosArrowForward>
               <span className=" text-Primary ">checkout</span>
             </div>
