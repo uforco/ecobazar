@@ -3,7 +3,7 @@ import MaxWidthControls from "@/components/shared/MaxWidthControls";
 import ShippingAddressForm from "@/pages/checkoutCopmpo/ShippingAddressForm";
 import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
-import OrderSummery from '@/pages/checkoutCopmpo/OrderSummery/OrderSummery';
+import OrderSummery from './OrderSummery/OrderSummery';
 
 const page = () => {
   return (

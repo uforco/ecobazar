@@ -3,9 +3,11 @@ import discountPriceFun from '@/hooks/discountPriceFunction';
 import { useAppDispatch, useAppSelector } from '@/redux/app/hooks';
 import { cartDataType } from '@/redux/features/MyShoppingCart/shoppingcart';
 import { insertOrderItems } from '@/redux/features/orderByCheckout/checkoutSlice';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 const CheckoutBtn = ({data}:{data: cartDataType[] | undefined}) => {
+    const route = useRouter()
     const chechoutData = useAppSelector((state) => state.checkoutSlice)
     const dispatch = useAppDispatch()
 
@@ -31,6 +33,7 @@ const saveCheckOutDetails = async () => {
     }
     setTimeout(()=>{
         setCheckoutProcess(false)
+        route.push('/shoppingcart/checkout')
     },1000)
 }
 
