@@ -3,6 +3,7 @@ import MaxWidthControls from "@/components/shared/MaxWidthControls";
 import ShippingAddressForm from "@/pages/checkoutCopmpo/ShippingAddressForm";
 import { GoHome } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
+import OrderSummery from '@/pages/checkoutCopmpo/OrderSummery/OrderSummery';
 
 const page = () => {
   return (
@@ -27,7 +28,7 @@ const page = () => {
           <div className=" w-8/12">
             <ShippingAddressForm></ShippingAddressForm>
           </div>
-          <div className=" w-4/12 ">sdfh</div>
+          <div className=" w-4/12 "> <OrderSummery></OrderSummery> </div>
         </div>
       </MaxWidthControls>
     </div>
