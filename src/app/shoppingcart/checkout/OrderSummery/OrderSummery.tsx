@@ -1,9 +1,6 @@
 'use client'
 import React from 'react';
 import { cartDataType, useGetShopingCartQuery } from '@/redux/features/MyShoppingCart/shoppingcart';
-
-
-
 import {
     Table,
     TableBody
@@ -20,16 +17,9 @@ const OrderSummery = () => {
       )
 
       const[hydro, setHydro] = React.useState(false)
-
-
       React.useEffect(()=>{
         setHydro(true)
       },[])
-
-
-
-
-
       if(!hydro) return null;
 
 
@@ -48,13 +38,17 @@ const OrderSummery = () => {
     container = data.map((item: cartDataType) => (
         <ProductSummary key={item.cart_id} item={item} />
     ));
+
+
+
+
   }
     
 
     return (
-        <div className=" border rounded p-4  overflow-hidden mb-10 " >
-            <h2 className=' text-2xl font-medium mb-2 ' >Order Summery</h2>
-            <div className=" w-full h-[450px]  overflow-y-scroll " >
+        <div className=" border rounded-lg p-4  overflow-hidden mb-10 " >
+            <h2 className=' text-2xl font-medium mb-4 ' >Order Summery</h2>
+            <div className=" w-full h-[350px]  overflow-y-scroll " >
               <Table>
                   <TableBody>
                       {container}
@@ -62,15 +56,9 @@ const OrderSummery = () => {
               </Table>
             </div>
             <div>
-              <h2>dfrj</h2>
-              <h2>dfrj</h2>
-              <h2>dfrj</h2>
-              <h2>dfrj</h2>
-              <h2>dfrj</h2>
-              <h2>dfrj</h2>
-              <h2>dfrj</h2>
-              <h2>dfrj</h2>
-              <h2>dfrj</h2>
+              <div className=' text-gray-600 flex justify-between items-center py-3 border-b ' ><span>Subtotal:</span> <span className=' text-gray-700 font-semibold ' >${85.00}</span></div>
+              <div className=' text-gray-600 flex justify-between items-center py-3 border-b ' ><span>Shipping:</span> <span className=' text-gray-700 font-semibold ' >Free</span></div>
+              <div className=' text-gray-600 flex justify-between items-center py-3 ' ><span>Shipping:</span> <span className=' text-gray-900 text-2xl font-semibold ' >${85.00}</span></div>
             </div>
         </div>
     );
