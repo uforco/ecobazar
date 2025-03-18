@@ -1,6 +1,4 @@
 "use client"
-
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React from "react";
@@ -8,14 +6,6 @@ import SelectCompo from './SelectCompo';
 
 
 const ShippingAddressForm = () => {
-
-
-    // function onSubmit(values: any) {
-    //     values.preventDefault();
-    //     const formData = new FormData(values.target as HTMLFormElement);
-
-    //     console.log(formData.get('states') )
-    //   }
 
 
     return (
@@ -32,7 +22,7 @@ const ShippingAddressForm = () => {
         </div>
         <div className="grid w-full items-center gap-1.5">
             <Label htmlFor="address">Address</Label>
-            <Input className=" h-[42px] " id="address" type="text" placeholder="Address" required />
+            <Input className=" h-[42px] " id="address" name="address" type="text" placeholder="Address" required />
         </div>
         <SelectCompo/>
         <div className=" flex items-center gap-3 " >
@@ -44,8 +34,7 @@ const ShippingAddressForm = () => {
                 <Label htmlFor="phone">Phone</Label>
                 <Input className=" h-[42px] " id="phone" name="phone" placeholder="Phone number" type="text"  />
             </div>
-        </div>  
-        {/* <Button type="submit">Submit</Button> */}
+        </div>
       </div>
     );
 };

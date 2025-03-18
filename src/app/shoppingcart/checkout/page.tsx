@@ -31,7 +31,9 @@ const page = () => {
               <h2 className=" text-3xl font-medium my-4 mb-7 " >Billing Information</h2>
               <ShippingAddressForm></ShippingAddressForm>
             </div>
-            <div className=" w-4/12 "> <OrderSummery></OrderSummery></div>
+            <div className=" w-4/12 "> 
+              <OrderSummery></OrderSummery>
+            </div>
           </div>
         </FormSubmitAction>
       </MaxWidthControls>
