@@ -9,28 +9,34 @@ export type order_itemsType = {
   total_price: number
 }
 export interface CounterState {
-  userId: string,
+  orderpush: boolean
+  userId: string
   deleteCartlist: string[]
-  order_items: order_itemsType[],
+  order_items: order_itemsType[]
   deliveryAddress: {
-      address: string,
-      city: string,
-      state: string,
-      postcode: string,
+      name: string
+      address: string
+      city: string
+      state: string
+      postcode: string
+      email: string
       phone: string
   }
 }
 const initialState: CounterState = {
-    userId: "",
-    deleteCartlist: [],
-    order_items:[],
-    deliveryAddress: {
-        address: "",
-        city: "",
-        state: "",
-        postcode: "",
-        phone: ""
-    }
+  orderpush: false,
+  userId: "",
+  deleteCartlist: [],
+  order_items: [],
+  deliveryAddress: {
+    name: "",
+    address: "",
+    city: "",
+    state: "",
+    postcode: "",
+    email: "",
+    phone: ""
+  }
 }
 
 const checkoutSlice = createSlice({
@@ -42,11 +48,17 @@ const checkoutSlice = createSlice({
         const {order_items, deleteCartlist} = action.payload
         state.deleteCartlist = deleteCartlist
         state.order_items = order_items
-
-      }
+      },
+      deliveryAddress: (state, action) => {
+        state.deliveryAddress = action.payload
+      },
+      orderSubmitAction: (state) => {
+        state.orderpush = true
+      },
+      submitSuccessfull: () => initialState
     }
 })
 
-export const { insertOrderItems } = checkoutSlice.actions
+export const { insertOrderItems, deliveryAddress, orderSubmitAction, submitSuccessfull } = checkoutSlice.actions
 
 export default checkoutSlice.reducer

@@ -1,46 +1,27 @@
 "use client";
-import discountPriceFun from '@/hooks/discountPriceFunction';
-import { useAppDispatch, useAppSelector } from '@/redux/app/hooks';
 import { cartDataType } from '@/redux/features/MyShoppingCart/shoppingcart';
-import { insertOrderItems } from '@/redux/features/orderByCheckout/checkoutSlice';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 const CheckoutBtn = ({data}:{data: cartDataType[] | undefined}) => {
-    const chechoutData = useAppSelector((state) => state.checkoutSlice)
-    const dispatch = useAppDispatch()
+    const route = useRouter()
 
     const[checkoutProcess, setCheckoutProcess] = useState<boolean>(false)
-
-    const dlecartlist: string[] = []
-    const sortdat = data?.map((item: cartDataType) => {
-        dlecartlist.push(item.cart_id)
-        return ({ 
-            product_id: item.product_id,
-            price: item.price,
-            discount: item.discount,
-            quantity: item.quantity,
-            total_price: Number((Number(discountPriceFun(item.discount, item.price))*item.quantity).toFixed(2))
-        })
-    })
 
 
 const saveCheckOutDetails = async () => {
     setCheckoutProcess(true)
-    if (sortdat?.length) {
-        dispatch(insertOrderItems({ order_items: sortdat, deleteCartlist: dlecartlist }))
-    }
+    
+    // TODO: update cart item to server on db 
     setTimeout(()=>{
         setCheckoutProcess(false)
+        route.push('/shoppingcart/checkout')
     },1000)
 }
 
-console.log("chechoutData", chechoutData);
-
-
-
 
     return (
-        <button onClick={saveCheckOutDetails} className=" w-full rounded-full relative h-12 bg-Primary flex justify-center items-center text-white font-poppins ">
+        <button disabled={checkoutProcess} onClick={saveCheckOutDetails} className=" w-full rounded-full relative h-12 bg-Primary flex justify-center items-center text-white font-poppins ">
             {!checkoutProcess? "Proceed to checkout" : <SvgLoader/>}
         </button>
     );
