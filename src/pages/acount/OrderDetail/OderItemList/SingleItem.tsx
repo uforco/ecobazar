@@ -1,35 +1,43 @@
 import React from "react";
 import { TableCell, TableRow } from "@/components/ui/table";
-import Image from "next/image";
-import PriceSection from './PriceSection';
+// import Image from "next/image";
+import FallbackImage from "@/components/shared/FallbackImage";
 
-interface Props {
-  invoice: {
-    img: string;
-    name: string;
-    price: number;
-    discount: number;
-    quantity: number;
-  };
+export interface itemType {
+    item_name: string,
+    image: string,
+    price: number,
+    quantity: number,
+    subtotal: number
 }
 
-function SingleItem(props: Props) {
-    const { invoice } = props;
+function SingleItem({item}: {item: itemType}) {
+
+  if(!item?.item_name) return null
+
   return (
-    invoice &&  <TableRow >
+    item &&  <TableRow >
       <TableCell className="font-medium">
         <div className=" flex justify-start items-center ml-4 my-2 ">
-          <Image
-            className=" w-[50px] h-[50px] "
-            width={100}
-            height={100}
-            src={invoice.img}
-            alt={""}
-          ></Image>
-          <h2 className="ml-3">{invoice.name}</h2>
+          <div className=" w-[50px] h-[50px] " >
+            <FallbackImage
+              className=" w-[50px] h-[50px] "
+              width={100}
+              height={100}
+              src={item?.image}
+              alt={""}
+            ></FallbackImage>
+          </div>
+          <h2 className="ml-3">{item?.item_name}</h2>
         </div>
       </TableCell>
-      <PriceSection price={invoice.price} discount={invoice.discount} quantity={invoice.quantity}></PriceSection>
+      <TableCell>
+        <p>{item.price}</p>
+      </TableCell>
+      <TableCell>
+        <p className="ml-2" >x{item?.quantity}</p>
+      </TableCell>
+      <TableCell className="ml-2" >{item?.subtotal.toFixed(2)}</TableCell>
     </TableRow>
   );
 }

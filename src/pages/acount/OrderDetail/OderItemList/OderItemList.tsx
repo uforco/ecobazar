@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import {
     Table,
@@ -6,37 +7,15 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table";
-import SingleItem from './SingleItem';
+import SingleItem, { itemType } from './SingleItem';
 
-interface Props {}
+interface Props {
+  items: itemType[]
+}
 
-function OderItemList(props: Props) {
-    const {} = props
+function OderItemList({items}: Props) {
 
-    const invoices = [
-        {
-          name: "Green Capsicum",
-          img: "/images/wishlist/Image1.png",
-          price: 20.99,
-          discount: 10,
-          quantity: 3,
-        },
-        {
-          name: "Chinese Cabbage",
-          img: "/images/wishlist/Image2.png",
-          price: 45.0,
-          discount: 0,
-          quantity: 1,
-        },
-        {
-          name: "Fresh Sujapuri Mango",
-          img: "/images/wishlist/Image3.png",
-          price: 9.0,
-          discount: 0,
-          quantity: 7,
-        },
-      ];
-
+  if(!items) return null
 
     return (
         <div>
@@ -50,12 +29,12 @@ function OderItemList(props: Props) {
                   </TableRow>
                 </TableHeader>
                     <TableBody className=' w-full ' >
-                    {invoices.map((invoice, inx) => (
-                        <SingleItem
-                        key={`invoice.img${inx}`}
-                        invoice={invoice}
-                        ></SingleItem>
-                    ))}
+                      {items.map((item: itemType) => (
+                          <SingleItem
+                          key={`${item.item_name}`}
+                          item={item}
+                          ></SingleItem>
+                      ))}
                     </TableBody>
               </Table>
         </div>
