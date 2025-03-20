@@ -23,6 +23,7 @@ export interface productListType {
   price: string | number;
   discount: string | number;
   coverimage?: string;
+  category?: string;
 }
 
 

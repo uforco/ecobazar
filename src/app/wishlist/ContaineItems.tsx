@@ -4,7 +4,6 @@ import { getWishlistIds } from "@/lib/saveWishlist";
 import { useGetWishlistQuery } from "@/redux/features/wishlist/wishlist";
 import React, { useEffect, useState } from "react";
 import WishlistCart, {wishItemType} from "./WishlistCart";
-
 import { useAppDispatch } from '@/redux/app/hooks';
 import { wishlistItems } from '@/redux/features/wishlist/wishlist';
 import { useGetShopingCartQuery } from "@/redux/features/MyShoppingCart/shoppingcart";

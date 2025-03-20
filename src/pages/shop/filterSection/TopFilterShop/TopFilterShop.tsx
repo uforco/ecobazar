@@ -5,7 +5,7 @@ import { LuSettings2 } from "react-icons/lu";
 import dynamic from "next/dynamic";
 import DiscountAds from "@/pages/shop/filterSection/DiscountAds/DiscountAds";
 const AllCategories = dynamic(
-  () => import("@/pages/shop/filterSection/AllCategories/AllCategories"),
+  () => import("@/app/categories/fillterProduct/AllCategories/AllCategories"),
   {
     loading: () => <p>Loading...</p>,
   }

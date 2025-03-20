@@ -1,5 +1,6 @@
 "use client";
 import saveWishlist, { getWishlistIds } from "@/lib/saveWishlist";
+import { useGetShopingCartQuery } from "@/redux/features/MyShoppingCart/shoppingcart";
 import React, { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
@@ -14,16 +15,22 @@ function PayBuy(props: Props) {
   const [qty, setQty] = useState<number>(1);
 
   const [cratdisabled, setCratdisabled] = useState<boolean>(false);
-
+  // save wishlist in loacalStorage by product id
   const [wishlist, setWishlist] = useState<string[]>([])
   const saveWishlistwithLocalStorage = async (id: string) => {
     setWishlist(await saveWishlist(id))
   }
     
+  // add to cart to db and action with redux store in shoppingcart update
+  const { refetch: updateShoppingStore } = useGetShopingCartQuery("cm80bbde50000dj1kezlho2m6");
+
+
   useEffect(()=>{
       return setWishlist(getWishlistIds())
   },[])
 
+
+  // add to cart on server db actions
   const addCardHeanler = async () => {
     setCratdisabled(true)
     const addcardinfo = {
@@ -42,6 +49,7 @@ function PayBuy(props: Props) {
 
     if(data?.cart_id && data?.product_id){
       if(wishlist.includes(data?.product_id)) setWishlist(await saveWishlist(data?.product_id))
+      updateShoppingStore()
       alert('add to card')
     }
     setCratdisabled(false)

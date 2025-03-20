@@ -61,16 +61,6 @@ const page = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
     return container
 };
 
