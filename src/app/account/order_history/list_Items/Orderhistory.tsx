@@ -18,7 +18,7 @@ function Orderhistory (props: Props) {
 
   const {data, isError, isLoading, isSuccess } = useGetAllOrderHistoryQuery('cm80bbde50000dj1kezlho2m6')
 
-// console.log(data.length)
+console.log(data)
 
   let containe;
   if(isLoading) containe = <div>Loading...</div>

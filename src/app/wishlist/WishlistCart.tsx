@@ -3,6 +3,7 @@ import FallbackImage from '@/components/shared/FallbackImage';
 import { TableCell, TableRow } from '@/components/ui/table';
 import discountPriceFun from '@/hooks/discountPriceFunction';
 import saveWishlist from '@/lib/saveWishlist';
+
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { IoClose } from 'react-icons/io5';
@@ -18,9 +19,12 @@ import { IoClose } from 'react-icons/io5';
     coverimage: string;
   }
 
-const WishlistCart = ({ invoice, refetching}: { invoice: wishItemType, refetching: (id: string) => void}) => {
+const WishlistCart = ({ invoice, refetching, refetchCart}: { invoice: wishItemType, refetching: (id: string) => void, refetchCart: () => void }) => {
+    
+
     const discountPrice = discountPriceFun(invoice.discount, invoice.price)
     const[dle, setDle] = useState<boolean>(false)
+
 
     const deleteItem = async (product_id: string) => {
           setDle(true)
@@ -45,8 +49,14 @@ const WishlistCart = ({ invoice, refetching}: { invoice: wishItemType, refetchin
         },
         body: JSON.stringify(cartData)
       }).then((value) => value.json())
-      if(sevecartdata?.product_id && sevecartdata?.cart_id) deleteItem(sevecartdata?.product_id)
+      if(sevecartdata?.product_id && sevecartdata?.cart_id) {
+        deleteItem(sevecartdata?.product_id)
+        refetchCart()
+      }
     }
+
+
+
 
     return <TableRow className={`${dle? " absolute w-full flex items-center justify-between right-[100%] duration-1000 " : " right-0 "}  border h-[120px] transition-all z-50 duration-1000 ${dle? "bg-red-600 hover:bg-red-600 border-red-500 ":""} `} key={invoice?.product_id}>
     <TableCell className="font-medium">

@@ -49,7 +49,6 @@ function ProductTable(props: Props) {
   }
 
 
-
   return (
     <>
       <MaxWidthControls>
