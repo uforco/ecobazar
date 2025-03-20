@@ -1,14 +1,19 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Progress } from "@/components/ui/progress"
 import ProcessDetails from './ProcessDetails'
 
-interface Props {}
+interface Props {
+    order_progress: number
+}
 
-function OrderProcessUpdate(props: Props) {
-    const {} = props
+function OrderProcessUpdate({order_progress}: Props) {
 
-    const [pross, setPross] = useState<number>(33)
+    const [pross, setPross] = useState<number>(order_progress)
+
+    useEffect(()=>{
+        setPross(order_progress)
+    },[])
 
     return (
         <div className=' w-full px-10' >
