@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import add from '../../../../../public/images/categores/FilterAds.png'
+import add from '../../../../public/images/categores/FilterAds.png'
 import { FaArrowRightLong } from "react-icons/fa6";
 
 interface Props {}

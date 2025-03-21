@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { Api } from "../api/Api";
 import checkoutSlice from "../features/orderByCheckout/checkoutSlice";
-import filterproducts from "../features/productsList/filterproducts";
+import filterproducts from "../features/filterByProduct/filterproducts";
 
 export const makeStore = () => { return configureStore({
   reducer: {

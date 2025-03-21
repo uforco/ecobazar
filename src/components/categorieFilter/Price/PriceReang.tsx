@@ -1,4 +1,6 @@
 "use client";
+import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
+import { filterSelector, priceReangFilter } from "@/redux/features/filterByProduct/filterproducts";
 import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { Range } from "react-range";
@@ -7,12 +9,15 @@ interface Props {}
 
 function PriceReang(props: Props) {
   const {} = props;
-
+  const values = useAppSelector(filterSelector).pricerange
+  const dispatch = useAppDispatch()
 
   const maxpricering: number = 1500;
-
   const [swt, setSwt] = React.useState<boolean>(false);
-  const [values, setValues] = React.useState([200, 800]); // Initial min/max values
+
+  const priceHandle = (range: number[]) =>{
+    dispatch(priceReangFilter(range))
+  }
 
   return (
     <div className="p-3 transition-all border-b ">
@@ -26,8 +31,7 @@ function PriceReang(props: Props) {
             swt ? "rotate-0" : "-rotate-180"
           } transition-all duration-300 `}
         >
-          {" "}
-          <IoIosArrowDown></IoIosArrowDown>{" "}
+          <IoIosArrowDown></IoIosArrowDown>
         </span>
       </div>
       <div
@@ -42,7 +46,7 @@ function PriceReang(props: Props) {
               min={0}
               max={maxpricering}
               values={values}
-              onChange={(values) => setValues(values)}
+              onChange={(range) => priceHandle(range)}
               renderTrack={({ props, children }) => (
                 <div
                   {...props}

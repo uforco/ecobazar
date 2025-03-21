@@ -3,21 +3,21 @@ import { Drawer } from "vaul";
 import React from "react";
 import { LuSettings2 } from "react-icons/lu";
 import dynamic from "next/dynamic";
-import DiscountAds from "@/pages/shop/filterSection/DiscountAds/DiscountAds";
+import DiscountAds from "../DiscountAds/DiscountAds";
 const AllCategories = dynamic(
-  () => import("@/app/categories/fillterProduct/AllCategories/AllCategories"),
+  () => import("@/components/categorieFilter/AllCategories/AllCategories"),
   {
     loading: () => <p>Loading...</p>,
   }
 );
 const PriceReang = dynamic(
-  () => import("@/pages/shop/filterSection/Price/PriceReang"),
+  () => import("@/components/categorieFilter/Price/PriceReang"),
   {
     loading: () => <p>Loading...</p>,
   }
 );
 const Rating = dynamic(
-  () => import("@/pages/shop/filterSection/Rating/Rating"),
+  () => import("../Rating/Rating"),
   {
     loading: () => <p>Loading...</p>,
   }

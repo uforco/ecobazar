@@ -2,6 +2,7 @@
 import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import RedioBtnCategoris from "./RedioBtnCategoris";
+import { useGetFillterCategoriesQuery } from "@/redux/features/filterByProduct/filter";
 
 interface Props {}
 
@@ -9,6 +10,23 @@ function AllCategories(props: Props) {
   const {} = props;
 
   const [swt, setSwt] = React.useState<boolean>(false);
+
+
+  const { data, isError, isLoading, isSuccess } = useGetFillterCategoriesQuery(undefined)
+
+
+
+  let containe;
+
+  if(isLoading) containe = <div>Loading...</div>
+  if(isError && !isLoading && !isSuccess) containe = <div>something wrong</div>
+  if(!isError && !isLoading && isSuccess && data.length < 1) containe = <div>something wrong</div>
+  if(!isError && !isLoading && isSuccess && data.length > 0) {
+    containe = data?.map((categorie: {category: string}) => <RedioBtnCategoris key={categorie?.category} className="my-3" name={categorie?.category} /> )
+  }
+
+
+
 
   return (
     <div className="p-3 transition-all border-b ">
@@ -31,13 +49,7 @@ function AllCategories(props: Props) {
         }`}
       >
         <ul className="ml-3">
-          <RedioBtnCategoris key={1} className="my-3" name="Fresh Fruit" />
-          <RedioBtnCategoris key={2} className="my-3" name="Vegetables" />
-          <RedioBtnCategoris key={3} className="my-3" name="Cooking" />
-          <RedioBtnCategoris key={4} className="my-3" name="Snacks" />
-          <RedioBtnCategoris key={5} className="my-3" name="Beverages" />
-          <RedioBtnCategoris key={6} className="my-3" name="Beauty & Health" />
-          <RedioBtnCategoris key={7} className="my-3" name="Bread & Bakery" />
+          {containe}
         </ul>
       </div>
     </div>

@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
-import { filterSelector, categoriesfilter } from "@/redux/features/productsList/filterproducts";
+import { filterSelector, categoriesfilter } from "@/redux/features/filterByProduct/filterproducts";
 
 
 interface Props {

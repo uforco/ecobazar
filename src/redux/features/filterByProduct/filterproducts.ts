@@ -3,10 +3,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: {
     categories: string[],
-    pricerange: [number, number],
+    pricerange: number[],
     rating: number[]
 } = {
-    categories: ['Snacks'],
+    categories: [],
     pricerange: [0, 0],
     rating: []
 }
@@ -22,12 +22,15 @@ const filterproducts = createSlice({
             }else{
                 state.categories.push(action?.payload)
             }
+        },
+        priceReangFilter(state, action: PayloadAction<number[]>){
+            state.pricerange = action.payload
         }
     }
 })
 
 
-export const { categoriesfilter } = filterproducts.actions
+export const { categoriesfilter, priceReangFilter } = filterproducts.actions
 
 export default filterproducts.reducer
 
