@@ -10,11 +10,7 @@ function AllCategories(props: Props) {
   const {} = props;
 
   const [swt, setSwt] = React.useState<boolean>(false);
-
-
   const { data, isError, isLoading, isSuccess } = useGetFillterCategoriesQuery(undefined)
-
-
 
   let containe;
 
@@ -24,8 +20,6 @@ function AllCategories(props: Props) {
   if(!isError && !isLoading && isSuccess && data.length > 0) {
     containe = data?.map((categorie: {category: string}) => <RedioBtnCategoris key={categorie?.category} className="my-3" name={categorie?.category} /> )
   }
-
-
 
 
   return (

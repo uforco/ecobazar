@@ -42,7 +42,7 @@ const filterproducts = createSlice({
 })
 
 
-export const { categoriesfilter, priceReangFilter, productResults } = filterproducts.actions
+export const { categoriesfilter, priceReangFilter, productResults, ratingfilter } = filterproducts.actions
 
 export default filterproducts.reducer
 

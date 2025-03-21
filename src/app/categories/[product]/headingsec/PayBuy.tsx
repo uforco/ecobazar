@@ -93,7 +93,6 @@ function PayBuy(props: Props) {
             <span className=" size-4 border-2 animate-spin rounded-full border-gray-300/60 border-t-gray-100 " ></span>
           }
         </button>
-
         <button onClick={()=> saveWishlistwithLocalStorage(product_id)} className={` ${wishlist.includes(product_id)? "bg-Primary text-white" : "bg-Primary/20 text-Primary" }  text-xl p-3 rounded-full `}>
           <FaRegHeart></FaRegHeart>
         </button>

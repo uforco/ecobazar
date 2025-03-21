@@ -56,7 +56,9 @@ const page = () => {
             : false
           : true;
 
-        return categorefilteritems && pricefilter;
+        const ratingfilter = itemFilter.rating.length? (itemFilter?.rating.includes(Number(value.rating))) : true
+
+        return categorefilteritems && pricefilter && ratingfilter;
       })
       .map((cardData: productListType, inx: number, arry: productListType[]) => {
         dispatch(productResults(arry.length))

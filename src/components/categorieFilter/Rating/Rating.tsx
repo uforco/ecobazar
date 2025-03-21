@@ -3,6 +3,8 @@ import React from 'react'
 import { IoIosArrowDown } from "react-icons/io";
 import { Checkbox } from '@/components/ui/checkbox';
 import SterRating from '@/components/ui/SterRating';
+import { useAppDispatch, useAppSelector } from '@/redux/app/hooks';
+import { filterSelector, ratingfilter } from '@/redux/features/filterByProduct/filterproducts';
 
 interface Props {}
 
@@ -12,6 +14,15 @@ function Rating(props: Props) {
 
     const [swt, setSwt] = React.useState<boolean>(false)
 
+
+    const dispatch = useAppDispatch()
+
+
+    const ratingHendle = (value: number) => {
+        dispatch(ratingfilter(value))
+    }
+
+
     return (
         <div className="p-3 transition-all border-b " >
             <div onClick={() => setSwt((priv) => !priv)} className="flex items-center justify-between cursor-pointer " >
@@ -20,36 +31,36 @@ function Rating(props: Props) {
             </div>
             <div className={` overflow-hidden transition-all mt-3 duration-500 ${ swt? "h-0" : " h-[200px] " } `} >
                 <ul className="ml-1" >
-                    <li className='flex items-center mb-4 gap-2 ' >
-                        <Checkbox id="default-checkbox" ></Checkbox>
+                    <li  className='flex items-center mb-4 gap-2 ' >
+                        <Checkbox onClick={() => ratingHendle(5) } id="default-checkbox" ></Checkbox>
                         <div className=' flex items-center gap-[3px]  text-warning ' >
                             <SterRating Rating='5' ></SterRating>
                         </div>
                         <span>5.0</span>
                     </li>
-                    <li className='flex items-center mb-4 gap-2 ' >
-                        <Checkbox id="default-checkbox" ></Checkbox>
+                    <li  className='flex items-center mb-4 gap-2 ' >
+                        <Checkbox onClick={() => ratingHendle(4) } id="default-checkbox" ></Checkbox>
                         <div className=' flex items-center gap-[3px]  text-warning ' >
                             <SterRating Rating='4' ></SterRating>
                         </div>
                         <span>4.0 & up</span>
                     </li>
-                    <li className='flex items-center mb-4 gap-2 ' >
-                        <Checkbox id="default-checkbox" ></Checkbox>
+                    <li  className='flex items-center mb-4 gap-2 ' >
+                        <Checkbox onClick={() => ratingHendle(3) } id="default-checkbox" ></Checkbox>
                         <div className=' flex items-center gap-[3px]  text-warning ' >
                             <SterRating Rating='3' ></SterRating>
                         </div>
                         <span>3.0 & up</span>
                     </li>
-                    <li className='flex items-center mb-4 gap-2 ' >
-                        <Checkbox id="default-checkbox" ></Checkbox>
+                    <li  className='flex items-center mb-4 gap-2 ' >
+                        <Checkbox onClick={() => ratingHendle(2) } id="default-checkbox" ></Checkbox>
                         <div className=' flex items-center gap-[3px]  text-warning ' >
                             <SterRating Rating='2' ></SterRating>
                         </div>
                         <span>2.0 & up</span>
                     </li>
-                    <li className='flex items-center mb-4 gap-2 ' >
-                        <Checkbox id="default-checkbox" ></Checkbox>
+                    <li  className='flex items-center mb-4 gap-2 ' >
+                        <Checkbox onClick={() => ratingHendle(1) } id="default-checkbox" ></Checkbox>
                         <div className=' flex items-center gap-[3px]  text-warning ' >
                             <SterRating Rating='1' ></SterRating>
                         </div>

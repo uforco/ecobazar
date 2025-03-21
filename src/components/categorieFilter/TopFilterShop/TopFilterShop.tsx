@@ -40,7 +40,7 @@ function TopFilterShop(props: Props) {
           Filter <LuSettings2></LuSettings2>
         </button>
       </div>
-      <div className=" block xl:hidden " >
+      <div className=" block xl:hidden ">
         <PhoneViewFilter />
       </div>
       <div className=" w-full xl:w-[984px] flex justify-between items-center ">
