@@ -20,7 +20,7 @@ function RedioBtnCategoris(props: Props) {
     dispatch(categoriesfilter(value))
   }
 
-  console.log(selectItem)
+  // console.log(selectItem)
 
   return (
     <li className={classname} >

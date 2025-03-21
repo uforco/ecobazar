@@ -12,7 +12,7 @@ function PriceReang(props: Props) {
   const values = useAppSelector(filterSelector).pricerange
   const dispatch = useAppDispatch()
 
-  const maxpricering: number = 1500;
+  const maxpricering: number = 100;
   const [swt, setSwt] = React.useState<boolean>(false);
 
   const priceHandle = (range: number[]) =>{

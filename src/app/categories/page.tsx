@@ -7,8 +7,8 @@ import TopFilterShop from "@/components/categorieFilter/TopFilterShop/TopFilterS
 import { useGetProductsWithCategoriePageQuery } from "@/redux/features/productsList/productslist";
 import ProductCard, {productListType} from "@/components/shared/allCard/ProductCard";
 import Loading from "@/components/shared/loading";
-import { useAppSelector } from "@/redux/app/hooks";
-import { filterSelector } from "@/redux/features/filterByProduct/filterproducts";
+import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
+import { filterSelector, productResults } from "@/redux/features/filterByProduct/filterproducts";
 
 import DiscountAds from "@/components/categorieFilter/DiscountAds/DiscountAds";
 const AllCategories = dynamic(
@@ -29,7 +29,10 @@ const page = () => {
     isSuccess,
   } = useGetProductsWithCategoriePageQuery(undefined);
 
+  const dispatch = useAppDispatch()
+
   const itemFilter = useAppSelector(filterSelector);
+
 
   let container = <div>Loading...</div>;
   if (isLoading) {
@@ -45,15 +48,19 @@ const page = () => {
     container = products
       .slice()
       .filter((value: productListType) => {
-        console.log(value);
+        
+        const pricefilter = (Number(value.price) >= itemFilter.pricerange[0]+1 && Number(value.price) <= itemFilter.pricerange[1])
         const categorefilteritems = itemFilter?.categories.length
           ? value?.category
             ? itemFilter?.categories?.includes(value.category)
             : false
           : true;
-        return categorefilteritems;
+
+        return categorefilteritems && pricefilter;
       })
-      .map((cardData: productListType, inx: number) => (
+      .map((cardData: productListType, inx: number, arry: productListType[]) => {
+        dispatch(productResults(arry.length))
+        return(
         <div
           key={cardData.id}
           className=" flex w-full justify-center items-center "
@@ -65,7 +72,7 @@ const page = () => {
             data={cardData}
           ></ProductCard>
         </div>
-      ));
+      )});
   }
 
   return (

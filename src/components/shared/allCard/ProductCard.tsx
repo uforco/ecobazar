@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -26,7 +25,6 @@ export interface productListType {
   category?: string;
 }
 
-
 const ProductCard = ({
   className: classname,
   imageWidth,
@@ -38,14 +36,14 @@ const ProductCard = ({
   imageHeight?: number;
   data: productListType | undefined;
 }) => {
-
+  
+  const sterrange = Array.from({ length: 5 }, (_, i) => i + 1)
 
   const [wishlist, setWishlist] = useState<string[]>([])
-
   const saveWishlistwithLocalStorage = async (id: string) => {
     setWishlist(await saveWishlist(id))
   }
-  
+
   useEffect(()=>{
     const data = localStorage.getItem('wishlist')
     if(data) {
@@ -69,13 +67,12 @@ const ProductCard = ({
             <CardHeader
               className={` ${imageWidth ? `w-[${imageWidth}px]` : "w-[248px]"}`}
             >
-                   <FallbackImage 
-                    className={` w-full ${
-                      imageHeight ? `w-[${imageHeight}px]` : "h-[200px]"
-                    }`} 
-                    src={'/images/categores/productImage.png'} alt={""} width={200} height={260} >
-                  </FallbackImage>
-                  
+              <FallbackImage 
+                className={` w-full ${
+                  imageHeight ? `w-[${imageHeight}px]` : "h-[200px]"
+                }`} 
+                src={'/images/categores/productImage.png'} alt={""} width={200} height={260} >
+              </FallbackImage>
             </CardHeader>
           </Link>
         </div>
@@ -83,13 +80,11 @@ const ProductCard = ({
           <Link href={"/shop/e457"}>
             <div className=" text-left ">
               <CardDescription>{data?.product_name}</CardDescription>
-              <CardTitle className=" my-1 ">$14.99</CardTitle>
+              <CardTitle className=" my-1 ">${data.price}</CardTitle>
               <CardDescription className=" flex items-center ">
-                <TiStar className=" size-4 text-warning "></TiStar>
-                <TiStar className=" size-4 text-warning "></TiStar>
-                <TiStar className=" size-4 text-warning "></TiStar>
-                <TiStar className=" size-4 text-gray-300 "></TiStar>
-                <TiStar className=" size-4 text-gray-300 "></TiStar>
+                {
+                  sterrange.map((value) => <TiStar key={value} className={`size-4 ${value <= Number(data?.rating) ? "text-warning" : "text-gray-300"}  `}></TiStar>)
+                }
               </CardDescription>
             </div>
           </Link>

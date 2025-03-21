@@ -4,6 +4,8 @@ import React from "react";
 import { LuSettings2 } from "react-icons/lu";
 import dynamic from "next/dynamic";
 import DiscountAds from "../DiscountAds/DiscountAds";
+import { useAppSelector } from "@/redux/app/hooks";
+import { filterSelector } from "@/redux/features/filterByProduct/filterproducts";
 const AllCategories = dynamic(
   () => import("@/components/categorieFilter/AllCategories/AllCategories"),
   {
@@ -27,6 +29,9 @@ interface Props {}
 
 function TopFilterShop(props: Props) {
   const {} = props;
+
+  const itemFilter = useAppSelector(filterSelector).results;
+
 
   return (
     <div className=" w-full flex items-center mt-8  overflow-hidden ">
@@ -56,7 +61,7 @@ function TopFilterShop(props: Props) {
           </div>
         </div>
         <div className=" flex justify-center items-center gap-1 ">
-          <p className=" font-semibold ">52</p>
+          <p className=" font-semibold ">{itemFilter}</p>
           <p>Results Found</p>
         </div>
       </div>

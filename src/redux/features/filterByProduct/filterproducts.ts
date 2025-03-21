@@ -2,12 +2,14 @@ import { RootState } from "@/redux/app/store";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: {
+    results: number
     categories: string[],
     pricerange: number[],
     rating: number[]
 } = {
+    results: 0,
     categories: [],
-    pricerange: [0, 0],
+    pricerange: [0, 100],
     rating: []
 }
 
@@ -25,12 +27,22 @@ const filterproducts = createSlice({
         },
         priceReangFilter(state, action: PayloadAction<number[]>){
             state.pricerange = action.payload
+        },
+        productResults(state, action: PayloadAction<number>){
+            state.results = action.payload
+        },
+        ratingfilter(state, action: PayloadAction<number>){
+            if(state.rating.includes(action?.payload) ){
+                state.rating = [...state.rating.filter(value => value !== action?.payload)]
+            }else{
+                state.rating.push(action?.payload)
+            }
         }
     }
 })
 
 
-export const { categoriesfilter, priceReangFilter } = filterproducts.actions
+export const { categoriesfilter, priceReangFilter, productResults } = filterproducts.actions
 
 export default filterproducts.reducer
 
