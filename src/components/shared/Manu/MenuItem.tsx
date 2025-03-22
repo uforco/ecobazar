@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 const MenuItem = ({category}: {category: any}) => {
     const [open, setOpen] = React.useState(false)
-    const bashUrl = `shop?categories=${category.link}`
+    const bashUrl = `categories/?item=${category.link}`
   return (
     <div className=" overflow-hidden px-2 transition-all duration-700 ">
       <div className=" flex items-center justify-between ">

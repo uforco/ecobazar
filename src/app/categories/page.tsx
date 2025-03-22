@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import MaxWidthControls from "@/components/shared/MaxWidthControls";
 import dynamic from "next/dynamic";
 
@@ -8,7 +8,7 @@ import { useGetProductsWithCategoriePageQuery } from "@/redux/features/productsL
 import ProductCard, {productListType} from "@/components/shared/allCard/ProductCard";
 import Loading from "@/components/shared/loading";
 import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
-import { filterSelector, productResults } from "@/redux/features/filterByProduct/filterproducts";
+import { categoriesfilter, filterSelector, productResults } from "@/redux/features/filterByProduct/filterproducts";
 
 import DiscountAds from "@/components/categorieFilter/DiscountAds/DiscountAds";
 const AllCategories = dynamic(
@@ -21,15 +21,27 @@ const Rating = dynamic(
   () => import("@/components/categorieFilter/Rating/Rating"),{loading: () => <p>Loading...</p>,}
 );
 
+import { useSearchParams } from 'next/navigation'
+
+
 const page = () => {
+  const dispatch = useAppDispatch()
+  const serchparam = useSearchParams()
+  
+  useEffect(()=>{
+    const categorie = serchparam ? serchparam.get('item') : null;
+    if (categorie) {
+      dispatch(categoriesfilter(''))
+      dispatch(categoriesfilter(categorie))
+    }
+  },[serchparam])
+
   const {
     data: products,
     isError,
     isLoading,
     isSuccess,
   } = useGetProductsWithCategoriePageQuery(undefined);
-
-  const dispatch = useAppDispatch()
 
   const itemFilter = useAppSelector(filterSelector);
 
@@ -48,7 +60,6 @@ const page = () => {
     container = products
       .slice()
       .filter((value: productListType) => {
-        
         const pricefilter = (Number(value.price) >= itemFilter.pricerange[0]+1 && Number(value.price) <= itemFilter.pricerange[1])
         const categorefilteritems = itemFilter?.categories.length
           ? value?.category
@@ -78,8 +89,6 @@ const page = () => {
   }
 
   return (
-    <div>
-      <Suspense fallback={<Loading />}>
         <MaxWidthControls className=" px-1 ">
           <TopFilterShop></TopFilterShop>
           <div className="flex justify-between my-3  overflow-hidden gap-5 ">
@@ -101,8 +110,6 @@ const page = () => {
             </div>
           </div>
         </MaxWidthControls>
-      </Suspense>
-    </div>
   );
 };
 

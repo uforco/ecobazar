@@ -54,7 +54,7 @@ const ProductCard = ({
   return (
     <div className={`${classname}  w-[248px]  `}>
       {data && <Card className=" cursor-pointer hover:border-Primary duration-300 overflow-hidden transition-all hover:shadow-soft_primary/20 group  hover:shadow-xl relative ">
-        <div className=" group-hover:top-3 absolute right-3 -top-24 duration-500 transition-all z-[100] ">
+        <div className=" group-hover:top-3 absolute right-3 -top-24 duration-500 transition-all z-[40] ">
           <button onClick={() => saveWishlistwithLocalStorage(data?.product_id)} className={`${wishlist.includes(data.product_id)? " bg-Primary text-white ":""} size-10 mb-2 rounded-full borde border-gray-200 flex justify-center items-center `}>
             <Heart></Heart>
           </button>

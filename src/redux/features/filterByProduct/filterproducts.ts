@@ -19,6 +19,9 @@ const filterproducts = createSlice({
     initialState,
     reducers: {
         categoriesfilter(state, action: PayloadAction<string>){
+            if(!action?.payload){
+                state.categories = []
+            }
             if(state.categories.includes(action?.payload) ){
                 state.categories = [...state.categories.filter(value => value !== action?.payload)]
             }else{
