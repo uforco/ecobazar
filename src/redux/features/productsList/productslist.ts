@@ -19,9 +19,14 @@ export const productslist = Api.injectEndpoints({
             query: () => {
                 return `/featured-products`
             }
+        }),
+        getBestRatedDealsproduct: builder.query({
+            query: () => {
+                return `/bestrateddealproduct`
+            }
         })
     })
 })
 
 
-export const { useGetProductsWithCategoriePageQuery, useGetFeaturedProductsQuery, useGetSingleProductViewQuery, useGetRelatedProductsQuery } = productslist;
+export const { useGetProductsWithCategoriePageQuery, useGetFeaturedProductsQuery, useGetSingleProductViewQuery, useGetRelatedProductsQuery, useGetBestRatedDealsproductQuery } = productslist;

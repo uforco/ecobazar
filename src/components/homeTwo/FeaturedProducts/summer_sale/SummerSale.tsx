@@ -1,91 +1,66 @@
+'use client'
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from "@mynaui/icons-react";
 import CategoryItem from './CategoryItem';
+import { useGetBestRatedDealsproductQuery } from '@/redux/features/productsList/productslist';
+
+
+
+const loaingcompo = <div>
+            <h2 className=" text-xl font-medium capitalize mb-4 bg-slate-200 animate-pulse h-6 w-28 rounded "></h2>
+            <div className=" grid grid-cols-1 gap-4 ">
+                <div className=' w-[312px] h-[116px] bg-slate-200 animate-pulse rounded ' ></div>
+                <div className=' w-[312px] h-[116px] bg-slate-200 animate-pulse rounded ' ></div>
+                <div className=' w-[312px] h-[116px] bg-slate-200 animate-pulse rounded ' ></div>
+            </div>
+        </div>
+
+
+
+
 
 const SummerSale = () => {
-    const itenmlist = [
-        {
-            Title: 'Hot Deals',
-            items: [
-                {
-                    image: '/images/home/Featured/appels.png',
-                    name: 'Green Apple',
-                    price: '14.99',
-                    rating: 4
-                },
-                {
-                    image: '/images/home/Featured/orange.png',
-                    name: 'Japanese Malta',
-                    price: '13.99',
-                    rating: 4
-                },
-                {
-                    image: '/images/home/Featured/lettuce.png',
-                    name: 'Green Lettuce',
-                    price: '14.99',
-                    rating: 4
-                }
-            ]
-        },
-        {
-            Title: 'Best Seller',
-            items: [
-                {
-                    image: '/images/home/Featured/eggpiant.png',
-                    name: 'Eggpiant',
-                    price: '14.99',
-                    rating: 4
-                },
-                {
-                    image: '/images/home/Featured/red_capsicum.png',
-                    name: 'Red Capsicum',
-                    price: '13.99',
-                    rating: 4
-                },
-                {
-                    image: '/images/home/Featured/red_tomatos.png',
-                    name: 'Red Tomatos',
-                    price: '14.99',
-                    rating: 4
-                }
-            ]
-        },
-        {
-            Title: 'Top Rated',
-            items: [
-                {
-                    image: '/images/home/Featured/potatos.png',
-                    name: 'Big Potatos',
-                    price: '14.99',
-                    rating: 4
-                },
-                {
-                    image: '/images/home/Featured/Corn.png',
-                    name: 'Corn',
-                    price: '13.99',
-                    rating: 4
-                },
-                {
-                    image: '/images/home/Featured/fresh_cauliflower.png',
-                    name: 'Fresh Cauliflower',
-                    price: '14.99',
-                    rating: 4
-                }
-            ]
-        }
-    ]
+
+
+
+    const { data, isError, isLoading, isSuccess } = useGetBestRatedDealsproductQuery('')
+
+
+    let container;
+
+    // if(isLoading){
+        container = <>
+            {loaingcompo}
+            {loaingcompo}
+            {loaingcompo}
+        </>
+    // }
+    if(!isLoading && isError && !isSuccess) {
+        container = <div className=' col-span-3 flex justify-center items-center ' >something is wrong</div>
+    }
+    if(!isLoading && isError && !isSuccess) {
+        container = <div className=' col-span-3 flex justify-center items-center ' >something is wrong</div>
+    }
+    if(!isLoading && !isError && isSuccess && data.length < 1) {
+        container = <div className=' col-span-3 flex justify-center items-center ' >No Data Found !</div>
+    }
+    if(!isLoading && !isError && isSuccess && data.length > 0) {
+        // container = <div className=' col-span-3 flex justify-center items-center ' >No Data Found !</div>
+
+        container = data.map((item:any , inx: number, arr: any) =>  {
+            const key = Object.keys(arr[inx])[0]
+            return <CategoryItem key={key} title={key} data={item[key]}></CategoryItem>
+        })
+
+
+    }
+    
+
 
     return (
         <div className=' grid grid-cols-4 h-[426px] w-full mt-7 ' >
-            {
-                itenmlist.map((itemsProducts, inx)=> {
-                    const keys = itemsProducts.Title.replaceAll(" ", "")
-                    return <div key={keys} >
-                    <CategoryItem title={itemsProducts.Title} data={itemsProducts.items} ></CategoryItem>
-                </div>
-                } )
-            }
+            {container}
             <div className=' flex justify-center ' >
                 <div className=" flex flex-col  rounded-xl overflow-hidden items-center w-[312px] h-full bg-[url('/images/home2/featured/fruit.png')] bg-cover " >
                     <h2 className=' uppercase font-semibold text-xs mt-10 mb-3 ' >HOT SALE</h2>

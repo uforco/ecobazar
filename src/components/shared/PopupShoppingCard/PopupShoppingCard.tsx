@@ -18,8 +18,6 @@ export default function PopupShoppingCard() {
   let subtotal = 0 
   let containe;
 
-  console.log(data)
-
 
 
   if (!isLoading && !isError && isSuccess && data.length > 0) {

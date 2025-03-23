@@ -12,11 +12,7 @@ import { useGetFeaturedProductsQuery } from '@/redux/features/productsList/produ
 
 const FeaturedProductsItems = () => {
 
-
     const { data, isError, isLoading, isSuccess } = useGetFeaturedProductsQuery('')
-
-    console.log('feature product', data)
-
 
     let container;
     if(isLoading){

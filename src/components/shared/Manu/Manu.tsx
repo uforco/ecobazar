@@ -66,13 +66,13 @@ export default function Manu() {
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4  md:w-[300px] h-auto lg:grid-cols-[1fr] ">
                   <li className=" w-full" >
-                    <Link className=" text-gray-500 w-full hover:text-Primary " href="/shop" >
-                        Shop
+                    <Link className=" text-gray-500 w-full hover:text-Primary " href="/" >
+                        Home
                     </Link>
                   </li>
                   <li className=" w-full" >
-                    <Link className=" text-gray-500 w-full hover:text-Primary " href="/" >
-                        Blog
+                    <Link className=" text-gray-500 w-full hover:text-Primary " href="/categories" >
+                        Shop
                     </Link>
                   </li>
                   <li className=" w-full" >
@@ -94,7 +94,7 @@ export default function Manu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <NavigationMenuTrigger className=" navigation-trigger hover:bg-transparent bg-transparent font-medium text-gray-500 hover:text-white " >Components</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
@@ -109,7 +109,7 @@ export default function Manu() {
               ))}
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
 
         <NavigationMenuItem>
           <Link href="/about" legacyBehavior passHref>

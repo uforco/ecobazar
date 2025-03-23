@@ -1,30 +1,14 @@
 import React from "react";
-import Image from "next/image";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { TiStar } from "react-icons/ti";
-import { Eye, Heart, ShoppingBag } from "@mynaui/icons-react";
-import Quick_Product_View from "@/components/shared/quick_product_view/Quick_Product_View";
-
-type itemType = {
-  image: string;
-  name: string;
-  price: string;
-  rating: number | string;
-};
+import ItemCard, { itemType } from "./ItemCard";
 
 const CategoryItem = ({ title, data }: { title: string; data: itemType[] }) => {
+
   return (
     <div>
       <h2 className=" text-xl font-medium capitalize mb-4 ">{title}</h2>
       <div className=" grid grid-cols-1 gap-4 ">
         {data &&
-          data.map((item) => <ItemCard key={item.name} item={item}></ItemCard>)}
+          data.map((item) => <ItemCard key={item.product_id} item={item}></ItemCard>)}
       </div>
     </div>
   );
@@ -32,49 +16,8 @@ const CategoryItem = ({ title, data }: { title: string; data: itemType[] }) => {
 
 export default CategoryItem;
 
-const ItemCard = ({ item }: { item: itemType }) => {
-  return (
-    <div className=" flex p-2 px-4 gap-2 items-center rounded-lg group justify-start transition-all w-[312px] h-[116px] overflow-hidden cursor-pointer border hover:border-Primary hover:shadow-lg hover:shadow-soft_primary/50 ">
-      <div className=" w-28 h-28 overflow-hidden flex justify-center items-center ">
-        <Image
-          className=" w-full "
-          src={item?.image}
-          width={502}
-          height={502}
-          alt={""}
-        ></Image>
-      </div>
-      {/* <CardContent> */}
-      <div className=" relative w-full  ">
-        <h2 className=" capitalize group-hover:text-hard_primary  text-gray-700 mb-1 ">
-          {item?.name}
-        </h2>
-        <div>
-          <CardTitle>{item.price}</CardTitle>
-          <CardDescription className=" flex items-center mt-2 ">
-            <TiStar className=" size-5 text-warning "></TiStar>
-            <TiStar className=" size-5 text-warning "></TiStar>
-            <TiStar className=" size-5 text-warning "></TiStar>
-            <TiStar className=" size-5 text-gray-300 "></TiStar>
-            <TiStar className=" size-5 text-gray-300 "></TiStar>
-          </CardDescription>
-        </div>
-        {/* hover Item */}
-        <div className=" group-hover:-bottom-5 overflow-hidden  absolute right-0 -bottom-20 w-full h-full bg-transparent duration-500 transition-all group-hover:bg-white ">
-          <div className=" w-full hidden group-hover:flex justify-between transition-all px-5 items-end py-3  delay-700 duration-300 ">
-            <div className=" size-10 transition-all hover:text-white hover:bg-Primary rounded-full border border-gray-200 bg-white flex justify-center items-center ">
-              <ShoppingBag></ShoppingBag>
-            </div>
-            <div className=" relative " >
-              <Quick_Product_View productId={""}></Quick_Product_View>
-            </div>
-            <div className=" size-10 transition-all hover:text-white hover:bg-Primary rounded-full border border-gray-200 bg-white flex justify-center items-center ">
-              <Heart></Heart>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* </CardContent> */}
-    </div>
-  );
-};
+
+
+
+
+

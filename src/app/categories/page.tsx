@@ -67,7 +67,7 @@ const page = () => {
             : false
           : true;
 
-        const ratingfilter = itemFilter.rating.length? (itemFilter?.rating.includes(Number(value.rating))) : true
+        const ratingfilter = itemFilter.rating.length? ( Math.min(...itemFilter?.rating) <= Number(value.rating)  ) : true
 
         return categorefilteritems && pricefilter && ratingfilter;
       })

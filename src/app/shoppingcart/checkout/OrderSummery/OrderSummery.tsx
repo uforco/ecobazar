@@ -45,6 +45,7 @@ const OrderSummery = () => {
   if (!isLoading && !isError && isSuccess && data.length > 0) {
     const dlecartlist: string[] = []
     const insertOrderItemsdetails: order_itemsType[] = []
+
     container = data.map((item: cartDataType) => {
       totalprice += Number((Number(discountPriceFun(item.discount, item.price))*item.quantity))
       // totalprice += Number((Number(discountPriceFun(item.discount, item.price))*item.quantity)
@@ -58,6 +59,7 @@ const OrderSummery = () => {
       })
       return <ProductSummary key={item.cart_id} item={item}/>
     });
+    
     dispatch(insertOrderItems({ order_items: insertOrderItemsdetails, deleteCartlist: dlecartlist }))
   }
 
