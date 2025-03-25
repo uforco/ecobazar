@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import DiscountAds from "../DiscountAds/DiscountAds";
 import { useAppSelector } from "@/redux/app/hooks";
 import { filterSelector } from "@/redux/features/filterByProduct/filterproducts";
+import { useRouter } from "next/navigation";
 const AllCategories = dynamic(
   () => import("@/components/categorieFilter/AllCategories/AllCategories"),
   {
@@ -31,7 +32,6 @@ function TopFilterShop(props: Props) {
   const {} = props;
 
   const itemFilter = useAppSelector(filterSelector).results;
-
 
   return (
     <div className=" w-full flex items-center mt-8  overflow-hidden ">

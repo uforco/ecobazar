@@ -1,25 +1,58 @@
 "use client";
-import React from "react";
+import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
+import { currentPageCount, filterSelector } from "@/redux/features/filterByProduct/filterproducts";
+import { productslist } from "@/redux/features/productsList/productslist";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-interface Props {
-  nextPage: Function;
-  privousPage: Function;
-  totalePage: number;
-  currentPage: number;
+
+
+
+const updatePageData = async (dispatch: any, query: any) => {
+  const sd = await fetch(`/api/submit_search/${query}`).then((res)=> res.json())
+  if(sd.length){
+      dispatch(
+          productslist.util.updateQueryData('getProductsWithCategoriePage', undefined, (draft)=>{
+              return draft = [...new Map([...draft, ...sd].map((item)=> [item.product_id, item])).values()]
+          })
+      )
+  }
 }
 
-function ProductPagination(props: Props) {
-  const { nextPage, privousPage, totalePage, currentPage } = props;
+
+
+
+function ProductPagination({totalproduct}: {totalproduct: number}){
+
+  const router = useRouter()
+
+  const pageCountData = useAppSelector(filterSelector)
+  const totalePage =  pageCountData.totalPageByCategorie
+  const currentPage = pageCountData.currentPage
+
+  const dispatch = useAppDispatch()
+
+
+  useEffect(()=>{
+      router.push(`/categories?page=${currentPage}`)
+  },[currentPage])
+
+
   const pagesNumder = Array.from(
-    { length: totalePage < 3 ? 3 : totalePage },
+    { length: totalePage},
     (_, index) => index + 1
   );
 
-  // console.log(totalePage);
+  const privousPage = () => {
+    dispatch(currentPageCount({ actionType: 'previous', page: 1 }))
+  }
+  const nextPage = () => {
+    dispatch(currentPageCount({ actionType: 'next', page: 1 }))
+  }
 
   return (
-    <div className=" flex justify-center gap-2 items-center p-5 mt-5 ">
+    <div className=" flex justify-center gap-2 items-center p-5 mt-3 ">
       <button
         onClick={() => privousPage()}
        className=" border w-10 h-10 rounded-full flex justify-center items-center text-xl"
