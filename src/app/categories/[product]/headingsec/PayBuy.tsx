@@ -1,6 +1,8 @@
 "use client";
 import saveWishlist, { getWishlistIds } from "@/lib/saveWishlist";
 import { useGetShopingCartQuery } from "@/redux/features/MyShoppingCart/shoppingcart";
+import { useSession } from "next-auth/react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
@@ -11,6 +13,13 @@ interface Props {
 }
 
 function PayBuy(props: Props) {
+  
+  const paramsName = usePathname()
+  const router = useRouter()
+  const { data: profile, status } = useSession()
+
+
+
   const {product_id, stock} = props;
   const [qty, setQty] = useState<number>(1);
 
@@ -28,10 +37,18 @@ function PayBuy(props: Props) {
   useEffect(()=>{
       return setWishlist(getWishlistIds())
   },[])
+    
+
+
 
 
   // add to cart on server db actions
   const addCardHeanler = async () => {
+
+    if(status !== 'authenticated' && !profile){
+      return router.push(`/login?from=${paramsName}`)
+    }
+
     setCratdisabled(true)
     const addcardinfo = {
       userId: "cm80bbde50000dj1kezlho2m6",

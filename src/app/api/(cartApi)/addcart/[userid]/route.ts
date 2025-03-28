@@ -10,7 +10,5 @@ export async function GET( req: NextRequest, {params}:{params: Promise<{userid: 
     } catch (err) {
         console.log(err)
         return NextResponse.json('internal server Error')
-    } finally {
-        console.log(userid)
     }
 }

@@ -25,7 +25,7 @@ export default function PopupShoppingCard() {
     subtotal = data.reduce((previousValue: number, currentValue: cartDataType) => {
       return previousValue += Number(discountPriceFun(currentValue?.discount, currentValue?.price)) * currentValue?.quantity
     }, 0)
-    containe = data.map((value: cartDataType) =>  <ProductViewCart item={value} />)
+    containe = data.map((value: cartDataType) =>  <ProductViewCart key={value?.cart_id} item={value} />)
   }
 
 

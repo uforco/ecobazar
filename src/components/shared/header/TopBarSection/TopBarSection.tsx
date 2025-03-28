@@ -8,6 +8,7 @@ import MaxWidthControls from '@/components/shared/MaxWidthControls';
 //     SelectValue,
 //   } from "@/components/ui/select"
   import { CiLocationOn } from "react-icons/ci";
+import Link from 'next/link';
 
 const TopBarSection = () => {
     return (

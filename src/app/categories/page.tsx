@@ -29,7 +29,7 @@ const page = () => {
 
   const dispatch = useAppDispatch()
   const serchparam = useSearchParams()
-  
+
   
   useEffect(()=>{
     const categorie = serchparam ? serchparam.get('item') : null;
