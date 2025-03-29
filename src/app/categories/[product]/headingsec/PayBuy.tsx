@@ -1,5 +1,8 @@
 "use client";
 import saveWishlist, { getWishlistIds } from "@/lib/saveWishlist";
+import { useGetShopingCartQuery } from "@/redux/features/MyShoppingCart/shoppingcart";
+import { useSession } from "next-auth/react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
@@ -10,21 +13,42 @@ interface Props {
 }
 
 function PayBuy(props: Props) {
+  
+  const paramsName = usePathname()
+  const router = useRouter()
+  const { data: profile, status } = useSession()
+
+
+
   const {product_id, stock} = props;
   const [qty, setQty] = useState<number>(1);
 
   const [cratdisabled, setCratdisabled] = useState<boolean>(false);
-
+  // save wishlist in loacalStorage by product id
   const [wishlist, setWishlist] = useState<string[]>([])
   const saveWishlistwithLocalStorage = async (id: string) => {
     setWishlist(await saveWishlist(id))
   }
     
+  // add to cart to db and action with redux store in shoppingcart update
+  const { refetch: updateShoppingStore } = useGetShopingCartQuery("cm80bbde50000dj1kezlho2m6");
+
+
   useEffect(()=>{
       return setWishlist(getWishlistIds())
   },[])
+    
 
+
+
+
+  // add to cart on server db actions
   const addCardHeanler = async () => {
+
+    if(status !== 'authenticated' && !profile){
+      return router.push(`/login?from=${paramsName}`)
+    }
+
     setCratdisabled(true)
     const addcardinfo = {
       userId: "cm80bbde50000dj1kezlho2m6",
@@ -42,6 +66,7 @@ function PayBuy(props: Props) {
 
     if(data?.cart_id && data?.product_id){
       if(wishlist.includes(data?.product_id)) setWishlist(await saveWishlist(data?.product_id))
+      updateShoppingStore()
       alert('add to card')
     }
     setCratdisabled(false)
@@ -85,7 +110,6 @@ function PayBuy(props: Props) {
             <span className=" size-4 border-2 animate-spin rounded-full border-gray-300/60 border-t-gray-100 " ></span>
           }
         </button>
-
         <button onClick={()=> saveWishlistwithLocalStorage(product_id)} className={` ${wishlist.includes(product_id)? "bg-Primary text-white" : "bg-Primary/20 text-Primary" }  text-xl p-3 rounded-full `}>
           <FaRegHeart></FaRegHeart>
         </button>

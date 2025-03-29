@@ -30,7 +30,7 @@ function HeadingTitleSec(props: Props) {
                     Number(stock)? 
                     <Badge className=" text-Primary bg-Primary/20 " variant="outline">In Stock</Badge>
                     :
-                    <Badge className=" text-red-500 bg-red-100 " variant="outline">In Stock</Badge>
+                    <Badge className=" text-red-500 bg-red-100 " variant="outline">Out of Stock</Badge>
                 }
                     
                 </div>

@@ -1,25 +1,23 @@
 import React from 'react';
 import  MaxWidthControls  from '@/components/shared/MaxWidthControls';
 import Image from 'next/image';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { FiPhoneCall } from 'react-icons/fi';
-import { IoSearchOutline } from 'react-icons/io5';
+import Link from 'next/link';
+import SearchBer from './SearchBer';
+import './middmanustyle.scss'
 
 const HeaderMiddleSection = () => {
     return (
         <div>
             <MaxWidthControls>
-            <div className=' flex justify-between items-center py-4 overflow-hidden ' >
+            <div className=' flex justify-between items-center py-4  ' >
                     <div>
-                        <Image src={'/images/Logo.png'} width={200} height={90} alt={''}></Image>
+                        <Link href={'/'}>
+                            <Image src={'/images/Logo.png'} width={200} height={90} alt={''}></Image>
+                        </Link>
                     </div>
                     <div>
-                        <div className=' flex items-center w-[400px] relative ' >
-                            <span className=' absolute top-1/2 -translate-y-1/2 left-3 ' > <IoSearchOutline></IoSearchOutline> </span>
-                            <Input className=' w-full pl-8 ' type="text" placeholder="Search" />
-                            <Button  className=' absolute top-0 right-0 h-full ' >Search</Button>
-                        </div>
+                        <SearchBer />
                     </div>
                     <div className=' flex items-center gap-2 ' >
                         <div className=' text-3xl ' >

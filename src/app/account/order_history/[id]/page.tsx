@@ -25,7 +25,7 @@ function Page({}: Props) {
 
    if(!isLoading && !isError && isSuccess && data.length > 0) {
 
-        // console.log(data[0]?.orderhistory)
+        console.log(data[0])
 
         const paymentdetails = {
             orderid: data[0]?.order_id,
@@ -43,7 +43,7 @@ function Page({}: Props) {
                     <Link className=' text-Primary ' href={'/account/order_history'} >Back to List</Link>
                 </div>
                 <div className=' p-5 flex justify-between items-start '>
-                    <ShippingAddress></ShippingAddress>
+                    <ShippingAddress deliyveryaddress={data[0]?.deliyveryaddress} ></ShippingAddress>
                     <PaymentDetails paymentdetails={paymentdetails} ></PaymentDetails>
                 </div>
                 <div className=' flex justify-center items-center h-28 overflow-hidden mb-5 ' >

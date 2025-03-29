@@ -8,9 +8,7 @@ export async function GET( req: NextRequest, {params}:{params: Promise<{userid: 
         console.log(data)
         return NextResponse.json(data)
     } catch (err) {
-        console.log(err)
-        return NextResponse.json('internal server Error')
-    } finally {
-        console.log(userid)
+        console.log("internal server Error - allcardinfo", err)
+        return NextResponse.json([])
     }
 }

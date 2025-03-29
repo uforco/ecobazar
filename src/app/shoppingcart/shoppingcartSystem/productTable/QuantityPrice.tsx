@@ -43,11 +43,7 @@ function QuantityPrice({ invoice }: Props) {
     }
   };
 
-
-
-
-
-
+  
   // DELETE CART ITEM TO SERVER OR REDUX STORE
   const detelecart = async (cart_id: string) => {
     const daleteItem = await fetch(`/api/deletecart/${cart_id}`, {

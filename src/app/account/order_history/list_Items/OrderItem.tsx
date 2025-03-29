@@ -7,31 +7,15 @@ import {
 import Link from 'next/link';
 
 export interface orderItemsType {
-    order_id: String;
-    order_date: String;
-    order_status: String;
+    order_id: string;
+    order_date: string;
+    order_status: string;
     total_price: number;
     total_products: number;
 }
 
 const OrderItem = ({item}:{item: orderItemsType}) => {
 
-    // const { 
-    //     order_id,
-    //     order_date,
-    //     order_status,
-    //     total_price,
-    //     total_products
-    //  } = item
-
-     console.log(item.order_id)
-
-    //  ${order_id.slice(1)}
-
-    // const url =  "/account/order_history/"+order_id.slice(1)
-
-
-    // console.log(url)
 
     return (
         <>
@@ -42,7 +26,13 @@ const OrderItem = ({item}:{item: orderItemsType}) => {
                 <TableCell className="font-medium">
                   {item?.order_id}
                 </TableCell>
-                <TableCell>{item?.order_date}</TableCell>
+                <TableCell>{
+                  (new Date(item?.order_date)).toLocaleDateString('en-DE',{
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })
+                }</TableCell>
                 <TableCell>$ {item?.total_price} {`(${item?.total_products} Products)`}</TableCell>
                 <TableCell>{item?.order_status}</TableCell>
                 <TableCell className="text-right">

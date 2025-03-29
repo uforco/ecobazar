@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -23,8 +22,8 @@ export interface productListType {
   price: string | number;
   discount: string | number;
   coverimage?: string;
+  category?: string;
 }
-
 
 const ProductCard = ({
   className: classname,
@@ -37,14 +36,14 @@ const ProductCard = ({
   imageHeight?: number;
   data: productListType | undefined;
 }) => {
-
+  
+  const sterrange = Array.from({ length: 5 }, (_, i) => i + 1)
 
   const [wishlist, setWishlist] = useState<string[]>([])
-
   const saveWishlistwithLocalStorage = async (id: string) => {
     setWishlist(await saveWishlist(id))
   }
-  
+
   useEffect(()=>{
     const data = localStorage.getItem('wishlist')
     if(data) {
@@ -55,7 +54,7 @@ const ProductCard = ({
   return (
     <div className={`${classname}  w-[248px]  `}>
       {data && <Card className=" cursor-pointer hover:border-Primary duration-300 overflow-hidden transition-all hover:shadow-soft_primary/20 group  hover:shadow-xl relative ">
-        <div className=" group-hover:top-3 absolute right-3 -top-24 duration-500 transition-all z-[100] ">
+        <div className=" group-hover:top-3 absolute right-3 -top-24 duration-500 transition-all z-[40] ">
           <button onClick={() => saveWishlistwithLocalStorage(data?.product_id)} className={`${wishlist.includes(data.product_id)? " bg-Primary text-white ":""} size-10 mb-2 rounded-full borde border-gray-200 flex justify-center items-center `}>
             <Heart></Heart>
           </button>
@@ -68,13 +67,12 @@ const ProductCard = ({
             <CardHeader
               className={` ${imageWidth ? `w-[${imageWidth}px]` : "w-[248px]"}`}
             >
-                   <FallbackImage 
-                    className={` w-full ${
-                      imageHeight ? `w-[${imageHeight}px]` : "h-[200px]"
-                    }`} 
-                    src={'/images/categores/productImage.png'} alt={""} width={200} height={260} >
-                  </FallbackImage>
-                  
+              <FallbackImage 
+                className={` w-full ${
+                  imageHeight ? `w-[${imageHeight}px]` : "h-[200px]"
+                }`} 
+                src={'/images/categores/productImage.png'} alt={""} width={200} height={260} >
+              </FallbackImage>
             </CardHeader>
           </Link>
         </div>
@@ -82,13 +80,11 @@ const ProductCard = ({
           <Link href={"/shop/e457"}>
             <div className=" text-left ">
               <CardDescription>{data?.product_name}</CardDescription>
-              <CardTitle className=" my-1 ">$14.99</CardTitle>
+              <CardTitle className=" my-1 ">${data.price}</CardTitle>
               <CardDescription className=" flex items-center ">
-                <TiStar className=" size-4 text-warning "></TiStar>
-                <TiStar className=" size-4 text-warning "></TiStar>
-                <TiStar className=" size-4 text-warning "></TiStar>
-                <TiStar className=" size-4 text-gray-300 "></TiStar>
-                <TiStar className=" size-4 text-gray-300 "></TiStar>
+                {
+                  sterrange.map((value) => <TiStar key={value} className={`size-4 ${value <= Number(data?.rating) ? "text-warning" : "text-gray-300"}  `}></TiStar>)
+                }
               </CardDescription>
             </div>
           </Link>

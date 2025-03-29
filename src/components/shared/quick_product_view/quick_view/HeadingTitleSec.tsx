@@ -29,7 +29,12 @@ function HeadingTitleSec(props: Props) {
         <div>
             <div className=" flex items-center gap-2 mt-4 " >
                 <h1 className=" text-3xl font-semibold " >{product_name}</h1>
-                <Badge className=" text-Primary bg-Primary/20 " variant="outline">In Stock</Badge>
+                {
+                    Number(stock_Status)? 
+                    <Badge className=" text-Primary bg-Primary/20 " variant="outline">In Stock</Badge>
+                    :
+                    <Badge className=" text-red-500 bg-red-100 " variant="outline">Out of Stock</Badge>
+                }
                 </div>
                 <div className=" flex items-center gap-2 my-2 " >
                     <div className="flex gap-1 items-center " >
@@ -41,7 +46,7 @@ function HeadingTitleSec(props: Props) {
                 </div>
                 <div className="flex gap-5 border-b border-gray-300 pb-4 ">
                 {discount && Number(discount) > 0 && <p className=" text-xl font-semibold text-gray-400 " ><s>${price}</s></p>}
-                <p className=" text-xl font-semibold text-Primary " >${discountPriceFun(discount, 10)}</p>
+                <p className=" text-xl font-semibold text-Primary " >${Number(discountPriceFun(discount, price)).toFixed(2)}</p>
                 {discount && Number(discount) > 0 && <Badge className=" bg-red-100 text-red-500 " variant="outline">{discount}% Off</Badge>}
             </div>
         </div>

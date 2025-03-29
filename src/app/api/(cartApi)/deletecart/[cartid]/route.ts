@@ -9,7 +9,6 @@ export async function DELETE( req: NextRequest, {params}:{params: Promise<{carti
         }).then((res) => res.json())
         return NextResponse.json(data)
     } catch (err) {
-        console.log(err)
-        return NextResponse.json('internal server Error')
+        console.log('internal server Error - cart delete', err)
     }
 }

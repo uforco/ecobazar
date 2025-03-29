@@ -1,11 +1,34 @@
+"use client"
 import React from "react";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { TableCell, TableRow } from "@/components/ui/table";
 import Image from "next/image";
+import { cartDataType, shoppingcart } from "@/redux/features/MyShoppingCart/shoppingcart";
+import discountPriceFun from "@/hooks/discountPriceFunction";
+import { useAppDispatch } from "@/redux/app/hooks";
 
-interface Props {}
+interface Props {
+  item: cartDataType
+}
 
-function ProductViewCart(props: Props) {
-  const {} = props;
+function ProductViewCart({item}: Props) {
+
+const dispatch = useAppDispatch()
+
+  const detelecart = async (cart_id: string) => {
+      const daleteItem = await fetch(`/api/deletecart/${cart_id}`, {
+        method: "DELETE",
+      }).then((res) => res.json());
+      if (daleteItem?.cart_id) {
+        dispatch(
+          shoppingcart.util.updateQueryData("getShopingCart", item?.userId, (draft) => {
+            return draft.filter(
+              (value: cartDataType) => value.cart_id != daleteItem?.cart_id
+            );
+          })
+        );
+      }
+    };
+
 
   return (
     <TableRow>
@@ -21,13 +44,15 @@ function ProductViewCart(props: Props) {
         </div>
       </TableCell>
       <TableCell>
-        <p>Fresh Indian Orange</p>
+        <p>{item?.product_name}</p>
         <p className=" text-gray-400 mt-1 ">
-          <span>{"2"} kg x </span>
-          <span className=" text-gray-700 font-semibold ">{"16.00"}</span>
+          <span>{item?.quantity} {item?.scale} x </span>
+          <span className=" text-gray-700 font-semibold ">{Number(discountPriceFun(item?.discount, item?.price)).toFixed(2)}</span>
         </p>
       </TableCell>
-      <TableCell>x</TableCell>
+      <TableCell>
+        <button onClick={()=> detelecart(item?.cart_id)} >x</button>
+      </TableCell>
     </TableRow>
   );
 }
