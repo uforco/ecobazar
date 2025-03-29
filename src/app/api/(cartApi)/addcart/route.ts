@@ -13,7 +13,7 @@ console.log(body)
     return NextResponse.json(data);
   } catch (err) {
     console.log(err);
-    return NextResponse.json("internal server Error");
+    return NextResponse.json([]);
   } finally {
     console.log("add cart api problem");
   }

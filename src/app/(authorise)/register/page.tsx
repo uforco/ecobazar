@@ -29,7 +29,7 @@ const Page = () => {
           </p>
           <SocalMediaLogin />
           <CardFooter className=" py-4 text-gray-500 flex justify-center items-center text-xs ">
-            Already have account{" "}
+            Already have account
             <Link
               href="/login"
               className="text-gray-700 font-bold hover:underline ml-1"

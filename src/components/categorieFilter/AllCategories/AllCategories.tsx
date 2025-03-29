@@ -16,7 +16,7 @@ function AllCategories(props: Props) {
 
   if(isLoading) containe = <div>Loading...</div>
   if(isError && !isLoading && !isSuccess) containe = <div>something wrong</div>
-  if(!isError && !isLoading && isSuccess && data.length < 1) containe = <div>something wrong</div>
+  if(!isError && !isLoading && isSuccess && data.length < 1) containe = <div> Not Product with Categorie </div>
   if(!isError && !isLoading && isSuccess && data.length > 0) {
     containe = data?.map((categorie: {category: string}) => <RedioBtnCategoris key={categorie?.category} className="my-3" name={categorie?.category} /> )
   }

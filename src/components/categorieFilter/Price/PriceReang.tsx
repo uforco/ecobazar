@@ -44,7 +44,7 @@ function PriceReang(props: Props) {
             <Range
               step={1}
               min={0}
-              max={maxpricering}
+              max={maxpricering | 100}
               values={values}
               onChange={(range) => priceHandle(range)}
               renderTrack={({ props, children }) => (

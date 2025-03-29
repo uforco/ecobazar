@@ -9,13 +9,14 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 
     const data = await serverFetching(`/products?page=${page}`).then((res) => res.json())
 
-    const response =  NextResponse.json(data?.products);
+
+    const response =  NextResponse.json([...data?.products]);
     response.headers.set("X-Page-Count", JSON.stringify(data?.total_count))
     return response
 
   } catch (err) {
-    console.log(err)
-    return NextResponse.json('internal server Error')
+    console.log(`internal server Error - /products?page`, err)
+    return NextResponse.json([])
   } finally {
     console.log('categorie/:id - route api')
   }  

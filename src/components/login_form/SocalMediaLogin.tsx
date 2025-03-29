@@ -14,15 +14,19 @@ const SocalMediaLogin = () => {
   const serchparam = useSearchParams()
   const router = useRouter()
 
-  const { data: profile, status } = useSession()
-  if(status === 'authenticated' && profile?.user?.image){
-    router.back()
-  }
+  const auth = useSession()
+  // if(status === 'authenticated' && profile?.user?.image){
+  //   router.back()
+  // }
+
+  console.log("auth = ", auth)
 
 
   const openGooglePoppup = async () => {
     const returnUrl = serchparam?.get('from') ?? '/'
-    await signIn('google', { redirect: false, callbackUrl: returnUrl } );
+    const retusl = await signIn('google', { redirect: false } );
+
+    console.log("google login client = ", retusl)
   }
 
 

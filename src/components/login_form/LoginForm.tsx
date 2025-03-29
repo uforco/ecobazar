@@ -27,7 +27,7 @@ const LoginForm = () => {
             })
             if(result?.ok){
                 setLonginLoad(false)
-                router.push(result.url as string);
+                // router.push(result.url as string);
             }
             if(!result?.ok && result?.error){
                 setErrorMsg(result?.error)

@@ -6,8 +6,8 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     const data = await serverFetching('/featured-products').then((res) => res.json())
     return NextResponse.json(data);
   } catch (err) {
-    console.log(err)
-    return NextResponse.json('internal server Error')
+    console.log('internal server Error - /featured-products', err)
+    return NextResponse.json([])
   } finally {
     console.log('categorie/:id - route api')
   }  

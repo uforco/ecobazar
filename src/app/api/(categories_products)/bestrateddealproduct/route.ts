@@ -7,8 +7,8 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     console.log(Object.keys(data[0]) )
     return NextResponse.json(data)
   } catch (err) {
-    console.log(err)
-    return NextResponse.json('internal server Error')
+    console.log('internal server Error - bestrateddealproduct', err)
+    return NextResponse.json([])
   } finally {
     console.log('categorie/:id - route api')
   }  

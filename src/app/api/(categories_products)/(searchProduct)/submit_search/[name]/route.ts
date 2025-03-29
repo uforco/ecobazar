@@ -8,8 +8,8 @@ export async function GET(request: NextRequest, {params}:{params: Promise<{name:
         // console.log(data)
         return NextResponse.json(data);
     } catch (err) {
-        console.log(err)
-        return NextResponse.json('internal server Error')
+        console.log('internal server Error - submit-search/', err)
+        return NextResponse.json([])
     } finally {
         console.log('relatedproducts - route api')
     }
