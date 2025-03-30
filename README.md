@@ -1,3 +1,5 @@
+<h1 align="center"> <br> <img src="/public/Thumbnail.png" alt="ecobazar" width="200"> <br> EcoBazar <br> </h1>
+
 # Key Features 🚀
 
 - 📧 Email Verification
@@ -24,7 +26,6 @@
   - Uses caching and efficient queries for faster load times.
 
 <br/>
-<br/>
 
 # Technologies Used 🛠️
 
@@ -50,7 +51,6 @@
   - [Redux GitHub]() - GitHub repository for Redux Toolkit.
 
 <br/>
-<br/>
 
 ## Backend 🏗️
 
@@ -62,9 +62,8 @@
 
 - 🔑 JWT & OAuth - Authentication and user session management.
 
-Coming soon  <img src="/public/nestjs.256x255.png" alt="ecobazar" width="64">  Backend Project: [new version]()
+Coming soon  <img src="/public/nestjs.256x255.png" alt="ecobazar" width="48">  Backend Project: [new version]()
 
-<br/>
 <br/>
 
 # How To Use 🛠️
@@ -85,14 +84,11 @@ $ pnpm dev
 ```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-<br/>
-<br/>
+
 
 ### Download 📥
 
 You can [download the latest release](https://github.com/uforco/ecobazar) for production deployment.
-
-<br/>
 
 ## Credits 🎖️
 
