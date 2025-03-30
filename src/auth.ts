@@ -46,23 +46,32 @@ export const config: NextAuthOptions = {
       },
       async authorize(credentials) {
         const { email, password } = credentials ?? {};
-
-        if (email !== "srka780@gmail.com") {
-          throw new Error("Invalid email.");
+        const res = await fetch("http://localhost:4000/web/signin", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            provider: "credentials",
+            email,
+            password
+          }),
+        })
+        const authorizationHeader = res?.headers?.get("authorization");
+        if (!authorizationHeader) {
+          // console.log("Authorization header is null or undefined");
+          const errorData = await res.json()
+          throw new Error(errorData?.error)
         }
-
-        if (password !== "123456") {
-          throw new Error("Invalid password.");
+        const data = await res.json()
+        // console.log(" check headers ", authorizationHeader.split(" ")[1]);
+        return {
+          id: data?.userInfo?.userId,
+          name: data?.userInfo?.fullname,
+          ...data?.userInfo,
+          image: data?.userInfo?.profileImage,
+          accessBearer: authorizationHeader.split(" ")[1],
         }
-
-        return { 
-          id: "1243252476", 
-          name: "Sharif", 
-          email, 
-          accessBearer: "sdfgfdg", 
-          verify: false 
-        };
-
       },
     }),
   ],
@@ -97,66 +106,56 @@ export const config: NextAuthOptions = {
             if(res?.success){
               return true
             }
-            console.log("listen to db server with auth.ts Error <<<< ", res)
+            // console.log("listen to db server with auth.ts Error <<<< ", res)
             throw new Error(`Error in signIn callback - ${account.provider}`);
           } catch (e) {
-            console.log("listen to db server with auth.ts <<<< Error -> ", e);
+            // console.log("listen to db server with auth.ts <<<< Error -> ", e);
             throw new Error("Error in signIn callback");
           }
       }
       return true;
     },
     async jwt({ token, user, account, profile }) {
-
       // callback for credentials provider setup
       if(account && user.email && (account?.provider === "credentials")){
         token.accessBearer = user.accessBearer as string;
         token.verify = user.verify as boolean;
       }
 
-
-      // TODO: add token to db server and ensure account isExist and profile isExist
-      if( account && profile && (account?.provider === "google" || account?.provider === "facebook")){
+      if(account && (account?.provider === "google" || account?.provider === "facebook")){
         // fetch to db server and get token
-        // const res = await fetch("http://localhost:4000/web/oauth_check", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({
-        //     userId: account.providerAccountId,
-        //     provider: account.provider,
-        //     profileImage: (profile as any).picture || "" as string,
-        //     firstName: (profile as any).given_name || "" as string,
-        //     lastName: (profile as any).family_name || "" as string,
-        //     email: profile.email as string,
-        //     verify: (profile as any).email_verified as boolean,
-        //   }),
-        // }).then((res) => res.json());
-
-        token.accessBearer = "losdfjhgbsdgfghj" as string;
-        token.verify = true as boolean;
-
-        // TODO: setup jwt token
-        // token.verify = res.verify as boolean
-        // token.accessBearer = accessBearer.verify as string;
-
+        const res = await fetch("http://localhost:4000/web/signin", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: user.id,
+            provider: account.provider,
+            email: token.email as string
+          }),
+        })
+        const authorizationHeader = res?.headers?.get("authorization");
+        if (!authorizationHeader) {
+          // console.log("Authorization header is null or undefined");
+          const errorData = await res.json()
+          throw new Error(errorData?.error)
+        }
+        const data = await res.json()
+        token.id = data?.userInfo?.userId as string;
+        token.name = data?.userInfo?.fullname as string;
+        token.picture = data?.userInfo?.profileImage as string;
+        token.accessBearer = authorizationHeader.split(" ")[1] as string;
+        token.verify = data?.userInfo?.verify as boolean;
+        return token;
       }
-      
       return token;
-      
     },
     async session({session, token }) {
-
-      console.log(" callback session - session ===================== ", session)
-      console.log(" callback session - token ===================== ", token)
-
-      
       if (session.user) {
         session.accessBearer = token.accessBearer as string;
         session.user.verify = token.verify as boolean;
       }
-
       return session;
     },
   },

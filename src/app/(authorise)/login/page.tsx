@@ -10,9 +10,7 @@ import {
 import LoginForm from '@/components/login_form/LoginForm';
 import SocalMediaLogin from '@/components/login_form/SocalMediaLogin';
 import Link from "next/link";
-
 export default async function Page() {
- 
   return (
     <div className=" w-full h-[520px] flex justify-center items-center " >
       <React.Suspense fallback={<p>Loading...</p>}>

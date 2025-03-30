@@ -4,14 +4,15 @@ import serverFetching from "@/lib/serverFetching";
 export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
 
-    const url = new URL(request.url)
-    const page = url.searchParams.get("page")
+    const url =  new URL(request.url)
+    const page = url.searchParams.get("page") || 0
 
     const data = await serverFetching(`/products?page=${page}`).then((res) => res.json())
 
-
-    const response =  NextResponse.json([...data?.products]);
-    response.headers.set("X-Page-Count", JSON.stringify(data?.total_count))
+    const response = NextResponse.json([...data]);
+    // const response =  NextResponse.json([...data?.products]);
+    //TODO: pagination setup with server data
+    // response.headers.set("X-Page-Count", JSON.stringify(data?.total_count))
     return response
 
   } catch (err) {
