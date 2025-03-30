@@ -2,7 +2,7 @@
 
 - 📧 Email Verification
 
-- - Users must verify their email before accessing certain features.
+  - Users must verify their email before accessing certain features.
 
 - 📊 Product Sorting
 
@@ -54,7 +54,7 @@
 
 - 🔑 JWT & OAuth - Authentication and user session management.
 
-Coming soon nust Backend Project: [new version]()
+Coming soon <img src="https://raw.githubusercontent.com/uforco/ecobazar/refs/heads/main/public/nestjs.256x255.png" alt="ecobazar" width="32"> Backend Project: [new version]()
 
 
 # How To Use 🛠️
