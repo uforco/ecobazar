@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center"><img src="/public/Thumbnail.png" alt="ecobazar" width="100%"> </h1>
+<h3 >EcoBazar</h3>
 
-## Getting Started
+# Key Features 🚀
 
-First, run the development server:
+- 📧 Email Verification
+  - Users must verify their email before accessing certain features.
 
+
+- 📊 Product Sorting
+  - Sort products based on best sellers using SQL sort queries.
+
+
+- 🔑 OAuth Login & Data Management
+  - Supports third-party authentication and securely stores user data.
+
+
+- 👤 User Management
+  - Role-based access control and user activity tracking.
+
+
+- 🔄 Real-Time Updates
+  - Implements WebSockets for real-time product and order updates.
+
+
+- ⚡ Optimized Performance
+  - Uses caching and efficient queries for faster load times.
+
+<br/>
+
+# Technologies Used 🛠️
+
+## Frontend 🖥️
+
+- ⚡ Next.js - Server-side rendering and optimized performance.
+  - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+  - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+
+- 🔐 NextAuth.js - Secure authentication and OAuth integration.
+  - [NextAuth.js Documentation]() - Official documentation for NextAuth.js.
+  - [NextAuth.js GitHub]() - GitHub repository for NextAuth.js.
+
+
+- 🎨 ShadCN UI - Elegant UI components.
+  - [ShadCN UI Documentation]() - Learn more about ShadCN UI components.
+  - [ShadCN UI GitHub]() - GitHub repository for ShadCN UI.
+
+
+- 🗂️ Redux Toolkit - State management.
+  - [Redux Toolkit Documentation]() - Official documentation for Redux Toolkit.
+  - [Redux GitHub]() - GitHub repository for Redux Toolkit.
+
+<br/>
+
+## Backend 🏗️
+
+- 🚀 Express.js - Backend framework.
+
+- 🛢️ Prisma ORM - Database management with SQL.
+
+- 🗄️ PostgreSQL / MySQL - Relational database.
+
+- 🔑 JWT & OAuth - Authentication and user session management.
+
+Coming soon  <img src="/public/nestjs.256x255.png" alt="ecobazar" width="48">  Backend Project: [ old version](https://github.com/uforco/eco_js_server)
+
+<br/>
+
+# How To Use 🛠️
+
+To run this project locally, ensure you have [Git](https://git-scm.com/), [Node.js](https://nodejs.org/en), and [pnpm](https://pnpm.io/) installed.
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Clone the repository
+$ git clone https://github.com/uforco/ecobazar
 
+# Navigate to the project folder
+$ cd ecobazar
+
+# Install dependencies
+$ pnpm install
+
+# Run the development server
+$ pnpm dev
+```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+### Download 📥
 
-To learn more about Next.js, take a look at the following resources:
+You can [download the latest release](https://github.com/uforco/ecobazar) for production deployment.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Credits 🎖️
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project uses the following open-source packages:
 
-## Deploy on Vercel
+- ⚡ Next.js
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 🚀 Express.js
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 🛢️ Prisma ORM
+
+- 🗂️ Redux Toolkit
+
+- 🎨 ShadCN UI
+
+- 🔐 NextAuth.js
+
+## License 📜
+
+MIT License
