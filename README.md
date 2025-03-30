@@ -1,42 +1,42 @@
 # Key Features 🚀
 
 - 📧 Email Verification
- - Users must verify their email before accessing certain features.
+  - Users must verify their email before accessing certain features.
 
 - 📊 Product Sorting
- - Sort products based on best sellers using SQL sort queries.
+  - Sort products based on best sellers using SQL sort queries.
 
 - 🔑 OAuth Login & Data Management
- - Supports third-party authentication and securely stores user data.
+  - Supports third-party authentication and securely stores user data.
 
 - 👤 User Management
- - Role-based access control and user activity tracking.
+  - Role-based access control and user activity tracking.
 
 - 🔄 Real-Time Updates
- - Implements WebSockets for real-time product and order updates.
+  - Implements WebSockets for real-time product and order updates.
 
 - ⚡ Optimized Performance
- - Uses caching and efficient queries for faster load times.
+  - Uses caching and efficient queries for faster load times.
 
 # Technologies Used 🛠️
 
 ## Frontend 🖥️
 
 - ⚡ Next.js - Server-side rendering and optimized performance.
- - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
- - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+  - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 - 🔐 NextAuth.js - Secure authentication and OAuth integration.
- - [NextAuth.js Documentation]() - Official documentation for NextAuth.js.
- - [NextAuth.js GitHub]() - GitHub repository for NextAuth.js.
+  - [NextAuth.js Documentation]() - Official documentation for NextAuth.js.
+  - [NextAuth.js GitHub]() - GitHub repository for NextAuth.js.
 
 - 🎨 ShadCN UI - Elegant UI components.
- - [ShadCN UI Documentation]() - Learn more about ShadCN UI components.
- - [ShadCN UI GitHub]() - GitHub repository for ShadCN UI.
+  - [ShadCN UI Documentation]() - Learn more about ShadCN UI components.
+  - [ShadCN UI GitHub]() - GitHub repository for ShadCN UI.
 
 - 🗂️ Redux Toolkit - State management.
- - [Redux Toolkit Documentation]() - Official documentation for Redux Toolkit.
- - [Redux GitHub]() - GitHub repository for Redux Toolkit.
+  - [Redux Toolkit Documentation]() - Official documentation for Redux Toolkit.
+  - [Redux GitHub]() - GitHub repository for Redux Toolkit.
 
 ## Backend 🏗️
 
