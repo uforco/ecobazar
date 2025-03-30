@@ -23,7 +23,8 @@
 - ⚡ Optimized Performance
   - Uses caching and efficient queries for faster load times.
 
-
+<br/>
+<br/>
 
 # Technologies Used 🛠️
 
@@ -48,7 +49,8 @@
   - [Redux Toolkit Documentation]() - Official documentation for Redux Toolkit.
   - [Redux GitHub]() - GitHub repository for Redux Toolkit.
 
-
+<br/>
+<br/>
 
 ## Backend 🏗️
 
@@ -62,7 +64,8 @@
 
 Coming soon  <img src="/public/nestjs.256x255.png" alt="ecobazar" width="64">  Backend Project: [new version]()
 
-
+<br/>
+<br/>
 
 # How To Use 🛠️
 
@@ -82,12 +85,14 @@ $ pnpm dev
 ```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-
+<br/>
+<br/>
 
 ### Download 📥
 
 You can [download the latest release](https://github.com/uforco/ecobazar) for production deployment.
 
+<br/>
 
 ## Credits 🎖️
 
