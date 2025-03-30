@@ -48,7 +48,7 @@
 
 - 🔑 JWT & OAuth - Authentication and user session management.
 
-Coming soon <img src="/public/nestjs.256x255.png" alt="ecobazar" width="32"> Backend Project: [new version]()
+Coming soon  <img src="/public/nestjs.256x255.png" alt="ecobazar" width="64">  Backend Project: [new version]()
 
 
 # How To Use 🛠️
