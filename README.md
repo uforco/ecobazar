@@ -1,6 +1,5 @@
-<h1 align="center"> <br> <img src="/public/Thumbnail.png" alt="ecobazar" width="100%"> </h1>
-
-<h4 align="center">EcoBazar</h4>
+<h1 align="center"><img src="/public/Thumbnail.png" alt="ecobazar" width="100%"> </h1>
+<h3 >EcoBazar</h3>
 
 # Key Features 🚀
 
