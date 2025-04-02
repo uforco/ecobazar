@@ -43,7 +43,7 @@ const ProfileAccount = () => {
             </MenubarItem>
             <MenubarSeparator className=" border border-gray-300 " />
             <MenubarItem>
-              <Link href={"/account"}> Dashboard </Link>{" "}
+              <Link href={"/account/dashboard"}> Dashboard </Link>{" "}
             </MenubarItem>
             <MenubarSeparator />
             <MenubarItem>

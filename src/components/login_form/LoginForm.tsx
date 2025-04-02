@@ -53,8 +53,7 @@ const LoginForm = () => {
                 <div className="grid w-full items-center gap-4 pb-1 ">
                     <div className="flex flex-col space-y-1.5">
                         <Label htmlFor="email">EMAIL</Label>
-                        <Input onChange={(e) =>{
-                            setCurrentEmail(e.target.value)
+                        <Input onChange={() =>{
                             actionMove()
                             }} id="email" type="email" name="email" placeholder="Type your email" required />
                     </div>

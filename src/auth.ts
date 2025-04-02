@@ -160,8 +160,8 @@ export const config: NextAuthOptions = {
     },
   },
   pages: {
-    signIn: "/login", // Custom login page (optional)
-    error: "/login", // Custom error page (optional)
+    signIn: "/system/login", // Custom login page (optional)
+    error: "/system/login", // Custom error page (optional)
   },
 };
 

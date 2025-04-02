@@ -21,9 +21,10 @@ const SocalMediaLogin = () => {
 
   const openGooglePoppup = async () => {
     const returnUrl = serchparam?.get('from') ?? '/'
-    const retusl = await signIn('google', { redirect: false } );
-    router.push(returnUrl)
-    // console.log("google login client = ", returnUrl)
+    const result = await signIn('google', { redirect: false, callbackUrl: returnUrl});
+    if(result?.ok){
+      router.push(result.url as string);
+    }
   }
 
 
