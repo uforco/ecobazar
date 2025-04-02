@@ -4,7 +4,7 @@
 # Key Features 🚀
 
 - 📧 Email Verification
-  - Users must verify their email before accessing certain features.
+  - Users must verify their email after accessing certain features.
   - Supports secure password reset via email.
 
 - 📊 Product Sorting
