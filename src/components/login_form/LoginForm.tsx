@@ -6,7 +6,8 @@ import { Button } from '../ui/button';
 import { signIn } from 'next-auth/react';
 import Errorhandle from './Errorhandle';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { forgetpassword } from '@/utils/forgetpasswordActions';
+import { GoEye, GoEyeClosed } from 'react-icons/go';
+import Link from 'next/link'
 
 const LoginForm = () => {
      const serchparam = useSearchParams()
@@ -14,6 +15,7 @@ const LoginForm = () => {
     const [currentEmail, setCurrentEmail] = useState<string>('')
     const [errorMsg, setErrorMsg] = useState<string>('')
     const [longinLoad, setLonginLoad] = useState<boolean>(false)
+    const [showPassword, setShowPassword] = useState<boolean>(false);
 
     const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -29,7 +31,7 @@ const LoginForm = () => {
             })
             if(result?.ok){
                 setLonginLoad(false)
-                // router.push(result.url as string);
+                router.push(result.url as string);
             }
             if(!result?.ok && result?.error){
                 setErrorMsg(result?.error)
@@ -44,36 +46,38 @@ const LoginForm = () => {
     }
 
 
-    // TODO: error hendle and rest password page genarete
-   const forgetpasswordHandler = async (email: string) => {
-    const token = await forgetpassword(email)
-    if(token?.error){
-        setErrorMsg(token?.error)
-        return
-    }
-    console.log(token)
-   }
-
-
     return (
         <>
             <Errorhandle error={errorMsg} ></Errorhandle>
             <form className="mt-5" onSubmit={submitHandler} >
-                <div className="grid w-full items-center gap-4">
+                <div className="grid w-full items-center gap-4 pb-1 ">
                     <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="email">EMAIL</Label>
-                    <Input onChange={(e) =>{
-                        setCurrentEmail(e.target.value)
-                        actionMove()
-                        }} id="email" type="email" name="email" placeholder="Type your email" required />
+                        <Label htmlFor="email">EMAIL</Label>
+                        <Input onChange={(e) =>{
+                            setCurrentEmail(e.target.value)
+                            actionMove()
+                            }} id="email" type="email" name="email" placeholder="Type your email" required />
                     </div>
                     <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="password">PASSWORD</Label>
-                    <Input onChange={actionMove} id="password" name="password" type="password" placeholder="Type your Password" required />
+                        <div className="flex relative flex-col space-y-1.5">
+                            <Input
+                            onChange={actionMove}
+                            id="password"
+                            name="password"
+                            type={showPassword? "text" : "password"}
+                            placeholder="Password"
+                            />
+                            <div className="absolute -top-[5px] right-0 transform  w-8 z-40 h-full flex justify-center items-center " >
+                                <button type="button" onClick={() => setShowPassword((priv)=> !priv)}>
+                                    {showPassword ? <GoEyeClosed /> : <GoEye />}
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div> <button onClick={() => forgetpasswordHandler(currentEmail)} type="button" > forget password </button> </div>
-                <Button type="submit" className=" w-full items-center mt-4 active:scale-95 bg-[#00B207] rounded-full " > 
+                <Link href="/system/forget-password" className=" text-sm hover:text-Primary underline " > forget password </Link> 
+                <Button disabled={longinLoad} type="submit" className=" w-full items-center mt-4 active:scale-95 bg-[#00B207] rounded-full " > 
                     {
                     !longinLoad?
                     'Login' :

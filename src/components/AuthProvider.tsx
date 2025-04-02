@@ -7,6 +7,14 @@ const AuthProvider = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
+
+  React.useEffect(()=>{
+    return () => {
+      navigator.geolocation.getCurrentPosition( async (proition)=> proition.coords)
+    }
+  })
+
+
     return(
         <SessionProvider>
             {children}

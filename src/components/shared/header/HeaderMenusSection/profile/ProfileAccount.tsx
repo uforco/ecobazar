@@ -55,7 +55,7 @@ const ProfileAccount = () => {
                 status === 'authenticated' && profile?.user?.email?
                 <button onClick={() => signOut()} >LogOut</button>
                 :
-                <Link href={"/login"}>LogIn</Link>
+                <Link href={"/system/login"}>LogIn</Link>
               }
             </MenubarItem>
           </MenubarContent>
