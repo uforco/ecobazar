@@ -5,7 +5,6 @@ import {
   } from "@/components/ui/card"
 
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa";
 import { BsFacebook } from "react-icons/bs";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";

@@ -5,7 +5,7 @@ export const forgetpassword = async (data: {
     userAgent: { browser: string , deviceType: string, os: string }
 }) => {
     try{
-        const restP_token = await fetch('http://localhost:4000/web/forget_passwoard/create-link', {
+        const restP_token = await fetch(`${process.env.DB_SERVER_URL}/forget_passwoard/create-link`, {
             method: 'POST',
             headers: { "Content-Type": "application/json",},
             body: JSON.stringify(data)
@@ -20,7 +20,7 @@ export const forgetpassword = async (data: {
 
 export const forgetpassword_submit = async (data: { newpassword: string }, url: string) => {
     try{
-        const restP_result = await fetch(`http://localhost:4000/web/forget_passwoard/submit_passward/${url}`, {
+        const restP_result = await fetch(`${process.env.DB_SERVER_URL}/forget_passwoard/submit_passward/${url}`, {
             method: 'POST',
             headers: { "Content-Type": "application/json",},
             body: JSON.stringify(data)

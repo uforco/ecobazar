@@ -10,7 +10,7 @@ const layout = async ({
     params: Promise<{ token: string }>
   }>) => {
     const { token } = await params
-    const varifyTonken = await fetch(`http://localhost:4000/web/forget_passwoard/check-url/${token}`).then((res)=> res.json())
+    const varifyTonken = await fetch(`${process.env.DB_SERVER_URL}/forget_passwoard/check-url/${token}`).then((res)=> res.json())
     if(!varifyTonken?.success){
         return redirect('/system/login')
     }

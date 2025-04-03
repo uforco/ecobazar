@@ -7,13 +7,17 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     const url =  new URL(request.url)
     const page = url.searchParams.get("page") || 0
 
-    const data = await serverFetching(`/products?page=${page}`).then((res) => res.json())
-
-    const response = NextResponse.json([...data]);
+    const response = await serverFetching(`/products?page=${page}`)
+    if (!(response instanceof Response)) {
+      console.log(`internal server Error - /product/${page}`)
+      return NextResponse.json([])
+    }
+    const data = await response.json();
+    const nextdata = NextResponse.json([...data]);
     // const response =  NextResponse.json([...data?.products]);
     //TODO: pagination setup with server data
     // response.headers.set("X-Page-Count", JSON.stringify(data?.total_count))
-    return response
+    return nextdata
 
   } catch (err) {
     console.log(`internal server Error - /products?page`, err)
