@@ -3,7 +3,12 @@ import serverFetching from "@/lib/serverFetching";
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
-    const data = await serverFetching('/featured-products').then((res) => res.json())
+    const response = await serverFetching('/featured-products');
+    if (!(response instanceof Response)) {
+      console.log('internal server Error - /featured-products')
+      return NextResponse.json([])
+    }
+    const data = await response.json();
     return NextResponse.json(data);
   } catch (err) {
     console.log('internal server Error - /featured-products', err)

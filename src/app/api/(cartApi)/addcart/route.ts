@@ -8,7 +8,12 @@ console.log(body)
     const data = await serverFetching(`/add-to-card`, {
       method: "POST",
       body: JSON.stringify(body),
-    }).then((res) => res.json());
+    }).then((res) => {
+      if (res instanceof Response) {
+        return res.json();
+      }
+      return NextResponse.json([]);
+    });
 
     return NextResponse.json(data);
   } catch (err) {

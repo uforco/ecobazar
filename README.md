@@ -4,8 +4,8 @@
 # Key Features 🚀
 
 - 📧 Email Verification
-  - Users must verify their email before accessing certain features.
-
+  - Users must verify their email after accessing certain features.
+  - Supports secure password reset via email.
 
 - 📊 Product Sorting
   - Sort products based on best sellers using SQL sort queries.
@@ -25,6 +25,13 @@
 
 - ⚡ Optimized Performance
   - Uses caching and efficient queries for faster load times.
+
+- 🛒 Smart Product Sorting
+  - Sorts products by best sellers, ratings, and user preferences using optimized redux queries.
+  - 🔍 Live Product Search with Dropdown
+    - Provides real-time search suggestions as product name type.
+    - Displays a dropdown list of matching products for quick selection.
+
 
 <br/>
 

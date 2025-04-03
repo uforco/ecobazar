@@ -40,13 +40,11 @@ function PayBuy(props: Props) {
     
 
 
-
-
   // add to cart on server db actions
   const addCardHeanler = async () => {
 
     if(status !== 'authenticated' && !profile){
-      return router.push(`/login?from=${paramsName}`)
+      return router.push(`/system/login?from=${paramsName}`)
     }
 
     setCratdisabled(true)

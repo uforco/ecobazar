@@ -4,7 +4,12 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest, {params}:{params: Promise<{id: string}>}) {
     const id = (await params).id;
       try {
-        const data = await serverFetching(`/order_history_details/${id}`).then((res) => res.json())
+        const response = await serverFetching(`/order_history_details/${id}`);
+        if (!(response instanceof Response)) {
+            console.log(`internal server Error - /order_history_details/${id}`)
+            return NextResponse.json([])
+        }
+        const data = await response.json();
         // console.log(data)
         return NextResponse.json(data);
       } catch (err) {

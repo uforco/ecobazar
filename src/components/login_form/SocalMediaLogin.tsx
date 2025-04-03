@@ -5,7 +5,6 @@ import {
   } from "@/components/ui/card"
 
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa";
 import { BsFacebook } from "react-icons/bs";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -14,19 +13,17 @@ const SocalMediaLogin = () => {
   const serchparam = useSearchParams()
   const router = useRouter()
 
-  const auth = useSession()
-  // if(status === 'authenticated' && profile?.user?.image){
-  //   router.back()
-  // }
-
-  console.log("auth = ", auth)
-
+  const { data: profile, status } = useSession()
+  if(status === 'authenticated' && profile?.user?.image){
+    router.back()
+  }
 
   const openGooglePoppup = async () => {
     const returnUrl = serchparam?.get('from') ?? '/'
-    const retusl = await signIn('google', { redirect: false } );
-
-    console.log("google login client = ", retusl)
+    const result = await signIn('google', { redirect: false, callbackUrl: returnUrl});
+    if(result?.ok){
+      router.push(result.url as string);
+    }
   }
 
 

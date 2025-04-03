@@ -31,7 +31,7 @@ const Page = () => {
           <CardFooter className=" py-4 text-gray-500 flex justify-center items-center text-xs ">
             Already have account
             <Link
-              href="/login"
+              href="/system/login"
               className="text-gray-700 font-bold hover:underline ml-1"
             >
               Login

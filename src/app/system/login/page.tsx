@@ -27,7 +27,7 @@ export default async function Page() {
             <p className=" w-full flex justify-center py-3 text-xs font-bold text-gray-600 " >Or sign in with</p>
             <SocalMediaLogin/>
             <CardFooter className=" py-4 text-gray-500 flex justify-center items-center text-xs " >
-              {"Don’t"} have account? <Link href="/register" className="text-gray-700 font-bold hover:underline ml-1">Register</Link>
+              {"Don’t"} have account? <Link href="/system/register" className="text-gray-700 font-bold hover:underline ml-1">Register</Link>
             </CardFooter>
         </Card>
       </React.Suspense>

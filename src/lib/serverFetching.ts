@@ -1,4 +1,5 @@
 import auth from "@/auth";
+import { cookies } from "next/headers";
 
 interface optionProps {
     method?: string;
@@ -11,7 +12,7 @@ async function serverFetching (url: string, option?: optionProps ){
     const session = await auth();
     const accessBearer = session?.accessBearer || '';
     if(method) method.toUpperCase();
-    return await fetch(`http://localhost:4000/web${url}`, {
+    const res = await fetch(`${process.env.DB_SERVER_URL}${url}`, {
         method: method || 'GET',
         headers: {
             'Accept': 'application/json',
@@ -21,6 +22,22 @@ async function serverFetching (url: string, option?: optionProps ){
         },
         body: body
     })
+    if(res?.status === 200){
+        console.log(" GO Now res ", res?.status)
+        return res
+    }
+    if(res?.status === 401 || res?.status === 403){
+        const cookieStore = await cookies();
+        cookieStore.delete("next-auth.session-token");
+        cookieStore.delete("__Secure-next-auth.session-token");
+
+        // cookieStore.getAll().forEach((cookie) => {
+        //     cookieStore.delete(cookie.name);
+        // });
+
+        return undefined
+    }
+    return res
 };
 
 export default serverFetching;

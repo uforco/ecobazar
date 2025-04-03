@@ -46,7 +46,7 @@ export const config: NextAuthOptions = {
       },
       async authorize(credentials) {
         const { email, password } = credentials ?? {};
-        const res = await fetch("http://localhost:4000/web/signin", {
+        const res = await fetch(`${process.env.DB_SERVER_URL}/signin`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -87,7 +87,7 @@ export const config: NextAuthOptions = {
           (account?.provider === "google" || account?.provider === "facebook")
         ) {
           try {
-            const res = await fetch("http://localhost:4000/web/oauth_check", {
+            const res = await fetch(`${process.env.DB_SERVER_URL}/oauth_check`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -124,7 +124,7 @@ export const config: NextAuthOptions = {
 
       if(account && (account?.provider === "google" || account?.provider === "facebook")){
         // fetch to db server and get token
-        const res = await fetch("http://localhost:4000/web/signin", {
+        const res = await fetch(`${process.env.DB_SERVER_URL}/signin`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -160,8 +160,8 @@ export const config: NextAuthOptions = {
     },
   },
   pages: {
-    signIn: "/login", // Custom login page (optional)
-    error: "/login", // Custom error page (optional)
+    signIn: "/system/login", // Custom login page (optional)
+    error: "/system/login", // Custom error page (optional)
   },
 };
 

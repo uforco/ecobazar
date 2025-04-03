@@ -6,7 +6,12 @@ export async function GET(request: NextRequest){
     const category = searchParams.get('category')
     const product_id = searchParams.get('product_id')
     try {
-        const data = await serverFetching(`/relatedproducts?category=${category}&product_id=${product_id}`).then((res) => res.json())
+        const response = await serverFetching(`/relatedproducts?category=${category}&product_id=${product_id}`);
+        if (!(response instanceof Response)) {
+          console.log('internal server Error - relatedproducts')
+          return NextResponse.json([])
+        }
+        const data = await response.json();
         console.log(data)
         return NextResponse.json(data);
       } catch (err) {

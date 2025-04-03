@@ -4,7 +4,7 @@ import "./globals.css";
 import FooterSection from "@/components/shared/footersection/FooterSection";
 import HeaderSection from "@/components/shared/header/HeaderSection";
 import ReduxProvider from "@/redux/ReduxProvider";
-import AuthProvider from "@/utils/AuthProvider";
+import AuthProvider from "@/components/AuthProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

@@ -11,13 +11,16 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar";
 import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const ProfileAccount = () => {
-
   const { data: profile, status } = useSession()
+  const router = useRouter()
 
-  // console.log("show useSession profile", auth)
-
+ const logout = async () => {
+    const result = await signOut({ redirect: false, callbackUrl: "/" })
+    router.push(result?.url)
+  }
 
   return (
     <div className=" mr-1 ">
@@ -43,7 +46,7 @@ const ProfileAccount = () => {
             </MenubarItem>
             <MenubarSeparator className=" border border-gray-300 " />
             <MenubarItem>
-              <Link href={"/account"}> Dashboard </Link>{" "}
+              <Link href={"/account/dashboard"}> Dashboard </Link>{" "}
             </MenubarItem>
             <MenubarSeparator />
             <MenubarItem>
@@ -53,9 +56,9 @@ const ProfileAccount = () => {
             <MenubarItem>
               {
                 status === 'authenticated' && profile?.user?.email?
-                <button onClick={() => signOut()} >LogOut</button>
+                <button onClick={logout} >LogOut</button>
                 :
-                <Link href={"/login"}>LogIn</Link>
+                <Link href={"/system/login"}>LogIn</Link>
               }
             </MenubarItem>
           </MenubarContent>

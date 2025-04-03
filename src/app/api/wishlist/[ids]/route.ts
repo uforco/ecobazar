@@ -4,7 +4,12 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest, {params}:{params: Promise<{ids: string}>}) {
     const productIds = (await params).ids;
     try {
-        const data = await serverFetching(`/wishlist?${productIds}`).then((res) => res.json())
+        const response = await serverFetching(`/wishlist?${productIds}`);
+        if (!(response instanceof Response)) {
+          console.log('internal server Error - wishlist')
+          return NextResponse.json([])
+        }
+        const data = await response.json();
         // console.log(data)
         return NextResponse.json(data);
       } catch (err) {

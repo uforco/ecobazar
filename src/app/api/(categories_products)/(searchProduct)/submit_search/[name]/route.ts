@@ -4,7 +4,12 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest, {params}:{params: Promise<{name: string}>}) {
     const name = (await params).name;
     try {
-        const data = await serverFetching(`/submit-search/${name}`).then((res) => res.json())
+        const response = await serverFetching(`/submit-search/${name}`);
+        if (!(response instanceof Response)) {
+            console.log('internal server Error - submit-search/')
+            return NextResponse.json([])
+        }
+        const data = await response.json();
         // console.log(data)
         return NextResponse.json(data);
     } catch (err) {

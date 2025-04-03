@@ -6,7 +6,7 @@ export async function DELETE( req: NextRequest, {params}:{params: Promise<{carti
         const cartid = (await params).cartid
         const data = await serverFetching(`/add-to-card/${cartid}`,{
             method: "DELETE"
-        }).then((res) => res.json())
+        }).then((res) => res ? res.json() : Promise.reject(new Error("Response is undefined")))
         return NextResponse.json(data)
     } catch (err) {
         console.log('internal server Error - cart delete', err)
