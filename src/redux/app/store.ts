@@ -9,8 +9,8 @@ export const makeStore = () => { return configureStore({
     checkoutSlice: checkoutSlice,
     filterproducts: filterproducts
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(Api.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(Api.middleware),
+  devTools: process.env.NODE_ENV !== 'production',
 });
 }
 
