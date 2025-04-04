@@ -8,12 +8,14 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { Badge } from "@/components/ui/badge";
 import { cartDataType, useGetShopingCartQuery } from "@/redux/features/MyShoppingCart/shoppingcart";
 import discountPriceFun from "@/hooks/discountPriceFunction";
+import { useSession } from "next-auth/react";
 
 export default function PopupShoppingCard() {
 
+  const { data: profile, status } = useSession()
 
 
-  const { data, isError, isLoading, isSuccess } = useGetShopingCartQuery("cm80bbde50000dj1kezlho2m6");
+  const { data, isError, isLoading, isSuccess } = useGetShopingCartQuery(profile?.user?.id as string);
   let totalitems = 0
   let subtotal = 0 
   let containe;

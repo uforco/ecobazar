@@ -17,7 +17,9 @@ function PayBuy(props: Props) {
   const paramsName = usePathname()
   const router = useRouter()
   const { data: profile, status } = useSession()
-
+  if(status === 'loading'){ 
+    return <div className=" w-full h-11 bg-gray-200 animate-pulse rounded-full "></div>
+  }
 
 
   const {product_id, stock} = props;
@@ -31,7 +33,7 @@ function PayBuy(props: Props) {
   }
     
   // add to cart to db and action with redux store in shoppingcart update
-  const { refetch: updateShoppingStore } = useGetShopingCartQuery("cm80bbde50000dj1kezlho2m6");
+  const { refetch: updateShoppingStore } = useGetShopingCartQuery(profile?.user?.id);
 
 
   useEffect(()=>{
@@ -49,7 +51,7 @@ function PayBuy(props: Props) {
 
     setCratdisabled(true)
     const addcardinfo = {
-      userId: "cm80bbde50000dj1kezlho2m6",
+      userId: profile?.user?.id as string,
       product_id,
       quantity: qty
     }

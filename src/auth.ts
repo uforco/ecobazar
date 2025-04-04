@@ -19,6 +19,7 @@ declare module "next-auth" {
   }
   interface Session {
     user?: {
+      id: string | null;
       name: string | null;
       email: string | null;
       image?: string | null;
@@ -142,7 +143,7 @@ export const config: NextAuthOptions = {
           throw new Error(errorData?.error)
         }
         const data = await res.json()
-        token.id = data?.userInfo?.userId as string;
+        token.sub = data?.userInfo?.userId as string;
         token.name = data?.userInfo?.fullname as string;
         token.picture = data?.userInfo?.profileImage as string;
         token.accessBearer = authorizationHeader.split(" ")[1] as string;
@@ -152,9 +153,13 @@ export const config: NextAuthOptions = {
       return token;
     },
     async session({session, token }) {
+
+      console.log("session", token);
+
       if (session.user) {
         session.accessBearer = token.accessBearer as string;
         session.user.verify = token.verify as boolean;
+        session.user.id = token.sub as string;
       }
       return session;
     },
