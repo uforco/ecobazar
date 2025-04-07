@@ -25,7 +25,7 @@ function Page({}: Props) {
 
    if(!isLoading && !isError && isSuccess && data.length > 0) {
 
-        console.log(data[0])
+        //console.log(data[0])
 
         const paymentdetails = {
             orderid: data[0]?.order_id,

@@ -6,16 +6,16 @@ export async function GET( request: NextRequest, {params}:{params: Promise<{id: 
     try{
         const response = await serverFetching(`/product/${productId}`);
         if (!(response instanceof Response)) {
-            console.log(`internal server Error - /product/${productId}`)
+            //console.log(`internal server Error - /product/${productId}`)
             return NextResponse.json({})
         }
         const data = await response.json();
         return NextResponse.json(data)
     } catch (err) {
-        console.log(`internal server Error - /product/${productId}`, err)
+        //console.log(`internal server Error - /product/${productId}`, err)
         return NextResponse.json({})
     } finally {
-        console.log(productId)
+        //console.log(productId)
     }
 
 }

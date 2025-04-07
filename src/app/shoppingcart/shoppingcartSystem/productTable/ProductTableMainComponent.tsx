@@ -9,20 +9,18 @@ import TableFooter from '../TableFooter/TableFooter';
 import SingleProduct from "./SingleProduct";
 import { cartDataType, useGetShopingCartQuery } from "@/redux/features/MyShoppingCart/shoppingcart";
 import LoadingItem from "./LoadingItem";
-
+import { useSession } from "next-auth/react";
 
 interface Props {}
 
 function ProductTable(props: Props) {
   const {} = props;
+  const { data: profile, status } = useSession()
+
+  const { data, isError, isLoading, isSuccess } = useGetShopingCartQuery(profile?.user?.id as string); //paramiter user id
 
 
-  const { data, isError, isLoading, isSuccess } = useGetShopingCartQuery(
-    "cm80bbde50000dj1kezlho2m6"
-  ); //paramiter user id
-
-
-  // console.log(data)
+  // //console.log(data)
 
 
 

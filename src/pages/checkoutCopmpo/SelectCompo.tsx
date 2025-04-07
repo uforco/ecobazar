@@ -15,7 +15,7 @@ const SelectCompo = () => {
         if (typeof window !== 'undefined') setHydro(Date.now())
     },[])
 
-//    console.log(bd_dist?.districts)
+//    //console.log(bd_dist?.districts)
 
 
   return (hydro &&

@@ -27,7 +27,7 @@ function PayBuy(props: Props) {
     userId: "2sd6f54b4xdg75fh766sdf",
   }
 
-  console.log(cardinfo);
+  //console.log(cardinfo);
 
   const [cratdisabled, setCratdisabled] = useState<boolean>(false);
   const [wishlist, setWishlist] = useState<string[]>([])

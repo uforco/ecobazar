@@ -43,7 +43,7 @@ function ImageMediaSection(props: Props) {
         {
           <Image
             className={""}
-            src={hydro ? "/image-activeImage.png" : "/images/fullbackImage.png"}
+            src={hydro ? images[activeImage] : "/images/fullbackImage.png"}
             alt={""}
             width={500}
             height={500}

@@ -27,7 +27,7 @@ const FormSubmitAction = ({ children }: { children: ReactNode }) => {
             phone: formData.get('phone')
         }
         dispatch(deliveryAddress(address))
-        console.log(orderDataRedux)
+        //console.log(orderDataRedux)
       }
 
 

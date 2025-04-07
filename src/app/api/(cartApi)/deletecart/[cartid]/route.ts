@@ -9,6 +9,6 @@ export async function DELETE( req: NextRequest, {params}:{params: Promise<{carti
         }).then((res) => res ? res.json() : Promise.reject(new Error("Response is undefined")))
         return NextResponse.json(data)
     } catch (err) {
-        console.log('internal server Error - cart delete', err)
+        //console.log('internal server Error - cart delete', err)
     }
 }

@@ -7,7 +7,7 @@
 
 //     // const session = auth()
 
-//     console.log(" middleware =============================================== ")
+//     //console.log(" middleware =============================================== ")
 
 //   return NextResponse.redirect(new URL('/', request.url))
 // }

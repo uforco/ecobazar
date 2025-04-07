@@ -19,6 +19,7 @@ declare module "next-auth" {
   }
   interface Session {
     user?: {
+      id: string | null;
       name: string | null;
       email: string | null;
       image?: string | null;
@@ -59,12 +60,12 @@ export const config: NextAuthOptions = {
         })
         const authorizationHeader = res?.headers?.get("authorization");
         if (!authorizationHeader) {
-          // console.log("Authorization header is null or undefined");
+          // //console.log("Authorization header is null or undefined");
           const errorData = await res.json()
           throw new Error(errorData?.error)
         }
         const data = await res.json()
-        // console.log(" check headers ", authorizationHeader.split(" ")[1]);
+        // //console.log(" check headers ", authorizationHeader.split(" ")[1]);
         return {
           id: data?.userInfo?.userId,
           name: data?.userInfo?.fullname,
@@ -106,10 +107,10 @@ export const config: NextAuthOptions = {
             if(res?.success){
               return true
             }
-            // console.log("listen to db server with auth.ts Error <<<< ", res)
+            // //console.log("listen to db server with auth.ts Error <<<< ", res)
             throw new Error(`Error in signIn callback - ${account.provider}`);
           } catch (e) {
-            // console.log("listen to db server with auth.ts <<<< Error -> ", e);
+            // //console.log("listen to db server with auth.ts <<<< Error -> ", e);
             throw new Error("Error in signIn callback");
           }
       }
@@ -137,12 +138,12 @@ export const config: NextAuthOptions = {
         })
         const authorizationHeader = res?.headers?.get("authorization");
         if (!authorizationHeader) {
-          // console.log("Authorization header is null or undefined");
+          // //console.log("Authorization header is null or undefined");
           const errorData = await res.json()
           throw new Error(errorData?.error)
         }
         const data = await res.json()
-        token.id = data?.userInfo?.userId as string;
+        token.sub = data?.userInfo?.userId as string;
         token.name = data?.userInfo?.fullname as string;
         token.picture = data?.userInfo?.profileImage as string;
         token.accessBearer = authorizationHeader.split(" ")[1] as string;
@@ -152,9 +153,13 @@ export const config: NextAuthOptions = {
       return token;
     },
     async session({session, token }) {
+
+      //console.log("session", token);
+
       if (session.user) {
         session.accessBearer = token.accessBearer as string;
         session.user.verify = token.verify as boolean;
+        session.user.id = token.sub as string;
       }
       return session;
     },
