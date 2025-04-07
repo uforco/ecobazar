@@ -9,11 +9,11 @@ export async function GET( req: NextRequest, {params}:{params: Promise<{userid: 
             const data = await response.json();
             return NextResponse.json(data);
         } else {
-            console.log("Unexpected response type")
+            //console.log("Unexpected response type")
             return NextResponse.json([])
         }
     } catch (err) {
-        console.log("internal server Error - allcardinfo", err)
+        //console.log("internal server Error - allcardinfo", err)
         return NextResponse.json([])
     }
 }

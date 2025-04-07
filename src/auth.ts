@@ -60,12 +60,12 @@ export const config: NextAuthOptions = {
         })
         const authorizationHeader = res?.headers?.get("authorization");
         if (!authorizationHeader) {
-          // console.log("Authorization header is null or undefined");
+          // //console.log("Authorization header is null or undefined");
           const errorData = await res.json()
           throw new Error(errorData?.error)
         }
         const data = await res.json()
-        // console.log(" check headers ", authorizationHeader.split(" ")[1]);
+        // //console.log(" check headers ", authorizationHeader.split(" ")[1]);
         return {
           id: data?.userInfo?.userId,
           name: data?.userInfo?.fullname,
@@ -107,10 +107,10 @@ export const config: NextAuthOptions = {
             if(res?.success){
               return true
             }
-            // console.log("listen to db server with auth.ts Error <<<< ", res)
+            // //console.log("listen to db server with auth.ts Error <<<< ", res)
             throw new Error(`Error in signIn callback - ${account.provider}`);
           } catch (e) {
-            // console.log("listen to db server with auth.ts <<<< Error -> ", e);
+            // //console.log("listen to db server with auth.ts <<<< Error -> ", e);
             throw new Error("Error in signIn callback");
           }
       }
@@ -138,7 +138,7 @@ export const config: NextAuthOptions = {
         })
         const authorizationHeader = res?.headers?.get("authorization");
         if (!authorizationHeader) {
-          // console.log("Authorization header is null or undefined");
+          // //console.log("Authorization header is null or undefined");
           const errorData = await res.json()
           throw new Error(errorData?.error)
         }
@@ -154,7 +154,7 @@ export const config: NextAuthOptions = {
     },
     async session({session, token }) {
 
-      console.log("session", token);
+      //console.log("session", token);
 
       if (session.user) {
         session.accessBearer = token.accessBearer as string;

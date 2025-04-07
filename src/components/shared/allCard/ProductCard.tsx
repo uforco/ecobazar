@@ -21,7 +21,7 @@ export interface productListType {
   rating: Number;
   price: string | number;
   discount: string | number;
-  coverimage?: string;
+  coverimage: string;
   category?: string;
 }
 
@@ -71,7 +71,7 @@ const ProductCard = ({
                 className={` w-full ${
                   imageHeight ? `w-[${imageHeight}px]` : "h-[200px]"
                 }`} 
-                src={'/images/categores/productImage.png'} alt={""} width={200} height={260} >
+                src={data?.coverimage} alt={""} width={200} height={260} >
               </FallbackImage>
             </CardHeader>
           </Link>

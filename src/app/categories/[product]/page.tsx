@@ -25,7 +25,7 @@ const page = () => {
 
     const { data, isError, isLoading, isSuccess } = useGetSingleProductViewQuery(productParam);
 
-    // console.log(data)
+    // //console.log(data)
 
 
 

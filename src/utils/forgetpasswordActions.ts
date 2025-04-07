@@ -10,10 +10,10 @@ export const forgetpassword = async (data: {
             headers: { "Content-Type": "application/json",},
             body: JSON.stringify(data)
         }).then((res)=> res.json())
-        console.log(restP_token)
+        //console.log(restP_token)
         return restP_token
     }catch(err){
-        console.log('rest password token issue with server')
+        //console.log('rest password token issue with server')
         return {error: 'something this wrong code - f1'}
     }
 }
@@ -27,7 +27,7 @@ export const forgetpassword_submit = async (data: { newpassword: string }, url: 
         }).then((res)=> res.json())
         return restP_result
     }catch(err){
-        console.log('rest password token issue with server')
+        //console.log('rest password token issue with server')
         return {error: 'something this wrong code - f1'}
     }
 }

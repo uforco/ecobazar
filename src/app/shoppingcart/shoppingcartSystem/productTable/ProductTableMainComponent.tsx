@@ -20,7 +20,7 @@ function ProductTable(props: Props) {
   const { data, isError, isLoading, isSuccess } = useGetShopingCartQuery(profile?.user?.id as string); //paramiter user id
 
 
-  // console.log(data)
+  // //console.log(data)
 
 
 

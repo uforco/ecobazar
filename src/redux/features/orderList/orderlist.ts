@@ -10,7 +10,7 @@ export const orderlist = Api.injectEndpoints({
         }),
         getOrderDetails: builder.query({
             query: (id) => {
-                console.log(id)
+                //console.log(id)
                 return `/order-details/${id}`
             }
         })

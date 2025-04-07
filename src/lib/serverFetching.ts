@@ -23,7 +23,7 @@ async function serverFetching (url: string, option?: optionProps ){
         body: body
     })
     if(res?.status === 200){
-        console.log(" GO Now res ", res?.status)
+        //console.log(" GO Now res ", res?.status)
         return res
     }
     if(res?.status === 401 || res?.status === 403){

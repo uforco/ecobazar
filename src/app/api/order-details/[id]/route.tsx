@@ -6,16 +6,16 @@ export async function GET(request: NextRequest, {params}:{params: Promise<{id: s
       try {
         const response = await serverFetching(`/order_history_details/${id}`);
         if (!(response instanceof Response)) {
-            console.log(`internal server Error - /order_history_details/${id}`)
+            //console.log(`internal server Error - /order_history_details/${id}`)
             return NextResponse.json([])
         }
         const data = await response.json();
-        // console.log(data)
+        // //console.log(data)
         return NextResponse.json(data);
       } catch (err) {
-            console.log(`internal server Error - /order_history_details/${id}`, err)
+            //console.log(`internal server Error - /order_history_details/${id}`, err)
             return NextResponse.json([])
       } finally {
-            console.log('relatedproducts - route api')
+            //console.log('relatedproducts - route api')
       }
 }

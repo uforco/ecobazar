@@ -15,7 +15,7 @@ function ProductList(props: Props) {
   // const { data: products, isError, isLoading, isSuccess } =
   //   useGetProductsWithCategoriePageQuery(undefined);
 
-  // console.log(products);
+  // //console.log(products);
 
   // const [showProduct, setShowProduct] = useState<number>(12)
   // const [sliceProduct, setSliceProduct] = useState<number[]>([0, showProduct]);

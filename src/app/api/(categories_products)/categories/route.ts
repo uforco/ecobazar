@@ -9,7 +9,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 
     const response = await serverFetching(`/products?page=${page}`)
     if (!(response instanceof Response)) {
-      console.log(`internal server Error - /product/${page}`)
+      //console.log(`internal server Error - /product/${page}`)
       return NextResponse.json([])
     }
     const data = await response.json();
@@ -20,9 +20,9 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     return nextdata
 
   } catch (err) {
-    console.log(`internal server Error - /products?page`, err)
+    //console.log(`internal server Error - /products?page`, err)
     return NextResponse.json([])
   } finally {
-    console.log('categorie/:id - route api')
+    //console.log('categorie/:id - route api')
   }  
 }

@@ -31,7 +31,7 @@ const Page = () => {
         }
         const validationResult = passwordValid.safeParse({newpassword: fromData.get('password')})
         if (!validationResult.success) {
-            console.log(validationResult.error.format().newpassword?._errors[0]);
+            //console.log(validationResult.error.format().newpassword?._errors[0]);
             setErrorMsg(validationResult.error.format().newpassword?._errors[0] || '')
             return
         }
@@ -43,7 +43,7 @@ const Page = () => {
             }
             router.push('/system/login')
         }catch(error){
-            console.log("An unexpected error occurred", error)
+            //console.log("An unexpected error occurred", error)
         }
     }
 

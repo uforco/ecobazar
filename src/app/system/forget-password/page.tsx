@@ -33,8 +33,8 @@ const Page = () => {
         try {
             // const position = await Geolocation(); // Wait for location to be fetched
             // const { latitude, longitude } = position.coords;
-            // console.log("Latitude:", latitude);
-            // console.log("Longitude:", longitude);
+            // //console.log("Latitude:", latitude);
+            // //console.log("Longitude:", longitude);
 
             const data = {
                 email,
@@ -47,7 +47,7 @@ const Page = () => {
                 setLonginLoad(false)
                 return
             }
-            console.log(token)
+            //console.log(token)
             setLonginLoad(false)
             alert(token?.mail)
             route.push('/system/login')

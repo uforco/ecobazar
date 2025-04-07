@@ -11,11 +11,11 @@ export const productslist = Api.injectEndpoints({
                     const { data: updatedPost, meta } = await queryFulfilled;
                     if (meta?.response?.headers) {
                         const headerValue = meta.response.headers.get('X-Page-Count'); // Replace with your header name
-                        // console.log('Captured Header Value:', headerValue); // Log or store the header value
+                        // //console.log('Captured Header Value:', headerValue); // Log or store the header value
                         dispatch(totalPageByShop(Number(headerValue)))
                     }
                 }catch(err){
-                    console.log("page err rtk", err)
+                    //console.log("page err rtk", err)
                 }
             }
         }),
